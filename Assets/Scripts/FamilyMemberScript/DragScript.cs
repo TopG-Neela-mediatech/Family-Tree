@@ -1,13 +1,15 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class DragScript : MonoBehaviour
 {
+    [SerializeField] private Camera mainCamera;
     private Vector3 originalPosition;
     private Vector3 offset;
     private bool isBeingDragged = false;
     private int touchIndex = -1;
     public bool isOnTree;
-    [SerializeField] private Camera mainCamera;
+    public int value { get; private set; }
 
 
     void Start()
@@ -16,17 +18,7 @@ public class DragScript : MonoBehaviour
         isOnTree = false;
     }
     void Update()
-    {
-        if (isBeingDragged && !isOnTree)
-        {
-            DragObject();
-            if (IsOutOfBounds())
-            {
-                ReturnToOriginalPosition();
-                isBeingDragged = false;
-                touchIndex = -1;
-            }
-        }
+    {      
         if (Input.touchCount > 0)
         {
             for (int i = 0; i < Input.touchCount; i++)
@@ -51,6 +43,16 @@ public class DragScript : MonoBehaviour
                 }
             }
         }
+        if (isBeingDragged && !isOnTree)
+        {
+            DragObject();
+            if (IsOutOfBounds())
+            {
+                ReturnToOriginalPosition();
+                isBeingDragged = false;
+                touchIndex = -1;
+            }
+        }
     }
     private bool IsOutOfBounds()
     {
@@ -68,7 +70,7 @@ public class DragScript : MonoBehaviour
     }
     private void OnTouchUp()
     {
-        if (isBeingDragged)
+        if (isBeingDragged && !isOnTree)
         {
             ReturnToOriginalPosition();
             isBeingDragged = false;
@@ -86,8 +88,14 @@ public class DragScript : MonoBehaviour
         touchPos.z = mainCamera.transform.position.z;
         return mainCamera.ScreenToWorldPoint(touchPos);
     }
-    private void ReturnToOriginalPosition()
+    public void ReturnToOriginalPosition()
     {
-        transform.position = originalPosition;
+        this.transform.DOMove(originalPosition, 0.3f).OnComplete(() =>
+        {
+            isOnTree = false;
+            isBeingDragged = false;
+            touchIndex = -1;
+            DropController.canCheck = true;
+        });
     }
 }
