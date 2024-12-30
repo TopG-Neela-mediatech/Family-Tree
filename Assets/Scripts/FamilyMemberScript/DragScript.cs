@@ -6,16 +6,18 @@ public class DragScript : MonoBehaviour
     private Vector3 offset;
     private bool isBeingDragged = false;
     private int touchIndex = -1;
+    public bool isOnTree;
     [SerializeField] private Camera mainCamera;
 
 
     void Start()
     {
         originalPosition = transform.position;
+        isOnTree = false;
     }
     void Update()
     {
-        if (isBeingDragged)
+        if (isBeingDragged && !isOnTree)
         {
             DragObject();
             if (IsOutOfBounds())

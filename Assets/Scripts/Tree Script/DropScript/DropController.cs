@@ -3,6 +3,19 @@ using UnityEngine;
 public class DropController : MonoBehaviour
 {
     [SerializeField] private int value;
+
+
     public int GetValue() => value;
-    //on trigger enter to check what came in
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<DragScript>(out DragScript familyMember))
+        {
+            if (familyMember != null)
+            {
+                familyMember.isOnTree = true;
+            }
+        }
+    }
 }
