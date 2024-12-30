@@ -4,11 +4,11 @@ using UnityEngine;
 public class DragScript : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
+    [HideInInspector] public bool isOnTree;
     private Vector3 originalPosition;
     private Vector3 offset;
     private bool isBeingDragged = false;
     private int touchIndex = -1;
-    public bool isOnTree;
     public int value { get; private set; }
 
 
@@ -18,7 +18,7 @@ public class DragScript : MonoBehaviour
         isOnTree = false;
     }
     void Update()
-    {      
+    {
         if (Input.touchCount > 0)
         {
             for (int i = 0; i < Input.touchCount; i++)
