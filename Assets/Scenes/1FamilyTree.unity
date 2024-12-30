@@ -276,19 +276,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3114246944629633456, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
       propertyPath: m_text
-      value: Duke
+      value: Dennis
       objectReference: {fileID: 0}
     - target: {fileID: 3114246944629633456, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
       propertyPath: m_fontSize
-      value: 0.5
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246944629633456, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5805924315815380107, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
       propertyPath: m_Name
       value: FamilyMember (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956883174402090154, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7925712784274546695, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
       propertyPath: mainCamera
@@ -1215,6 +1215,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1297754605897730264, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246944629633456, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ae605e462ecd8e849add767acf07663e, type: 2}
+    - target: {fileID: 3114246944629633456, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3462643136671018270, guid: ae605e462ecd8e849add767acf07663e, type: 2}
+    - target: {fileID: 3114246944629633456, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246944629633456, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5805924315815380107, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}

@@ -1,39 +1,49 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class DropController : MonoBehaviour
+
+namespace TMKOC.FamilyTree
 {
-    [SerializeField] private int value;
-    public static bool canCheck;
-
-
-    public int GetValue() => value;
-
-    private void Start()
+    public class DropController : MonoBehaviour
     {
-        canCheck = true;
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent<DragScript>(out DragScript familyMember))
+        [SerializeField] private int value;
+        public static bool canCheck;
+        private bool isEmpty;
+
+
+        public int GetValue() => value;
+
+
+        private void Start()
         {
-            if (familyMember != null && canCheck)
+            canCheck = true;
+            isEmpty = true;
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent<DragScript>(out DragScript familyMember))
             {
-                canCheck = false;
-                familyMember.isOnTree = true;
-                familyMember.transform.DOMove(transform.position, 0.5f).OnComplete(() =>
+                if (familyMember != null && canCheck && isEmpty)
                 {
-                    if (value == familyMember.value)
+                    isEmpty = false;
+                    canCheck = false;
+                    familyMember.isOnTree = true;
+                    familyMember.transform.DOMove(transform.position, 0.5f).OnComplete(() =>
                     {
-                        //check if all correct
-                        Debug.Log("Win");
-                        canCheck = true;
-                    }
-                    else
-                    {
-                        familyMember.ReturnToOriginalPosition();
-                    }
-                });
+                        if (value == familyMember.value)
+                        {
+                            //check if all correct
+                            Debug.Log("Win");
+                            canCheck = true;
+                            familyMember.enabled = false;
+                        }
+                        else
+                        {
+                            familyMember.ReturnToOriginalPosition();
+                            isEmpty = true;
+                        }
+                    });
+                }
             }
         }
     }
