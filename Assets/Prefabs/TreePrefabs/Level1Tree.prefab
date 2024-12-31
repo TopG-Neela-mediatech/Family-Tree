@@ -114,11 +114,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217014269305010227, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_Name
-      value: DropZone2
+      value: DropZone1
       objectReference: {fileID: 0}
     - target: {fileID: 5532658780538890029, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: value
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7097112099490827594, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_LocalScale.x
@@ -203,7 +203,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217014269305010227, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_Name
-      value: DropZone1
+      value: DropZone0
       objectReference: {fileID: 0}
     - target: {fileID: 7097112099490827594, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_LocalScale.x
@@ -288,11 +288,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217014269305010227, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_Name
-      value: DropZone3
+      value: DropZone2
       objectReference: {fileID: 0}
     - target: {fileID: 5532658780538890029, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: value
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7097112099490827594, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_LocalScale.x
