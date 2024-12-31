@@ -6,7 +6,16 @@ namespace TMKOC.FamilyTree
     {
         [SerializeField] private Transform treeParent;
         [SerializeField] private Transform familyMemeberParent;
+        [SerializeField] private LevelSO[] levels;
 
 
+        private void Awake()
+        {
+            
+        }
+        private void Start()
+        {
+            
+        }
     }
 }
