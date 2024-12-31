@@ -33,7 +33,7 @@ namespace TMKOC.FamilyTree
         private void SetCurrentLevelIndex()
         {
             currentLevelIndex = gameCategoryDataManager.GetCompletedLevel;
-            if (currentLevelIndex > levels.Length)
+            if (currentLevelIndex > levels.Length-1)
             {
                 currentLevelIndex = 0;
                 gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
