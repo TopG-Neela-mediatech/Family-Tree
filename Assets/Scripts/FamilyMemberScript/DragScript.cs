@@ -1,4 +1,5 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 
@@ -8,6 +9,8 @@ namespace TMKOC.FamilyTree
     {
         [SerializeField] private Camera mainCamera;
         [HideInInspector] public bool isOnTree;
+        [SerializeField] private SpriteRenderer displaySprite;
+        [SerializeField] private TextMeshProUGUI dataText;
         private Vector3 originalPosition;
         private Vector3 offset;
         private bool isBeingDragged = false;
@@ -58,6 +61,11 @@ namespace TMKOC.FamilyTree
                     touchIndex = -1;
                 }
             }
+        }
+        public void SetData(Sprite sprite, string data)
+        {
+            displaySprite.sprite = sprite;
+            dataText.text = data;
         }
         private bool IsOutOfBounds()
         {
