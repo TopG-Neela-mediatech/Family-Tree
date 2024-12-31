@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6afbbc4e934e4d4bbf1b64c7bc44312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treeParent: {fileID: 0}
+  treeParent: {fileID: 1600659692}
   familyMemeberParent: {fileID: 0}
   levels: []
   gameID: 0
@@ -671,7 +671,7 @@ Transform:
   m_GameObject: {fileID: 938377441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9413924, y: -3.3164487, z: -0.036724832}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

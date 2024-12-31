@@ -7,9 +7,16 @@ namespace TMKOC.FamilyTree
     public class LevelSO : ScriptableObject
     {
         public GameObject treeSprite;
+        public RevealedMember[] revealedMembers;
         public MemberData[] memberData;
     }
 
+    [System.Serializable]
+    public class RevealedMember
+    {
+        public DropController revealedMemberDropController;
+        public MemberData revealedMemberData;
+    }
     [System.Serializable]
     public class MemberData
     {

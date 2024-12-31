@@ -8,10 +8,10 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Transform familyMemeberParent;
         [SerializeField] private LevelSO[] levels;
         [SerializeField] private int gameID;
+        [SerializeField] private DragScript[] familyMembers;
         private GameCategoryDataManager gameCategoryDataManager;
         private UpdateCategoryApiManager updateCategoryApiManager;
         private int currentLevelIndex;
-
 
 
         private void Awake()
@@ -33,10 +33,18 @@ namespace TMKOC.FamilyTree
         private void SetCurrentLevelIndex()
         {
             currentLevelIndex = gameCategoryDataManager.GetCompletedLevel;
-            if (currentLevelIndex > levels.Length-1)
+            if (currentLevelIndex > levels.Length - 1)
             {
                 currentLevelIndex = 0;
                 gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
+            }
+        }
+        public void SetRevealedMemberData()
+        {
+            foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
+            {
+                revealedMember.revealedMemberDropController.SetRevealedData(revealedMember.revealedMemberData.faceSprite,
+                    revealedMember.revealedMemberData.Name);
             }
         }
     }

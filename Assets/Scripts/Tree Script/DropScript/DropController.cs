@@ -1,4 +1,5 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 
@@ -7,6 +8,8 @@ namespace TMKOC.FamilyTree
     public class DropController : MonoBehaviour
     {
         [SerializeField] private int value;
+        [SerializeField] private SpriteRenderer displaySprite;
+        [SerializeField] private TextMeshProUGUI dataText;
         public static bool canCheck;
         private bool isEmpty;
 
@@ -18,6 +21,11 @@ namespace TMKOC.FamilyTree
         {
             canCheck = true;
             isEmpty = true;
+        }
+        public void SetRevealedData(Sprite sprite,string data)
+        {
+            displaySprite.sprite=sprite;
+            dataText.text = data;   
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
