@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+
 
 namespace TMKOC.FamilyTree
 {
@@ -17,6 +16,7 @@ namespace TMKOC.FamilyTree
         private GameCategoryDataManager gameCategoryDataManager;
         private UpdateCategoryApiManager updateCategoryApiManager;
         private int currentLevelIndex;
+        private int currentActiveMemberIndex;
 
 
         private void Awake()
@@ -34,6 +34,7 @@ namespace TMKOC.FamilyTree
         private void Start()
         {
             currentLevelIndex = 0;
+            currentActiveMemberIndex = 0;
             SetLevelData();
         }
         private void SetLevelData()
@@ -57,6 +58,16 @@ namespace TMKOC.FamilyTree
                     levels[currentLevelIndex].memberData[i].Key);
             }
             familyMembers[0].gameObject.SetActive(true);//setting active first member
+        }
+        public void EnableNextMember()
+        {
+            if (currentActiveMemberIndex == levels[currentLevelIndex].memberCount - 1)
+            {
+                Debug.Log("Win");
+                return;
+            }
+            currentActiveMemberIndex++;
+            familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
         }
         private void DisableFamilyMembers()
         {

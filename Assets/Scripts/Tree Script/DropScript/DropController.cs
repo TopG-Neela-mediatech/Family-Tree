@@ -22,9 +22,9 @@ namespace TMKOC.FamilyTree
             canCheck = true;
             isEmpty = true;
         }
-        public void SetRevealedData(Sprite sprite,string data)
+        public void SetRevealedData(Sprite sprite, string data)
         {
-            displaySprite.sprite=sprite;
+            displaySprite.sprite = sprite;
             dataText.text = data;
             NormalizeRenderer();
         }
@@ -47,15 +47,12 @@ namespace TMKOC.FamilyTree
                     {
                         if (value == familyMember.value)
                         {
-                            Debug.Log("Member Key : " + familyMember.value + "\nTree key : " + value);
-                            //check if all correct
-                            Debug.Log("Win");
                             canCheck = true;
                             familyMember.enabled = false;
+                            GameManager.Instance.LevelManager.EnableNextMember();
                         }
                         else
                         {
-                            Debug.Log("Member Key : " + familyMember.value + "\nTree key : " + value);
                             familyMember.ReturnToOriginalPosition();
                             isEmpty = true;
                         }

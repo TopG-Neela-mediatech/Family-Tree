@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   treeSprite: {fileID: 998981330854351361, guid: 6bbfaed80c2126743ba54ff6cc38e056, type: 3}
+  memberCount: 2
   revealedMembers:
   - faceSprite: {fileID: 21300000, guid: e685e2a6491ea6c429665ad2919f6107, type: 3}
     Name: Chetan

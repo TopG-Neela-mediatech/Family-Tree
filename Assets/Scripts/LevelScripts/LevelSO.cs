@@ -7,6 +7,7 @@ namespace TMKOC.FamilyTree
     public class LevelSO : ScriptableObject
     {
         public GameObject treeSprite;
+        public int memberCount;
         public MemberData[] revealedMembers;
         public MemberData[] memberData;
     }   
