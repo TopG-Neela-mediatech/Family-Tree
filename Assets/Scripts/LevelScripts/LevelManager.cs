@@ -99,8 +99,7 @@ namespace TMKOC.FamilyTree
             {
                 foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
                 {
-                    DropController dc = treeController.GetDropController(revealedMember.Key);
-                    Debug.Log("Reached");
+                    DropController dc = treeController.GetDropController(revealedMember.Key);                 
                     dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
                     dc.enabled = false;//setting trigger of drop zone false hopefully
                 }
