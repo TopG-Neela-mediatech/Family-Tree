@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -88,10 +89,8 @@ namespace TMKOC.FamilyTree
         private void SetHintText()
         {
             hintText.text = "";
-            for (int i = 0; i < levels[currentLevelIndex].memberData.Length; i++)
-            {
-                hintText.text += levels[currentLevelIndex].memberData[i].Description + "\n";
-            }
+            hintText.DOText += levels[currentLevelIndex].memberData[currentActiveMemberIndex].Description + "\n";
+            text.DOText(fullText, fullText.Length * typingSpeed).SetEase(Ease.Linear);
         }
         private void SetRevealedMemberData()
         {
@@ -99,7 +98,7 @@ namespace TMKOC.FamilyTree
             {
                 foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
                 {
-                    DropController dc = treeController.GetDropController(revealedMember.Key);                 
+                    DropController dc = treeController.GetDropController(revealedMember.Key);
                     dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
                     dc.enabled = false;//setting trigger of drop zone false hopefully
                 }
