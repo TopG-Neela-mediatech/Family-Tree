@@ -25,7 +25,14 @@ namespace TMKOC.FamilyTree
         public void SetRevealedData(Sprite sprite,string data)
         {
             displaySprite.sprite=sprite;
-            dataText.text = data;   
+            dataText.text = data;
+            NormalizeRenderer();
+        }
+        private void NormalizeRenderer()
+        {
+            displaySprite.drawMode = SpriteDrawMode.Sliced;
+            displaySprite.size = Vector2.one;
+            displaySprite.gameObject.transform.localScale = Vector2.one;
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -40,6 +47,7 @@ namespace TMKOC.FamilyTree
                     {
                         if (value == familyMember.value)
                         {
+                            Debug.Log("Member Key : " + familyMember.value + "\nTree key : " + value);
                             //check if all correct
                             Debug.Log("Win");
                             canCheck = true;
@@ -47,6 +55,7 @@ namespace TMKOC.FamilyTree
                         }
                         else
                         {
+                            Debug.Log("Member Key : " + familyMember.value + "\nTree key : " + value);
                             familyMember.ReturnToOriginalPosition();
                             isEmpty = true;
                         }

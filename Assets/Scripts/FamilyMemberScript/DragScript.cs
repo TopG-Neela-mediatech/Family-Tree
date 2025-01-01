@@ -21,8 +21,7 @@ namespace TMKOC.FamilyTree
         void Start()
         {
             originalPosition = transform.position;
-            isOnTree = false;
-            value = 1;
+            isOnTree = false;          
             this.enabled = true;
         }
         void Update()
@@ -62,10 +61,18 @@ namespace TMKOC.FamilyTree
                 }
             }
         }
-        public void SetData(Sprite sprite, string data)
+        public void SetData(Sprite sprite, string data,int key)
         {
             displaySprite.sprite = sprite;
             dataText.text = data;
+            value = key;
+            NormalizeRenderer();
+        }
+        private void NormalizeRenderer()
+        {
+            displaySprite.drawMode = SpriteDrawMode.Sliced;
+            displaySprite.size = Vector2.one;
+            displaySprite.gameObject.transform.localScale = Vector2.one;
         }
         private bool IsOutOfBounds()
         {

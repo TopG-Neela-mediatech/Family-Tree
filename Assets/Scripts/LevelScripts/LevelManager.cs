@@ -53,9 +53,10 @@ namespace TMKOC.FamilyTree
         {
             for (int i = 0; i < levels[currentLevelIndex].memberData.Length; i++)
             {
-                familyMembers[i].SetData(levels[currentLevelIndex].memberData[i].faceSprite, levels[currentLevelIndex].memberData[i].Name);
+                familyMembers[i].SetData(levels[currentLevelIndex].memberData[i].faceSprite, levels[currentLevelIndex].memberData[i].Name,
+                    levels[currentLevelIndex].memberData[i].Key);
             }
-            familyMembers[0].gameObject.SetActive(true);
+            familyMembers[0].gameObject.SetActive(true);//setting active first member
         }
         private void DisableFamilyMembers()
         {
