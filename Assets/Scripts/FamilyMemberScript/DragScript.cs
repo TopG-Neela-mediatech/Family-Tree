@@ -21,7 +21,7 @@ namespace TMKOC.FamilyTree
         void Start()
         {
             originalPosition = transform.position;
-            isOnTree = false;          
+            isOnTree = false;
             this.enabled = true;
         }
         void Update()
@@ -61,7 +61,7 @@ namespace TMKOC.FamilyTree
                 }
             }
         }
-        public void SetData(Sprite sprite, string data,int key)
+        public void SetData(Sprite sprite, string data, int key)
         {
             displaySprite.sprite = sprite;
             dataText.text = data;
@@ -90,7 +90,7 @@ namespace TMKOC.FamilyTree
         }
         private void OnTouchUp()
         {
-            if (isBeingDragged && !isOnTree)
+            if ((isBeingDragged && !isOnTree) || IsOutOfBounds())
             {
                 ReturnToOriginalPosition();
                 isBeingDragged = false;
