@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private int gameID;
         [SerializeField] private DragScript[] familyMembers;
         [SerializeField] private TextMeshProUGUI hintText;
+        [SerializeField] private float typingSpeed = 0.3f;
         private TreeController treeController;
         private GameCategoryDataManager gameCategoryDataManager;
         private UpdateCategoryApiManager updateCategoryApiManager;
@@ -35,15 +37,14 @@ namespace TMKOC.FamilyTree
         private void Start()
         {
             currentLevelIndex = 0;
-            currentActiveMemberIndex = 0;
+            currentActiveMemberIndex = -1;//increment first to acess the first memberA      B
             SetLevelData();
         }
         private void SetLevelData()
         {
             DisableFamilyMembers();
             SetTree();
-            SetFamilyMember();
-            SetHintText();
+            SetFamilyMember();            
             SetRevealedMemberData();
         }
         private void SetTree()
@@ -58,7 +59,7 @@ namespace TMKOC.FamilyTree
                 familyMembers[i].SetData(levels[currentLevelIndex].memberData[i].faceSprite, levels[currentLevelIndex].memberData[i].Name,
                     levels[currentLevelIndex].memberData[i].Key);
             }
-            familyMembers[0].gameObject.SetActive(true);//setting active first member
+            EnableNextMember();//setting active first member
         }
         public void EnableNextMember()
         {
@@ -68,7 +69,10 @@ namespace TMKOC.FamilyTree
                 return;
             }
             currentActiveMemberIndex++;
+            familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f);
+            StartCoroutine(SetHintText());//text animation here
             familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
+            familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 1f);
         }
         private void DisableFamilyMembers()
         {
@@ -86,11 +90,15 @@ namespace TMKOC.FamilyTree
                 gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
             }
         }
-        private void SetHintText()
+        private IEnumerator SetHintText()
         {
             hintText.text = "";
-            hintText.DOText += levels[currentLevelIndex].memberData[currentActiveMemberIndex].Description + "\n";
-            text.DOText(fullText, fullText.Length * typingSpeed).SetEase(Ease.Linear);
+            string fullText = levels[currentLevelIndex].memberData[currentActiveMemberIndex].Description;
+            for (int i = 0; i < fullText.Length; i++)
+            {
+                hintText.text += fullText[i];
+                yield return new WaitForSeconds(typingSpeed);
+            }
         }
         private void SetRevealedMemberData()
         {

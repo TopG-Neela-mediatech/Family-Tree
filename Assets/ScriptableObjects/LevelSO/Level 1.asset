@@ -22,9 +22,9 @@ MonoBehaviour:
   memberData:
   - faceSprite: {fileID: 21300000, guid: 2900941bef669be4798287323b28260e, type: 3}
     Name: Bhaskar
-    Description: Bhaskar is Chetan's Older Son
+    Description: Bhaskar is Chetan's Older Son(Older On Left)
     Key: 1
   - faceSprite: {fileID: 21300000, guid: aa0aabbfc21e2844695ca39524ee458f, type: 3}
     Name: Yash
-    Description: Yash is Chetan's Younger Son
+    Description: Yash is Chetan's Younger Son (Younger On Right)
     Key: 2
