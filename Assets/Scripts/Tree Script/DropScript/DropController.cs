@@ -22,12 +22,12 @@ namespace TMKOC.FamilyTree
             canCheck = true;
             isEmpty = true;
         }
-        public void SetRevealedData(Sprite sprite, string data)
+       /* public void SetRevealedData(Sprite sprite, string data)
         {
             displaySprite.sprite = sprite;
             dataText.text = data;
             NormalizeRenderer();
-        }
+        }*/
         private void NormalizeRenderer()
         {
             displaySprite.drawMode = SpriteDrawMode.Sliced;

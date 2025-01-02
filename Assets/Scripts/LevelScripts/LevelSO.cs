@@ -8,7 +8,7 @@ namespace TMKOC.FamilyTree
     {
         public TreeController treeObject;
         public int memberCount;
-        public MemberData[] revealedMembers;
+        //public MemberData[] revealedMembers;
         public MemberData[] memberData;
     }   
     [System.Serializable]

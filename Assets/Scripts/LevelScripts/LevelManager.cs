@@ -45,7 +45,7 @@ namespace TMKOC.FamilyTree
             DisableFamilyMembers();
             SetTree();
             SetFamilyMember();            
-            SetRevealedMemberData();
+            //SetRevealedMemberData();
         }
         private void SetTree()
         {
@@ -103,7 +103,7 @@ namespace TMKOC.FamilyTree
                 yield return new WaitForSeconds(typingSpeed);
             }
         }
-        private void SetRevealedMemberData()
+       /* private void SetRevealedMemberData()
         {
             if (currenttreeController != null)
             {
@@ -114,6 +114,6 @@ namespace TMKOC.FamilyTree
                     dc.enabled = false;//setting trigger of drop zone false hopefully
                 }
             }
-        }
+        }*/
     }
 }

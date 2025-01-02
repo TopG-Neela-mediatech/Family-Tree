@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   treeObject: {fileID: 9090969719089849808, guid: 6bbfaed80c2126743ba54ff6cc38e056, type: 3}
-  memberCount: 2
-  revealedMembers:
+  memberCount: 3
+  memberData:
   - faceSprite: {fileID: 21300000, guid: e685e2a6491ea6c429665ad2919f6107, type: 3}
     Name: Chetan
-    Description: AllFather
+    Description: Chetan Is All Father
     Key: 0
-  memberData:
   - faceSprite: {fileID: 21300000, guid: 2900941bef669be4798287323b28260e, type: 3}
     Name: Bhaskar
     Description: Bhaskar is Chetan's Older Son(Older On Left)
