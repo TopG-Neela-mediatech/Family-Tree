@@ -1,13 +1,14 @@
 using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace TMKOC.FamilyTree
+namespace TMKOC.CountWithMe.Add
 {
-    public class UIManager : MonoBehaviour
+    public class UIManagerAdd : MonoBehaviour
     {
         [SerializeField] private GameObject winPanel;
         [SerializeField] private GameObject losePanel;
@@ -26,18 +27,18 @@ namespace TMKOC.FamilyTree
 
         private void Start()
         {
-            GameManager.Instance.OnLevelWin += EnableWinPanel;
-            GameManager.Instance.OnLevelLose += EnableLosePanel;
-            GameManager.Instance.OnLevelStart += DisablePanels;
-            GameManager.Instance.OnLevelStart += PlayUIStartAnimation;
-            GameManager.Instance.OnLevelWin += ResetUIObjects;
-            GameManager.Instance.OnLevelLose += ResetUIObjects;
-            GameManager.Instance.OnLevelStart += StartLevelTimer;
-            GameManager.Instance.OnLevelLose += DisableTimer;
-            GameManager.Instance.OnLevelWin += DisableTimer;
-            GameManager.Instance.OnGameEnd += EnableFinalWinPanel;
-            nextButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
-            restartButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadLevel);
+            GameManagerAdd.Instance.OnLevelWin += EnableWinPanel;
+            GameManagerAdd.Instance.OnLevelLose += EnableLosePanel;
+            GameManagerAdd.Instance.OnLevelStart += DisablePanels;
+            GameManagerAdd.Instance.OnLevelStart += PlayUIStartAnimation;
+            GameManagerAdd.Instance.OnLevelWin += ResetUIObjects;
+            GameManagerAdd.Instance.OnLevelLose += ResetUIObjects;
+            GameManagerAdd.Instance.LevelManager.OnLevelStartAnimationOver += StartLevelTimer;
+            GameManagerAdd.Instance.OnLevelLose += DisableTimer;
+            GameManagerAdd.Instance.OnLevelWin += DisableTimer;
+            GameManagerAdd.Instance.OnGameEnd += EnableFinalWinPanel;
+            nextButton.onClick.AddListener(GameManagerAdd.Instance.LevelManager.LoadNextLevel);
+            restartButton.onClick.AddListener(GameManagerAdd.Instance.LevelManager.LoadLevel);
             playSchoolBackButton.onClick.AddListener(() => SceneManager.LoadScene(TMKOCPlaySchoolConstants.TMKOCPlayMainMenu));
         }
 
@@ -46,7 +47,8 @@ namespace TMKOC.FamilyTree
         private void EnableLosePanel() => StartCoroutine(EnableLosePanelAfterDelay());
         private void ResetLevelBar() => levelBar.transform.DOScale(0f, 0.5f);
         private void ResetTimerObject() => timerObject.transform.DOScale(0f, 0.5f);
-        private void SetLevelNumber() => levelNumberText.text = "Level " + GameManager.Instance.LevelManager.GetCurrentLevelNumber();
+        private void SetLevelNumber() => levelNumberText.text = "Level " + GameManagerAdd.Instance.LevelManager.GetCurrentLevelNumber();
+        private void StartInfoBarAnimation() => infoBar.transform.DOLocalMoveY(-30f, 0.5f).OnComplete(() => { DOVirtual.DelayedCall(1.5f, ResetInfoBar); });
         private void UpdateTimerText(int remainingTIme) => timerText.text = "" + remainingTIme;
 
 
@@ -55,11 +57,12 @@ namespace TMKOC.FamilyTree
             winPanel.SetActive(false);
 #if PLAYSCHOOL_MAIN
                     EffectParticleControll.Instance.SpawnGameEndPanel();
-                    GameOverEndPanel.Instance.AddTheListnerRetryGame(GameManager.Instance.LevelManager.LoadNextLevel);
+                    GameOverEndPanel.Instance.AddTheListnerRetryGame(GameManagerAdd.Instance.LevelManager.LoadNextLevel);
 #else
             //Your testing End panel
             AllEndPanel.Instance.PopUpEndPanel();
-#endif
+#endif              
+
         }
         private IEnumerator EnableLosePanelAfterDelay()
         {
@@ -68,12 +71,13 @@ namespace TMKOC.FamilyTree
         }
         private IEnumerator EnableWinPanelAfterDelay()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0f);
             winPanel.SetActive(true);
         }
         private void PlayUIStartAnimation()
         {
-            StartLevelBarAnimation();           
+            StartLevelBarAnimation();
+            StartInfoBarAnimation();
         }
         private void ResetUIObjects()
         {
@@ -92,7 +96,7 @@ namespace TMKOC.FamilyTree
         }
         private void StartLevelTimer()
         {
-            timerObject.transform.DOScale(1f, 1f).OnComplete(() =>
+            timerObject.transform.DOScale(1f, 0.5f).OnComplete(() =>
             {
                 levelTime = 60;
                 UpdateTimerText(levelTime);
@@ -114,8 +118,8 @@ namespace TMKOC.FamilyTree
             }
             if (levelTime <= 0)
             {
-                GameManager.Instance.InvokeLevelLose();
-                //GameManager.Instance.SoundManager.PlayTimeUpAudio();
+                GameManagerAdd.Instance.InvokeLevelLose();
+                GameManagerAdd.Instance.SoundManager.PlayTimeUpAudio();
             }
         }
         private void DisableTimer()
@@ -128,18 +132,25 @@ namespace TMKOC.FamilyTree
             }
             transform.DOScale(0f, 0.3f);
         }
+        private void ResetInfoBar()
+        {
+            infoBar.transform.DOLocalMoveY(150f, 0.1f).OnComplete(() =>
+            {
+                GameManagerAdd.Instance.StarsManager.MoveStarsDown();
+            });
+        }
         private void OnDestroy()
         {
-            GameManager.Instance.OnLevelWin -= EnableWinPanel;
-            GameManager.Instance.OnLevelLose -= EnableLosePanel;
-            GameManager.Instance.OnLevelStart -= DisablePanels;
-            GameManager.Instance.OnLevelStart -= PlayUIStartAnimation;
-            GameManager.Instance.OnLevelWin -= ResetUIObjects;
-            GameManager.Instance.OnLevelLose -= ResetUIObjects;
-            GameManager.Instance.OnLevelStart -= StartLevelTimer;
-            GameManager.Instance.OnLevelLose -= DisableTimer;
-            GameManager.Instance.OnLevelWin -= DisableTimer;
-            GameManager.Instance.OnGameEnd -= EnableFinalWinPanel;
+            GameManagerAdd.Instance.OnLevelWin -= EnableWinPanel;
+            GameManagerAdd.Instance.OnLevelLose -= EnableLosePanel;
+            GameManagerAdd.Instance.OnLevelStart -= DisablePanels;
+            GameManagerAdd.Instance.OnLevelStart -= PlayUIStartAnimation;
+            GameManagerAdd.Instance.OnLevelWin -= ResetUIObjects;
+            GameManagerAdd.Instance.OnLevelLose -= ResetUIObjects;
+            GameManagerAdd.Instance.LevelManager.OnLevelStartAnimationOver -= StartLevelTimer;
+            GameManagerAdd.Instance.OnLevelLose -= DisableTimer;
+            GameManagerAdd.Instance.OnLevelWin -= DisableTimer;
+            GameManagerAdd.Instance.OnGameEnd -= EnableFinalWinPanel;
         }
     }
 }
