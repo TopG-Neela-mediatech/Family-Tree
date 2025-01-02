@@ -9,6 +9,7 @@ namespace TMKOC.FamilyTree
     {
         [SerializeField] private LevelManager levelManager;
         [SerializeField] private LivesManager livesManager;
+        [SerializeField] private UIManager uiManager;
         private static GameManager instance;
 
 
@@ -28,7 +29,7 @@ namespace TMKOC.FamilyTree
         public static GameManager Instance { get { return instance; } }
         public LevelManager LevelManager { get { return levelManager; } }
         public LivesManager LivesManager { get { return livesManager; } }
-
+        public UIManager UIManager { get { return uiManager; } }
 
         #region Events
         public event Action OnLevelWin;
