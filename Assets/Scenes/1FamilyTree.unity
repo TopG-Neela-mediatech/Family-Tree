@@ -558,6 +558,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9113638998031085539, guid: d24cdeecdb994684c9507f74c9ef8135, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -135
+      objectReference: {fileID: 0}
     - target: {fileID: 9113638998031403363, guid: d24cdeecdb994684c9507f74c9ef8135, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1554,9 +1558,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   livesParentTransform: {fileID: 481157173}
   filledHeartImages:
-  - {fileID: 481157177}
-  - {fileID: 481157176}
   - {fileID: 481157175}
+  - {fileID: 481157176}
+  - {fileID: 481157177}
   heartBreakEffect: {fileID: 481157174}
 --- !u!1 &1600659691
 GameObject:

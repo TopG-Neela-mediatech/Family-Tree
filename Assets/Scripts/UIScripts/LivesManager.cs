@@ -66,15 +66,15 @@ namespace TMKOC.FamilyTree
         {
             if (liveNumber == 2)
             {
-                heartBreakEffect.transform.localPosition = new Vector3(87f, heartBreakEffect.transform.localPosition.y, 0f);
+                heartBreakEffect.transform.localPosition = new Vector3(-225f, heartBreakEffect.transform.localPosition.y, 0f);
             }
             if (liveNumber == 1)
             {
-                heartBreakEffect.transform.localPosition = new Vector3(0f, heartBreakEffect.transform.localPosition.y, 0f);
+                heartBreakEffect.transform.localPosition = new Vector3(-135f, heartBreakEffect.transform.localPosition.y, 0f);
             }
             if (liveNumber == 0)
             {
-                heartBreakEffect.transform.localPosition = new Vector3(-87f, heartBreakEffect.transform.localPosition.y, 0f);
+                heartBreakEffect.transform.localPosition = new Vector3(-45f, heartBreakEffect.transform.localPosition.y, 0f);
             }
         }
         private void OnDestroy()
