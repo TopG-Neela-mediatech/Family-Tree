@@ -53,6 +53,7 @@ namespace TMKOC.FamilyTree
                         }
                         else
                         {
+                            GameManager.Instance.LivesManager.ReduceLive();
                             familyMember.ReturnToOriginalPosition();
                             isEmpty = true;
                         }

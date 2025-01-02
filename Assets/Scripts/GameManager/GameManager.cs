@@ -8,6 +8,7 @@ namespace TMKOC.FamilyTree
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private LevelManager levelManager;
+        [SerializeField] private LivesManager livesManager;
         private static GameManager instance;
 
 
@@ -26,6 +27,7 @@ namespace TMKOC.FamilyTree
 
         public static GameManager Instance { get { return instance; } }
         public LevelManager LevelManager { get { return levelManager; } }
+        public LivesManager LivesManager { get { return livesManager; } }
 
 
         #region Events
@@ -35,7 +37,7 @@ namespace TMKOC.FamilyTree
         public event Action OnGameEnd;
 
 
-        public void InvokeLevelStart()=> OnLevelStart?.Invoke();
+        public void InvokeLevelStart() => OnLevelStart?.Invoke();
         public void InvokeLevelWin() => OnLevelWin?.Invoke();
         public void InvokeLevelLose() => OnLevelLose?.Invoke();
         public void InvokeGameEnd() => OnGameEnd?.Invoke();
