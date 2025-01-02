@@ -6,7 +6,7 @@ namespace TMKOC.FamilyTree
     [CreateAssetMenu(fileName = "ScriptableObject", menuName = "LevelSO")]
     public class LevelSO : ScriptableObject
     {
-        public GameObject treeSprite;
+        public TreeController treeObject;
         public int memberCount;
         public MemberData[] revealedMembers;
         public MemberData[] memberData;

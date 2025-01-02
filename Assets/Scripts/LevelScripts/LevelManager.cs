@@ -15,7 +15,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private DragScript[] familyMembers;
         [SerializeField] private TextMeshProUGUI hintText;
         [SerializeField] private float typingSpeed = 0.3f;
-        private TreeController treeController;
+        private TreeController currenttreeController;
         private GameCategoryDataManager gameCategoryDataManager;
         private UpdateCategoryApiManager updateCategoryApiManager;
         private int currentLevelIndex;
@@ -37,7 +37,7 @@ namespace TMKOC.FamilyTree
         private void Start()
         {
             currentLevelIndex = 0;
-            currentActiveMemberIndex = -1;//increment first to acess the first memberA      B
+            currentActiveMemberIndex = -1;//increment first to acess the first member
             SetLevelData();
         }
         private void SetLevelData()
@@ -49,8 +49,8 @@ namespace TMKOC.FamilyTree
         }
         private void SetTree()
         {
-            GameObject Tree = Instantiate(levels[currentLevelIndex].treeSprite, treeParent);
-            treeController = Tree.GetComponent<TreeController>();
+            Instantiate(levels[currentLevelIndex].treeObject.gameObject, treeParent);
+            currenttreeController = levels[currentLevelIndex].treeObject;
         }
         private void SetFamilyMember()
         {
@@ -102,11 +102,11 @@ namespace TMKOC.FamilyTree
         }
         private void SetRevealedMemberData()
         {
-            if (treeController != null)
+            if (currenttreeController != null)
             {
                 foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
                 {
-                    DropController dc = treeController.GetDropController(revealedMember.Key);
+                    DropController dc = currenttreeController.GetDropController(revealedMember.Key);
                     dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
                     dc.enabled = false;//setting trigger of drop zone false hopefully
                 }

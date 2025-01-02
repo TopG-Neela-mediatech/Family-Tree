@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30f89cf0f27b3a47bc3de446efd2d75, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  treeSprite: {fileID: 998981330854351361, guid: 6bbfaed80c2126743ba54ff6cc38e056, type: 3}
+  treeObject: {fileID: 9090969719089849808, guid: 6bbfaed80c2126743ba54ff6cc38e056, type: 3}
   memberCount: 2
   revealedMembers:
   - faceSprite: {fileID: 21300000, guid: e685e2a6491ea6c429665ad2919f6107, type: 3}
