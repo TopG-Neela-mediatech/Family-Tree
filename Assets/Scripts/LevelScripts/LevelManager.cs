@@ -72,7 +72,10 @@ namespace TMKOC.FamilyTree
             familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f);
             StartCoroutine(SetHintText());//text animation here
             familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
-            familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 1f);
+            familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 1f).OnComplete(() =>
+            {
+                GameManager.Instance.InvokeLevelStart();//level start here
+            });
         }
         private void DisableFamilyMembers()
         {
