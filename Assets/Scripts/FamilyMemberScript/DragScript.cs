@@ -22,7 +22,7 @@ namespace TMKOC.FamilyTree
         {
             originalPosition = transform.position;
             isOnTree = false;
-            this.enabled = true;
+            this.enabled = false;
         }
         void Update()
         {

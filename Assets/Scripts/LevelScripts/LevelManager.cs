@@ -44,7 +44,7 @@ namespace TMKOC.FamilyTree
         {
             DisableFamilyMembers();
             SetTree();
-            SetFamilyMember();            
+            SetFamilyMember();
             //SetRevealedMemberData();
         }
         private void SetTree()
@@ -69,13 +69,18 @@ namespace TMKOC.FamilyTree
                 return;
             }
             currentActiveMemberIndex++;
-            familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f);
             StartCoroutine(SetHintText());//text animation here
-            familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
-            familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 1f).OnComplete(() =>
+            familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f).OnComplete(() =>
             {
-                GameManager.Instance.InvokeLevelStart();//level start here
-            });
+                familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
+                familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 1f).OnComplete(() =>
+                {
+                    if (currentActiveMemberIndex == 0)
+                    {
+                        GameManager.Instance.InvokeLevelStart();//level start here
+                    }
+                });
+            });            
         }
         private void DisableFamilyMembers()
         {
@@ -96,24 +101,30 @@ namespace TMKOC.FamilyTree
         private IEnumerator SetHintText()
         {
             hintText.text = "";
+            yield return new WaitForSeconds(0.5f);
             string fullText = levels[currentLevelIndex].memberData[currentActiveMemberIndex].Description;
             for (int i = 0; i < fullText.Length; i++)
             {
                 hintText.text += fullText[i];
+                if (i == fullText.Length - 1)
+                {
+                    familyMembers[currentActiveMemberIndex].enabled = true;
+
+                }
                 yield return new WaitForSeconds(typingSpeed);
             }
         }
-       /* private void SetRevealedMemberData()
-        {
-            if (currenttreeController != null)
-            {
-                foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
-                {
-                    DropController dc = currenttreeController.GetDropController(revealedMember.Key);
-                    dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
-                    dc.enabled = false;//setting trigger of drop zone false hopefully
-                }
-            }
-        }*/
+        /* private void SetRevealedMemberData()
+         {
+             if (currenttreeController != null)
+             {
+                 foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
+                 {
+                     DropController dc = currenttreeController.GetDropController(revealedMember.Key);
+                     dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
+                     dc.enabled = false;//setting trigger of drop zone false hopefully
+                 }
+             }
+         }*/
     }
 }
