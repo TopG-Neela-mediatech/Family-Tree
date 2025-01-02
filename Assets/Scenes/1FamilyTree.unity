@@ -542,6 +542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivesParent
       objectReference: {fileID: 0}
+    - target: {fileID: 6329999299003303111, guid: d24cdeecdb994684c9507f74c9ef8135, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7430630688069009611, guid: d24cdeecdb994684c9507f74c9ef8135, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
