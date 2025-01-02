@@ -106,6 +106,11 @@ namespace TMKOC.FamilyTree
             for (int i = 0; i < fullText.Length; i++)
             {
                 hintText.text += fullText[i];
+                if (fullText[i] == '.')
+                {
+                    // Add a new line after the full stop
+                    hintText.text += "\n";
+                }
                 if (i == fullText.Length - 1)
                 {
                     familyMembers[currentActiveMemberIndex].enabled = true;
