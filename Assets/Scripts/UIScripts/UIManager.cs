@@ -36,8 +36,8 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelLose += DisableTimer;
             GameManager.Instance.OnLevelWin += DisableTimer;
             GameManager.Instance.OnGameEnd += EnableFinalWinPanel;
-            nextButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
-            restartButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadLevel);
+           // nextButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
+            //restartButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadLevel);
             playSchoolBackButton.onClick.AddListener(() => SceneManager.LoadScene(TMKOCPlaySchoolConstants.TMKOCPlayMainMenu));
         }
 
@@ -46,7 +46,7 @@ namespace TMKOC.FamilyTree
         private void EnableLosePanel() => StartCoroutine(EnableLosePanelAfterDelay());
         private void ResetLevelBar() => levelBar.transform.DOScale(0f, 0.5f);
         private void ResetTimerObject() => timerObject.transform.DOScale(0f, 0.5f);
-        private void SetLevelNumber() => levelNumberText.text = "Level " + GameManager.Instance.LevelManager.GetCurrentLevelNumber();
+      //  private void SetLevelNumber() => levelNumberText.text = "Level " + GameManager.Instance.LevelManager.GetCurrentLevelNumber();
         private void UpdateTimerText(int remainingTIme) => timerText.text = "" + remainingTIme;
 
 
@@ -82,7 +82,7 @@ namespace TMKOC.FamilyTree
         }
         private void StartLevelBarAnimation()
         {
-            SetLevelNumber();
+           // SetLevelNumber();
             levelBar.gameObject.transform.DOScale(1f, 1f);
         }
         private void DisablePanels()
