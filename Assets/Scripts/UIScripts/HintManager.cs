@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace TMKOC.FamilyTree
 {
-    public class LivesManager : MonoBehaviour
+    public class HintManager : MonoBehaviour
     {
         [SerializeField] private Transform livesParentTransform;
         [SerializeField] private Image[] filledHeartImages;

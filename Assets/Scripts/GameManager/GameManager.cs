@@ -8,7 +8,7 @@ namespace TMKOC.FamilyTree
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private LevelManager levelManager;
-        [SerializeField] private LivesManager livesManager;
+        [SerializeField] private HintManager hintManager;
         [SerializeField] private UIManager uiManager;
         private static GameManager instance;
 
@@ -28,7 +28,7 @@ namespace TMKOC.FamilyTree
 
         public static GameManager Instance { get { return instance; } }
         public LevelManager LevelManager { get { return levelManager; } }
-        public LivesManager LivesManager { get { return livesManager; } }
+        public HintManager HintManager { get { return hintManager; } }
         public UIManager UIManager { get { return uiManager; } }
 
         #region Events
