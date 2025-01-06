@@ -8,81 +8,34 @@ namespace TMKOC.FamilyTree
 {
     public class HintManager : MonoBehaviour
     {
-        [SerializeField] private Transform livesParentTransform;
-        [SerializeField] private Image[] filledHeartImages;
-        [SerializeField] private GameObject heartBreakEffect;
-        public event Action OnLivesOver;
-        private int lives = 3;
+        [SerializeField] private Transform HintParentTransform;
+        [SerializeField] private Button HintButton;
 
 
         private void Start()
         {
-            GameManager.Instance.OnLevelStart += ScaleLiveParent;
-            GameManager.Instance.OnLevelStart += EnableLives;
-            GameManager.Instance.OnLevelWin += DeScaleLiveParent;
-            GameManager.Instance.OnLevelLose += DeScaleLiveParent;
-        }
-        private void ResetLives() => lives = 3;
-        private void EnableLives()
+            HintButton.onClick.AddListener(OnHintClick);
+            GameManager.Instance.OnLevelStart += ScaleHintParent;
+            GameManager.Instance.OnLevelWin += DeScaleHintParent;
+            GameManager.Instance.OnLevelLose += DeScaleHintParent;
+        }       
+        private void DeScaleHintParent()
         {
-            ResetLives();
-            foreach (var item in filledHeartImages)
-            {
-                item.enabled = true;
-            }
+            HintParentTransform.DOScale(0f, 0.5f);
         }
-        private void DeScaleLiveParent()
+        private void ScaleHintParent()
         {
-            livesParentTransform.DOScale(0f, 0.5f);
+            HintParentTransform.DOScale(1f, 1f);
         }
-        private void ScaleLiveParent()
+        private void OnHintClick()
         {
-            livesParentTransform.DOScale(1f, 1f);
-        }
-        public void ReduceLive()
-        {
-            StartCoroutine(ReduceLiveAfterDelay());
-        }
-        private IEnumerator ReduceLiveAfterDelay()
-        {
-            lives--;
-            if (lives <= 0)
-            {
-                OnLivesOver?.Invoke();
-                //GameManager.Instance.SoundManager.PlayLevelLoseAudio();
-            }
-            SetParticleEffectPosition(lives);
-            heartBreakEffect.SetActive(true);
-            yield return new WaitForSeconds(1.25f);
-            heartBreakEffect.SetActive(false);
-            filledHeartImages[lives].enabled = false;
-            if (lives <= 0)
-            {
-                yield return new WaitForSeconds(0.8f);
-                GameManager.Instance.InvokeLevelLose();
-            }
-        }
-        private void SetParticleEffectPosition(int liveNumber)
-        {
-            if (liveNumber == 2)
-            {
-                heartBreakEffect.transform.localPosition = new Vector3(-225f, heartBreakEffect.transform.localPosition.y, 0f);
-            }
-            if (liveNumber == 1)
-            {
-                heartBreakEffect.transform.localPosition = new Vector3(-135f, heartBreakEffect.transform.localPosition.y, 0f);
-            }
-            if (liveNumber == 0)
-            {
-                heartBreakEffect.transform.localPosition = new Vector3(-45f, heartBreakEffect.transform.localPosition.y, 0f);
-            }
-        }
+            
+        }      
         private void OnDestroy()
         {
-            GameManager.Instance.OnLevelStart -= ScaleLiveParent;
-            GameManager.Instance.OnLevelStart -= EnableLives;
-            GameManager.Instance.OnLevelWin -= DeScaleLiveParent;
-            GameManager.Instance.OnLevelLose -= DeScaleLiveParent;
+            GameManager.Instance.OnLevelStart -= ScaleHintParent;
+            GameManager.Instance.OnLevelWin -= DeScaleHintParent;
+            GameManager.Instance.OnLevelLose -= DeScaleHintParent;
         }
     }
 }
