@@ -28,7 +28,7 @@ namespace TMKOC.FamilyTree
             else//16:9
             {
                 familyMemberParentTransform.position = new Vector3(-7f, 0, 0);
-                treeParentTransform.position = new Vector3(1f, 0f, 0f);
+                treeParentTransform.position = new Vector3(3f, 0f, 0f);
             }
         }
     }
