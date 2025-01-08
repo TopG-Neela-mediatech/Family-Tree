@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 1037160978}
   - {fileID: 1884999651}
   hintText: {fileID: 1564066110}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
 --- !u!1 &57562206
 GameObject:
   m_ObjectHideFlags: 0
