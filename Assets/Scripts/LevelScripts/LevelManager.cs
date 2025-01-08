@@ -68,7 +68,7 @@ namespace TMKOC.FamilyTree
         {
             if (currentActiveMemberIndex == levels[currentLevelIndex].memberCount - 1)
             {
-                Debug.Log("Win");
+                GameManager.Instance.InvokeTreeComplete();//tree complete here
                 return;
             }
             currentActiveMemberIndex++;
