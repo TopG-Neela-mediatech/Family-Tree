@@ -20,6 +20,8 @@ namespace TMKOC.FamilyTree
         private UpdateCategoryApiManager updateCategoryApiManager;
         private int currentLevelIndex;
         private int currentActiveMemberIndex;
+        private DragScript currentActiveMember;
+        private int attempts;
 
 
         private void Awake()
@@ -39,6 +41,7 @@ namespace TMKOC.FamilyTree
             currentLevelIndex = 0;
             currentActiveMemberIndex = -1;//increment first to acess the first member
             SetLevelData();
+            attempts = 3;
         }
         private void SetLevelData()
         {
@@ -69,6 +72,7 @@ namespace TMKOC.FamilyTree
                 return;
             }
             currentActiveMemberIndex++;
+            currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;
             StartCoroutine(SetHintText());//text animation here
             familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f).OnComplete(() =>
             {
@@ -80,7 +84,29 @@ namespace TMKOC.FamilyTree
                         GameManager.Instance.InvokeLevelStart();//level start here
                     }
                 });
-            });            
+            });
+        }
+        public void StartHint()
+        {
+            if (attempts <= 3)
+            {
+                DropController correctDropBox = currenttreeController.GetDropController(currentActiveMember.value);
+                ActivateHint(currentActiveMember, correctDropBox);
+            }
+        }
+        public void ReduceAttempts() => attempts--;
+        private void ActivateHint(DragScript currentDraggable, DropController correctDropBox)
+        {
+            currentDraggable.enabled = false;
+            correctDropBox.DisableChecking();
+            currentDraggable.transform.SetParent(treeParent);
+            currentDraggable.transform.DOLocalMove(correctDropBox.transform.localPosition, 1f).OnComplete(() =>
+            {
+                currentDraggable.transform.SetParent(familyMemeberParent);
+                DropController.canCheck = true;
+                EnableNextMember();
+                attempts = 3;//Resetting attempt counter;
+            });
         }
         private void DisableFamilyMembers()
         {

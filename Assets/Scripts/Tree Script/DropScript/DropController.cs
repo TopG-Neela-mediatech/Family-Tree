@@ -10,8 +10,9 @@ namespace TMKOC.FamilyTree
         [SerializeField] private int value;
         [SerializeField] private SpriteRenderer displaySprite;
         [SerializeField] private TextMeshProUGUI dataText;
-        public static bool canCheck;
-        private bool isEmpty;
+        [SerializeField] private Collider2D col;
+        public static bool canCheck;       
+        private bool isEmpty;      
 
 
         public int GetValue() => value;
@@ -20,7 +21,7 @@ namespace TMKOC.FamilyTree
         private void Start()
         {
             canCheck = true;
-            isEmpty = true;
+            isEmpty = true;          
         }
        /* public void SetRevealedData(Sprite sprite, string data)
         {
@@ -52,14 +53,20 @@ namespace TMKOC.FamilyTree
                             GameManager.Instance.LevelManager.EnableNextMember();
                         }
                         else
-                        {
-                           // GameManager.Instance.HintManager.ReduceLive();
+                        {                          
                             familyMember.ReturnToOriginalPosition();
                             isEmpty = true;
+                            GameManager.Instance.LevelManager.ReduceAttempts();
                         }
                     });
                 }
             }
+        }
+        public void DisableChecking()
+        {
+            this.isEmpty = false;
+            canCheck = false;
+            this.col.enabled = false;
         }
     }
 }

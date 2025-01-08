@@ -175,6 +175,7 @@ MonoBehaviour:
   value: 0
   displaySprite: {fileID: 2430746343871563471}
   dataText: {fileID: 4439010792101365902}
+  col: {fileID: 3348749354844529653}
 --- !u!1 &2358009728549949260
 GameObject:
   m_ObjectHideFlags: 0

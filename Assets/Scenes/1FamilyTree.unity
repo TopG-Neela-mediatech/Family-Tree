@@ -1878,8 +1878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7d810e1d5a6464ebe48713c44222dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HintParentTransform: {fileID: 1465981604}
-  HintButton: {fileID: 1465981605}
 --- !u!1 &1600659691
 GameObject:
   m_ObjectHideFlags: 0

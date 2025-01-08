@@ -116,6 +116,7 @@ namespace TMKOC.FamilyTree
                 isBeingDragged = false;
                 touchIndex = -1;
                 DropController.canCheck = true;
+                GameManager.Instance.LevelManager.StartHint();
             });
         }
     }
