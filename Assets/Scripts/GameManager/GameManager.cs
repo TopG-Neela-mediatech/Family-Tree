@@ -31,14 +31,14 @@ namespace TMKOC.FamilyTree
 
         #region Events
         public event Action OnLevelWin;
-        public event Action OnLevelLose;
+        public event Action OnTreeComplete;
         public event Action OnLevelStart;
         public event Action OnGameEnd;
 
 
         public void InvokeLevelStart() => OnLevelStart?.Invoke();
         public void InvokeLevelWin() => OnLevelWin?.Invoke();
-        public void InvokeLevelLose() => OnLevelLose?.Invoke();
+        public void InvokeTreeComplete() => OnTreeComplete?.Invoke();
         public void InvokeGameEnd() => OnGameEnd?.Invoke();
         #endregion
     }
