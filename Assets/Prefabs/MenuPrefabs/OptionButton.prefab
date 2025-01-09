@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Father
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae605e462ecd8e849add767acf07663e, type: 2}
   m_sharedMaterial: {fileID: -3462643136671018270, guid: ae605e462ecd8e849add767acf07663e, type: 2}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 70.25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 1.6811523, y: 1.40094, z: 1.1207275, w: 2.5216675}
+  m_margin: {x: 3.642456, y: 3.3622437, z: 3.3623047, w: 3.0820312}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 8445883046484100601}
   - component: {fileID: 1192712464171503596}
   - component: {fileID: 7034067965859464268}
+  - component: {fileID: 3366250481985504185}
   m_Layer: 5
   m_Name: OptionButton
   m_TagString: Untagged
@@ -255,3 +256,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3366250481985504185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6065348570373206821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12dcdad1099747f4f88ea6832561cac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionText: {fileID: 8447827843815224246}
