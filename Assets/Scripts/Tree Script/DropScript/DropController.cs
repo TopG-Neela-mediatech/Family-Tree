@@ -21,7 +21,7 @@ namespace TMKOC.FamilyTree
         private void Start()
         {
             canCheck = true;
-            isEmpty = true;          
+            isEmpty = true;           
         }
        /* public void SetRevealedData(Sprite sprite, string data)
         {
