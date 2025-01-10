@@ -92,7 +92,7 @@ namespace TMKOC.FamilyTree
             {
                 DropController correctDropBox = currenttreeController.GetDropController(currentActiveMember.value);
                 ActivateHint(currentActiveMember, correctDropBox);
-                attempts = 3;
+                attempts = 3;//Resetting attempt counter;
             }
         }
         public void ReduceAttempts() => attempts--;
@@ -100,14 +100,15 @@ namespace TMKOC.FamilyTree
         {
             currentDraggable.enabled = false;
             correctDropBox.DisableChecking();
-            currentDraggable.transform.SetParent(currenttreeController.transform);//use tree controller as parent as another level in heirarchy is added
+            GameManager.Instance.HandManager.StartHandTutorial(currentDraggable.transform.localPosition, correctDropBox.transform);
+            /*currentDraggable.transform.SetParent(currenttreeController.transform);//use tree controller as parent as another level in heirarchy is added
             currentDraggable.transform.DOLocalMove(correctDropBox.transform.localPosition, 1f).OnComplete(() =>
             {
                 currentDraggable.transform.SetParent(familyMemeberParent);
                 DropController.canCheck = true;
                 EnableNextMember();
-                attempts = 3;//Resetting attempt counter;
-            });
+                attempts = 3;
+            });*/
         }
         private void DisableFamilyMembers()
         {
