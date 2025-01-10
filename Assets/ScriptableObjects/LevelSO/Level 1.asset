@@ -25,9 +25,9 @@ MonoBehaviour:
     Key: 1
   - faceSprite: {fileID: 21300000, guid: 9cf15d53b4c11334bb0c432b60626f83, type: 3}
     Name: Lucy
-    Description: Lucy Is Older Sister (Older On Left)
+    Description: Lucy Is The Daughter
     Key: 2
   - faceSprite: {fileID: 21300000, guid: 09fccb5a15953cf4684535ec2fb80ffa, type: 3}
     Name: Tom
-    Description: Tom Is Younger Brother
+    Description: Tom Is The Son
     Key: 3

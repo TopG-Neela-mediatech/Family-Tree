@@ -11,7 +11,11 @@ namespace TMKOC.FamilyTree
 
         public DropController GetDropController(int key)
         {
-            DropController dc = Array.Find(dropControllers,i=>i.GetValue()==key);
+            DropController dc = Array.Find(dropControllers, i => i.GetValue() == key);
+            if (dc == null)
+            {
+                Debug.Log("Drop Controller Not Found");
+            }
             return dc;
         }
     }

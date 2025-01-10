@@ -52,8 +52,8 @@ namespace TMKOC.FamilyTree
         }
         private void SetTree()
         {
-            Instantiate(levels[currentLevelIndex].treeObject.gameObject, treeParent);
-            currenttreeController = levels[currentLevelIndex].treeObject;
+            GameObject Tree = Instantiate(levels[currentLevelIndex].treeObject.gameObject, treeParent);
+            currenttreeController = Tree.GetComponent<TreeController>();
         }
         private void SetFamilyMember()
         {
@@ -88,10 +88,11 @@ namespace TMKOC.FamilyTree
         }
         public void StartHint()
         {
-            if (attempts <= 3)
+            if (attempts <= 0)
             {
                 DropController correctDropBox = currenttreeController.GetDropController(currentActiveMember.value);
                 ActivateHint(currentActiveMember, correctDropBox);
+                attempts = 3;
             }
         }
         public void ReduceAttempts() => attempts--;
@@ -99,7 +100,7 @@ namespace TMKOC.FamilyTree
         {
             currentDraggable.enabled = false;
             correctDropBox.DisableChecking();
-            currentDraggable.transform.SetParent(treeParent);
+            currentDraggable.transform.SetParent(currenttreeController.transform);//use tree controller as parent as another level in heirarchy is added
             currentDraggable.transform.DOLocalMove(correctDropBox.transform.localPosition, 1f).OnComplete(() =>
             {
                 currentDraggable.transform.SetParent(familyMemeberParent);
