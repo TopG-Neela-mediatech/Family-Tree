@@ -23,6 +23,12 @@ namespace TMKOC.FamilyTree
         private DragScript currentActiveMember;
         private int attempts;
 
+        public Vector3 GetDragPosition() => currentActiveMember.transform.localPosition;
+        public Transform GetDropTransform() => currenttreeController.GetDropController(currentActiveMember.value).transform;
+        public void ReduceAttempts() => attempts--;
+        private void ActivateHint(DragScript currentDraggable, DropController correctDropBox) =>
+            GameManager.Instance.HandManager.StartHandTutorial(currentDraggable.transform.localPosition, correctDropBox.transform);
+
 
         private void Awake()
         {
@@ -95,21 +101,20 @@ namespace TMKOC.FamilyTree
                 attempts = 3;//Resetting attempt counter;
             }
         }
-        public void ReduceAttempts() => attempts--;
-        private void ActivateHint(DragScript currentDraggable, DropController correctDropBox)
-        {
+        /*private void ActivateHint2(DragScript currentDraggable, DropController correctDropBox) { 
+
             currentDraggable.enabled = false;
             correctDropBox.DisableChecking();
-            GameManager.Instance.HandManager.StartHandTutorial(currentDraggable.transform.localPosition, correctDropBox.transform);
-            /*currentDraggable.transform.SetParent(currenttreeController.transform);//use tree controller as parent as another level in heirarchy is added
+           
+            currentDraggable.transform.SetParent(currenttreeController.transform);//use tree controller as parent as another level in heirarchy is added
             currentDraggable.transform.DOLocalMove(correctDropBox.transform.localPosition, 1f).OnComplete(() =>
             {
                 currentDraggable.transform.SetParent(familyMemeberParent);
                 DropController.canCheck = true;
                 EnableNextMember();
                 attempts = 3;
-            });*/
-        }
+            });
+        }*/
         private void DisableFamilyMembers()
         {
             foreach (var item in familyMembers)
