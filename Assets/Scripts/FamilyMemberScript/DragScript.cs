@@ -71,8 +71,7 @@ namespace TMKOC.FamilyTree
         private void NormalizeRenderer()
         {
             displaySprite.drawMode = SpriteDrawMode.Sliced;
-            displaySprite.size = Vector2.one;
-            displaySprite.gameObject.transform.localScale = Vector2.one;
+            displaySprite.size = new Vector2(1.12f, 1.12f);
         }
         private bool IsOutOfBounds()
         {

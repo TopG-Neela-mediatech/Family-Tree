@@ -7,8 +7,7 @@ namespace TMKOC.FamilyTree
 {
     public class DropController : MonoBehaviour
     {
-        [SerializeField] private int value;
-        [SerializeField] private SpriteRenderer displaySprite;
+        [SerializeField] private int value;       
         [SerializeField] private TextMeshProUGUI dataText;
         [SerializeField] private Collider2D col;
         public static bool canCheck;       
@@ -28,13 +27,7 @@ namespace TMKOC.FamilyTree
             displaySprite.sprite = sprite;
             dataText.text = data;
             NormalizeRenderer();
-        }*/
-        private void NormalizeRenderer()
-        {
-            displaySprite.drawMode = SpriteDrawMode.Sliced;
-            displaySprite.size = Vector2.one;
-            displaySprite.gameObject.transform.localScale = Vector2.one;
-        }
+        }*/       
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent<DragScript>(out DragScript familyMember))
