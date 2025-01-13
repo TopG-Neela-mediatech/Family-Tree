@@ -46,11 +46,15 @@ namespace TMKOC.FamilyTree
         }
         private void Start()
         {
-            currentLevelIndex = 0;
-            currentActiveMemberIndex = -1;//increment first to acess the first member
-            SetLevelData();
-            attempts = 3;
+            GameManager.Instance.OnLevelStart += ResetData;                      
             GameManager.Instance.OnTreeComplete += this.OnTreeComplete;
+            GameManager.Instance.OnLevelWin += IncrementLevel;
+            SetLevelData(); 
+        }
+        private void ResetData()
+        {
+            currentActiveMemberIndex = -1;//increment first to acess the first member
+            attempts = 3;
         }
         private void OnTreeComplete()
         {
@@ -99,6 +103,23 @@ namespace TMKOC.FamilyTree
                 });
             });
         }
+        private void IncrementLevel()
+        {
+            currentLevelIndex++;
+            gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
+        }
+        public void LoadNextLevel()
+        {
+            if (currentLevelIndex > levels.Length - 1)
+            {
+                currentLevelIndex = 0;
+                gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
+                GameManager.Instance.InvokeGameEnd();
+                //GameManager.Instance.SoundManager.PlayFinalAudio();
+                return;
+            }
+           SetLevelData();
+        }       
         public void StartHint()
         {
             if (attempts <= 0)
@@ -147,7 +168,9 @@ namespace TMKOC.FamilyTree
         }
         private void OnDestroy()
         {
+            GameManager.Instance.OnLevelStart -= ResetData;
             GameManager.Instance.OnTreeComplete -= this.OnTreeComplete;
+            GameManager.Instance.OnLevelWin -= IncrementLevel;
         }
         /*private void ActivateHint2(DragScript currentDraggable, DropController correctDropBox) { 
 

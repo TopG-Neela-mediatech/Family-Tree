@@ -12,40 +12,18 @@ namespace TMKOC.FamilyTree
         [SerializeField] private GameObject winPanel;
         [SerializeField] private Button nextButton;
         [SerializeField] private Button playSchoolBackButton;
-        //private int levelTime;
-        //private Coroutine timerCoroutine;
-        //[SerializeField] private GameObject timerObject;
-        //[SerializeField] private TextMeshProUGUI timerText; 
-        //[SerializeField] private GameObject infoBar;
-        //[SerializeField] private GameObject losePanel;
-        //[SerializeField] private Button restartButton;
-        //[SerializeField] private TextMeshProUGUI levelNumberText;
-        //[SerializeField] private GameObject levelBar;
-
+        
 
         private void Start()
         {
             GameManager.Instance.OnLevelWin += EnableWinPanel;
             GameManager.Instance.OnGameEnd += EnableFinalWinPanel;
             playSchoolBackButton.onClick.AddListener(() => SceneManager.LoadScene(TMKOCPlaySchoolConstants.TMKOCPlayMainMenu));
-            /*
-             GameManager.Instance.OnLevelStart += DisablePanels;
-             GameManager.Instance.OnLevelStart += PlayUIStartAnimation;
-             GameManager.Instance.OnLevelWin += ResetUIObjects;
-             nextButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
-             restartButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadLevel); 
-             GameManager.Instance.OnLevelStart += StartLevelTimer;         
-             GameManager.Instance.OnLevelWin += DisableTimer;
-            */
         }
 
 
         private void EnableWinPanel() => StartCoroutine(EnableWinPanelAfterDelay());
-        //private void EnableLosePanel() => StartCoroutine(EnableLosePanelAfterDelay());
-        //private void ResetLevelBar() => levelBar.transform.DOScale(0f, 0.5f);
-        //private void ResetTimerObject() => timerObject.transform.DOScale(0f, 0.5f);
-        //private void UpdateTimerText(int remainingTIme) => timerText.text = "" + remainingTIme;
-        //private void SetLevelNumber() => levelNumberText.text = "Level " + GameManager.Instance.LevelManager.GetCurrentLevelNumber();
+       
 
         private void EnableFinalWinPanel()
         {
@@ -62,18 +40,56 @@ namespace TMKOC.FamilyTree
         {
             yield return new WaitForSeconds(2f);
             winPanel.SetActive(true);
-        }       
+        }
         private void OnDestroy()
         {
             GameManager.Instance.OnLevelWin -= EnableWinPanel;
             GameManager.Instance.OnGameEnd -= EnableFinalWinPanel;
-            //GameManager.Instance.OnLevelStart -= PlayUIStartAnimation;
-            //GameManager.Instance.OnLevelWin -= ResetUIObjects;
-            //GameManager.Instance.OnLevelStart -= StartLevelTimer; 
-            //GameManager.Instance.OnLevelStart -= DisablePanels;                                 
         }
     }
 }
+
+
+
+
+#region DogWater
+//private int levelTime;
+//private Coroutine timerCoroutine;
+//[SerializeField] private GameObject timerObject;
+//[SerializeField] private TextMeshProUGUI timerText; 
+//[SerializeField] private GameObject infoBar;
+//[SerializeField] private GameObject losePanel;
+//[SerializeField] private Button restartButton;
+//[SerializeField] private TextMeshProUGUI levelNumberText;
+//[SerializeField] private GameObject levelBar;
+
+
+//private void EnableLosePanel() => StartCoroutine(EnableLosePanelAfterDelay());
+//private void ResetLevelBar() => levelBar.transform.DOScale(0f, 0.5f);
+//private void ResetTimerObject() => timerObject.transform.DOScale(0f, 0.5f);
+//private void UpdateTimerText(int remainingTIme) => timerText.text = "" + remainingTIme;
+//private void SetLevelNumber() => levelNumberText.text = "Level " + GameManager.Instance.LevelManager.GetCurrentLevelNumber();
+
+
+/*          
+           StartMethod
+            GameManager.Instance.OnLevelStart += DisablePanels;
+            GameManager.Instance.OnLevelStart += PlayUIStartAnimation;
+            GameManager.Instance.OnLevelWin += ResetUIObjects;
+            nextButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
+            restartButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadLevel); 
+            GameManager.Instance.OnLevelStart += StartLevelTimer;         
+            GameManager.Instance.OnLevelWin += DisableTimer;
+           */
+
+
+/* OnDestroy
+ * //GameManager.Instance.OnLevelStart -= PlayUIStartAnimation;
+//GameManager.Instance.OnLevelWin -= ResetUIObjects;
+//GameManager.Instance.OnLevelStart -= StartLevelTimer; 
+//GameManager.Instance.OnLevelStart -= DisablePanels; */
+
+
 /*private IEnumerator EnableLosePanelAfterDelay()
        {
            yield return new WaitForSeconds(0f);
@@ -137,3 +153,4 @@ namespace TMKOC.FamilyTree
             }
             transform.DOScale(0f, 0.3f);
         }*/
+#endregion
