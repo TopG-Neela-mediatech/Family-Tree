@@ -46,9 +46,10 @@ namespace TMKOC.FamilyTree
             SetCurrentLevelIndex();
         }
         private void Start()
-        {           
+        {
             GameManager.Instance.OnTreeComplete += this.OnTreeComplete;
             GameManager.Instance.OnLevelWin += IncrementLevel;
+            GameManager.Instance.OnLevelWin += DestroyTree;
             SetLevelData();
         }
         private void ResetData()
@@ -66,6 +67,11 @@ namespace TMKOC.FamilyTree
             levelMain.SetActive(false);
             levelUIMain.SetActive(false);
         }
+
+
+        private void DestroyTree() => Destroy(currenttreeController.gameObject);
+
+
         private void SetLevelData()
         {
             ResetData();
@@ -97,7 +103,7 @@ namespace TMKOC.FamilyTree
                 GameManager.Instance.InvokeTreeComplete();//tree complete here
                 return;
             }
-            currentActiveMemberIndex++;          
+            currentActiveMemberIndex++;
             currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;
             StartCoroutine(SetHintText());//text animation here
             familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f).OnComplete(() =>
@@ -173,9 +179,10 @@ namespace TMKOC.FamilyTree
             }
         }
         private void OnDestroy()
-        {            
+        {
             GameManager.Instance.OnTreeComplete -= this.OnTreeComplete;
             GameManager.Instance.OnLevelWin -= IncrementLevel;
+            GameManager.Instance.OnLevelWin -= DestroyTree;
         }
         /*private void ActivateHint2(DragScript currentDraggable, DropController correctDropBox) { 
 

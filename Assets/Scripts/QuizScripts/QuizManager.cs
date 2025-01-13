@@ -53,7 +53,7 @@ namespace TMKOC.FamilyTree
         }
         private IEnumerator LoadNextQuestionAfterDelay()
         { 
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(2f);
             questionNumber++;
             if(questionNumber > 2)
             {
