@@ -9,6 +9,7 @@ namespace TMKOC.FamilyTree
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private GameObject levelMain;
+        [SerializeField] private GameObject levelUIMain;
         [SerializeField] private Transform treeParent;
         [SerializeField] private Transform familyMemeberParent;
         [SerializeField] private LevelSO[] levels;
@@ -45,26 +46,34 @@ namespace TMKOC.FamilyTree
             SetCurrentLevelIndex();
         }
         private void Start()
-        {
-            GameManager.Instance.OnLevelStart += ResetData;                      
+        {           
             GameManager.Instance.OnTreeComplete += this.OnTreeComplete;
             GameManager.Instance.OnLevelWin += IncrementLevel;
-            SetLevelData(); 
+            SetLevelData();
         }
         private void ResetData()
         {
             currentActiveMemberIndex = -1;//increment first to acess the first member
             attempts = 3;
         }
+        private void EnableLevel()
+        {
+            levelUIMain.SetActive(true);
+            levelMain.SetActive(true);
+        }
         private void OnTreeComplete()
         {
             levelMain.SetActive(false);
+            levelUIMain.SetActive(false);
         }
         private void SetLevelData()
         {
+            ResetData();
+            EnableLevel();
             DisableFamilyMembers();
             SetTree();
             SetFamilyMember();
+            GameManager.Instance.InvokeLevelStart();
             //SetRevealedMemberData();
         }
         private void SetTree()
@@ -88,7 +97,7 @@ namespace TMKOC.FamilyTree
                 GameManager.Instance.InvokeTreeComplete();//tree complete here
                 return;
             }
-            currentActiveMemberIndex++;
+            currentActiveMemberIndex++;          
             currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;
             StartCoroutine(SetHintText());//text animation here
             familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f).OnComplete(() =>
@@ -96,10 +105,7 @@ namespace TMKOC.FamilyTree
                 familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
                 familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 1f).OnComplete(() =>
                 {
-                    if (currentActiveMemberIndex == 0)
-                    {
-                        GameManager.Instance.InvokeLevelStart();//level start here
-                    }
+                    //on member spawning complete
                 });
             });
         }
@@ -118,8 +124,8 @@ namespace TMKOC.FamilyTree
                 //GameManager.Instance.SoundManager.PlayFinalAudio();
                 return;
             }
-           SetLevelData();
-        }       
+            SetLevelData();
+        }
         public void StartHint()
         {
             if (attempts <= 0)
@@ -128,7 +134,7 @@ namespace TMKOC.FamilyTree
                 ActivateHint(currentActiveMember, correctDropBox);
                 attempts = 3;//Resetting attempt counter;
             }
-        }        
+        }
         private void DisableFamilyMembers()
         {
             foreach (var item in familyMembers)
@@ -167,8 +173,7 @@ namespace TMKOC.FamilyTree
             }
         }
         private void OnDestroy()
-        {
-            GameManager.Instance.OnLevelStart -= ResetData;
+        {            
             GameManager.Instance.OnTreeComplete -= this.OnTreeComplete;
             GameManager.Instance.OnLevelWin -= IncrementLevel;
         }

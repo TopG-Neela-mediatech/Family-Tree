@@ -19,6 +19,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin += EnableWinPanel;
             GameManager.Instance.OnGameEnd += EnableFinalWinPanel;
             playSchoolBackButton.onClick.AddListener(() => SceneManager.LoadScene(TMKOCPlaySchoolConstants.TMKOCPlayMainMenu));
+            nextButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
         }
 
 

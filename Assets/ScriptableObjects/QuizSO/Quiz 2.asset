@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d59000356bbd15246a40a16a8edcc491, type: 3}
-  m_Name: FirstQuiz
+  m_Name: Quiz 2
   m_EditorClassIdentifier: 
   quizSet:
   - question: Jenny Is Dave's ?
