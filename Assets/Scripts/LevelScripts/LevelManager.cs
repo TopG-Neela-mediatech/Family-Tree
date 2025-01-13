@@ -50,6 +50,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnTreeComplete += this.OnTreeComplete;
             GameManager.Instance.OnLevelWin += IncrementLevel;
             GameManager.Instance.OnLevelWin += DestroyTree;
+            GameManager.Instance.OnLevelWin += ResetFamilyMemberPosition;
             SetLevelData();
         }
         private void ResetData()
@@ -111,7 +112,7 @@ namespace TMKOC.FamilyTree
                 familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
                 familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 1f).OnComplete(() =>
                 {
-                    //on member spawning complete
+                    familyMembers[currentActiveMemberIndex].enabled = true;//on member spawning complete
                 });
             });
         }
@@ -148,6 +149,14 @@ namespace TMKOC.FamilyTree
                 item.gameObject.SetActive(false);
             }
         }
+        private void ResetFamilyMemberPosition()
+        {
+            foreach (var item in familyMembers)
+            {
+                item.gameObject.transform.localPosition = Vector3.zero;
+            }
+
+        }
         private void SetCurrentLevelIndex()
         {
             currentLevelIndex = gameCategoryDataManager.GetCompletedLevel;
@@ -183,6 +192,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnTreeComplete -= this.OnTreeComplete;
             GameManager.Instance.OnLevelWin -= IncrementLevel;
             GameManager.Instance.OnLevelWin -= DestroyTree;
+            GameManager.Instance.OnLevelWin -= ResetFamilyMemberPosition;
         }
         /*private void ActivateHint2(DragScript currentDraggable, DropController correctDropBox) { 
 

@@ -21,8 +21,7 @@ namespace TMKOC.FamilyTree
         void Start()
         {
             originalPosition = transform.position;
-            isOnTree = false;
-            this.enabled = false;
+            GameManager.Instance.OnLevelWin += ResetTouchData;
         }
         void Update()
         {
@@ -101,6 +100,13 @@ namespace TMKOC.FamilyTree
             Vector3 touchWorldPos = GetTouchWorldPosition(touchIndex);
             transform.position = touchWorldPos + offset;
         }
+        private void ResetTouchData()
+        {
+            touchIndex = -1;
+            isOnTree = false;
+            isBeingDragged = false;
+            this.enabled = false;
+        }
         private Vector3 GetTouchWorldPosition(int touchID)
         {
             Vector3 touchPos = Input.GetTouch(touchID).position;
@@ -117,6 +123,10 @@ namespace TMKOC.FamilyTree
                 DropController.canCheck = true;
                 GameManager.Instance.LevelManager.StartHint();
             });
+        }
+        private void OnDestroy()
+        {
+            GameManager.Instance.OnLevelWin -= ResetTouchData;
         }
     }
 }

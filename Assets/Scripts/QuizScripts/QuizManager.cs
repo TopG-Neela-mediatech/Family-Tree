@@ -24,6 +24,7 @@ namespace TMKOC.FamilyTree
             quizParent.SetActive(false);
             questionNumber = 0;
             GameManager.Instance.OnTreeComplete += StartCurrentQuiz;
+            GameManager.Instance.OnLevelWin += () => quizParent.SetActive(false);
         }
         private void StartCurrentQuiz()
         {
@@ -49,13 +50,13 @@ namespace TMKOC.FamilyTree
         }
         private void LoadNextQuestion()
         {
-           StartCoroutine(LoadNextQuestionAfterDelay());                
+            StartCoroutine(LoadNextQuestionAfterDelay());
         }
         private IEnumerator LoadNextQuestionAfterDelay()
-        { 
+        {
             yield return new WaitForSeconds(2f);
             questionNumber++;
-            if(questionNumber > 2)
+            if (questionNumber > 2)
             {
                 GameManager.Instance.InvokeLevelWin();
                 questionNumber = 0;
@@ -128,6 +129,7 @@ namespace TMKOC.FamilyTree
         private void OnDestroy()
         {
             GameManager.Instance.OnTreeComplete -= StartCurrentQuiz;
+            GameManager.Instance.OnLevelWin += () => quizParent.SetActive(false);
         }
     }
     [System.Serializable]
