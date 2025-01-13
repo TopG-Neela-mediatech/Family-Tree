@@ -11,21 +11,30 @@ namespace TMKOC.FamilyTree
     {
         [SerializeField] private GameObject winPanel;
         [SerializeField] private Button nextButton;
+        [SerializeField] private Button restartButton;
         [SerializeField] private Button playSchoolBackButton;
-        
+        [SerializeField] private GameObject endPanel;
 
         private void Start()
         {
             GameManager.Instance.OnLevelWin += EnableWinPanel;
+            GameManager.Instance.OnLevelStart += DisableUIPanels;
             GameManager.Instance.OnGameEnd += EnableFinalWinPanel;
             playSchoolBackButton.onClick.AddListener(() => SceneManager.LoadScene(TMKOCPlaySchoolConstants.TMKOCPlayMainMenu));
             nextButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
+            restartButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
         }
+    
 
 
         private void EnableWinPanel() => StartCoroutine(EnableWinPanelAfterDelay());
-       
 
+
+        private void DisableUIPanels()
+        {
+            winPanel.SetActive(false);
+            endPanel.SetActive(false);
+        }
         private void EnableFinalWinPanel()
         {
             winPanel.SetActive(false);
@@ -34,7 +43,7 @@ namespace TMKOC.FamilyTree
                     GameOverEndPanel.Instance.AddTheListnerRetryGame(GameManager.Instance.LevelManager.LoadNextLevel);
 #else
             //Your testing End panel
-            AllEndPanel.Instance.PopUpEndPanel();
+            endPanel.SetActive(true);
 #endif
         }
         private IEnumerator EnableWinPanelAfterDelay()
@@ -46,6 +55,7 @@ namespace TMKOC.FamilyTree
         {
             GameManager.Instance.OnLevelWin -= EnableWinPanel;
             GameManager.Instance.OnGameEnd -= EnableFinalWinPanel;
+            GameManager.Instance.OnLevelStart -= DisableUIPanels;
         }
     }
 }
