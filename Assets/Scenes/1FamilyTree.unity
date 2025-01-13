@@ -2833,7 +2833,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   familyMemberParentTransform: {fileID: 1347927944}
   treeParentTransform: {fileID: 1600659692}
-  infoAreaTransform: {fileID: 1154160531}
 --- !u!1 &1154160530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,7 +3739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.650813, g: 0.33161268, b: 0.8679245, a: 1}
+  m_Color: {r: 0.42475083, g: 0.4383974, b: 0.7830189, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
