@@ -8,6 +8,7 @@ namespace TMKOC.FamilyTree
 {
     public class LevelManager : MonoBehaviour
     {
+        [SerializeField] private GameObject levelMain;
         [SerializeField] private Transform treeParent;
         [SerializeField] private Transform familyMemeberParent;
         [SerializeField] private LevelSO[] levels;
@@ -22,6 +23,7 @@ namespace TMKOC.FamilyTree
         private int currentActiveMemberIndex;
         private DragScript currentActiveMember;
         private int attempts;
+
 
         public Vector3 GetDragPosition() => currentActiveMember.transform.localPosition;
         public Transform GetDropTransform() => currenttreeController.GetDropController(currentActiveMember.value).transform;
@@ -48,6 +50,11 @@ namespace TMKOC.FamilyTree
             currentActiveMemberIndex = -1;//increment first to acess the first member
             SetLevelData();
             attempts = 3;
+            GameManager.Instance.OnTreeComplete += this.OnTreeComplete;
+        }
+        private void OnTreeComplete()
+        {
+            levelMain.SetActive(false);
         }
         private void SetLevelData()
         {
@@ -100,21 +107,7 @@ namespace TMKOC.FamilyTree
                 ActivateHint(currentActiveMember, correctDropBox);
                 attempts = 3;//Resetting attempt counter;
             }
-        }
-        /*private void ActivateHint2(DragScript currentDraggable, DropController correctDropBox) { 
-
-            currentDraggable.enabled = false;
-            correctDropBox.DisableChecking();
-           
-            currentDraggable.transform.SetParent(currenttreeController.transform);//use tree controller as parent as another level in heirarchy is added
-            currentDraggable.transform.DOLocalMove(correctDropBox.transform.localPosition, 1f).OnComplete(() =>
-            {
-                currentDraggable.transform.SetParent(familyMemeberParent);
-                DropController.canCheck = true;
-                EnableNextMember();
-                attempts = 3;
-            });
-        }*/
+        }        
         private void DisableFamilyMembers()
         {
             foreach (var item in familyMembers)
@@ -152,6 +145,24 @@ namespace TMKOC.FamilyTree
                 yield return new WaitForSeconds(typingSpeed);
             }
         }
+        private void OnDestroy()
+        {
+            GameManager.Instance.OnTreeComplete -= this.OnTreeComplete;
+        }
+        /*private void ActivateHint2(DragScript currentDraggable, DropController correctDropBox) { 
+
+            currentDraggable.enabled = false;
+            correctDropBox.DisableChecking();
+           
+            currentDraggable.transform.SetParent(currenttreeController.transform);//use tree controller as parent as another level in heirarchy is added
+            currentDraggable.transform.DOLocalMove(correctDropBox.transform.localPosition, 1f).OnComplete(() =>
+            {
+                currentDraggable.transform.SetParent(familyMemeberParent);
+                DropController.canCheck = true;
+                EnableNextMember();
+                attempts = 3;
+            });
+        }*/
         /* private void SetRevealedMemberData()
          {
              if (currenttreeController != null)

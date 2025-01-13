@@ -6,9 +6,9 @@ namespace TMKOC.FamilyTree
     public class QuizButtonManager : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI optionText;
-        private int value;
+        public int value { get; private set; }
 
-        public void SetData(int val,string optionText)
+        public void SetData(int val, string optionText)
         {
             value = val;
             this.optionText.text = optionText;

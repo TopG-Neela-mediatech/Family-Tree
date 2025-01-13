@@ -13,15 +13,27 @@ MonoBehaviour:
   m_Name: FirstQuiz
   m_EditorClassIdentifier: 
   quizSet:
-  - question: Who Is Bhaskar's Father
+  - question: Jenny Is Dave's ?
     options:
-    - name: Chetan
+    - name: Wife
       value: 1
-    - name: Yash
+    - name: Daughter
       value: 2
-    - name: Bhushan
+    - name: Son
       value: 3
-  - question: 
-    options: []
-  - question: 
-    options: []
+  - question: Dave is Tom's ?
+    options:
+    - name: Mother
+      value: 0
+    - name: Father
+      value: 1
+    - name: Brother
+      value: 2
+  - question: Tom is Lucy's ?
+    options:
+    - name: Father
+      value: 3
+    - name: Sister
+      value: 0
+    - name: Brother
+      value: 1

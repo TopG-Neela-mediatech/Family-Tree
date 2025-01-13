@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace TMKOC.FamilyTree
@@ -9,15 +11,22 @@ namespace TMKOC.FamilyTree
         [SerializeField] private QuizSO[] quizzes;
         [SerializeField] private GameObject quizParent;
         [SerializeField] private TextMeshProUGUI questionText;
-        [SerializeField] private QuizButtonManager[] quizButtons;
+        [SerializeField] private ButtonData[] quizButtons;
         private int levelIndex;
         private int questionNumber;
+        private const int correctOption = 1;//correct answer always one
+        public event Action OnOptionSelected;
 
 
         private void Start()
         {
-            //quizParent.SetActive(false);
+            quizParent.SetActive(false);
             questionNumber = 0;
+            GameManager.Instance.OnTreeComplete += StartCurrentQuiz;
+        }
+        private void StartCurrentQuiz()
+        {
+            quizParent.SetActive(true);
             StartQuiz();
         }
         private QuizSO GetQuizData()
@@ -51,6 +60,19 @@ namespace TMKOC.FamilyTree
                 Debug.Log("Quiz not Found");
             }
         }
+        private void CheckIfCorrect(int value)
+        {
+            int optionSelected = value;
+            if (optionSelected == correctOption)
+            {
+                Debug.Log("Correct");
+            }
+            else
+            {
+                Debug.Log("Incorrect");
+            }
+            OnOptionSelected?.Invoke();
+        }
         private void SetQuestion(QuizData currentQuizdata)
         {
             questionText.text = currentQuizdata.question;
@@ -61,8 +83,20 @@ namespace TMKOC.FamilyTree
             {
                 int value = currentQuizdata.options[i].value;
                 string name = currentQuizdata.options[i].name;
-                quizButtons[i].SetData(value, name);
+                quizButtons[i].buttonManager.SetData(value, name);
+                quizButtons[i].QuizButton.onClick.RemoveAllListeners();
+                quizButtons[i].QuizButton.onClick.AddListener(() => CheckIfCorrect(value));
             }
         }
+        private void OnDestroy()
+        {
+            GameManager.Instance.OnTreeComplete -= StartCurrentQuiz;
+        }
+    }
+    [System.Serializable]
+    public class ButtonData
+    {
+        public QuizButtonManager buttonManager;
+        public Button QuizButton;
     }
 }

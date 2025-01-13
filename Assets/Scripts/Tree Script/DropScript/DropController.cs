@@ -7,11 +7,11 @@ namespace TMKOC.FamilyTree
 {
     public class DropController : MonoBehaviour
     {
-        [SerializeField] private int value;       
+        [SerializeField] private int value;
         [SerializeField] private TextMeshProUGUI dataText;
         [SerializeField] private Collider2D col;
-        public static bool canCheck;       
-        private bool isEmpty;      
+        public static bool canCheck;
+        private bool isEmpty;
 
 
         public int GetValue() => value;
@@ -20,14 +20,8 @@ namespace TMKOC.FamilyTree
         private void Start()
         {
             canCheck = true;
-            isEmpty = true;           
+            isEmpty = true;
         }
-       /* public void SetRevealedData(Sprite sprite, string data)
-        {
-            displaySprite.sprite = sprite;
-            dataText.text = data;
-            NormalizeRenderer();
-        }*/       
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent<DragScript>(out DragScript familyMember))
@@ -46,7 +40,7 @@ namespace TMKOC.FamilyTree
                             GameManager.Instance.LevelManager.EnableNextMember();
                         }
                         else
-                        {                          
+                        {
                             familyMember.ReturnToOriginalPosition();
                             isEmpty = true;
                             GameManager.Instance.LevelManager.ReduceAttempts();
@@ -55,11 +49,19 @@ namespace TMKOC.FamilyTree
                 }
             }
         }
-        public void DisableChecking()
+
+    }
+}
+/* public void SetRevealedData(Sprite sprite, string data)
+       {
+           displaySprite.sprite = sprite;
+           dataText.text = data;
+           NormalizeRenderer();
+       }
+*/
+/*public void DisableChecking()
         {
             this.isEmpty = false;
             canCheck = false;
             this.col.enabled = false;
-        }
-    }
-}
+        }*/
