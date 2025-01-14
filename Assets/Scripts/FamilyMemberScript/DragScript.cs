@@ -115,6 +115,7 @@ namespace TMKOC.FamilyTree
         }
         public void ReturnToOriginalPosition()
         {
+            DropController.canCheck = false;
             this.transform.DOMove(originalPosition, 0.3f).OnComplete(() =>
             {
                 isOnTree = false;
