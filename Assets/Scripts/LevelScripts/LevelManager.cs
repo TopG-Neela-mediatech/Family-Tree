@@ -17,6 +17,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private DragScript[] familyMembers;
         [SerializeField] private TextMeshProUGUI hintText;
         [SerializeField] private float typingSpeed = 0.3f;
+        [SerializeField] private Transform infoAreaTransform;
         private TreeController currenttreeController;
         private GameCategoryDataManager gameCategoryDataManager;
         private UpdateCategoryApiManager updateCategoryApiManager;
@@ -50,6 +51,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin += IncrementLevel;
             GameManager.Instance.OnLevelWin += DestroyTree;
             GameManager.Instance.OnLevelWin += ResetFamilyMemberPosition;
+            GameManager.Instance.OnLevelStart += LevelStartAnimation;
             SetLevelData();
         }
         private void ResetData()
@@ -82,10 +84,19 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.InvokeLevelStart();
             //SetRevealedMemberData();
         }
+        private void LevelStartAnimation()
+        {
+            AnimateInfoArea();
+        }
+        private void AnimateInfoArea()
+        {
+            infoAreaTransform.DOLocalMoveX(-Screen.width, 0f);
+            infoAreaTransform.DOLocalMoveX(100f, 0.5f);//hard coded
+        }
         private void SetTree()
         {
-            GameObject Tree = Instantiate(levels[currentLevelIndex].treeObject.gameObject, treeParent);
-            currenttreeController = Tree.GetComponent<TreeController>();
+            GameObject tree = Instantiate(levels[currentLevelIndex].treeObject.gameObject, treeParent);
+            currenttreeController = tree.GetComponent<TreeController>();
         }
         private void SetFamilyMember()
         {
@@ -196,6 +207,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin -= IncrementLevel;
             GameManager.Instance.OnLevelWin -= DestroyTree;
             GameManager.Instance.OnLevelWin -= ResetFamilyMemberPosition;
+            GameManager.Instance.OnLevelStart -= LevelStartAnimation;
         }
         /*private void ActivateHint2(DragScript currentDraggable, DropController correctDropBox) { 
 
