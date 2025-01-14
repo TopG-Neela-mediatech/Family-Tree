@@ -15,13 +15,14 @@ namespace TMKOC.FamilyTree
 
 
         public int GetValue() => value;
+        public void EnableCollider()=>col.enabled = true;
 
 
         private void Start()
         {
             canCheck = true;
             isEmpty = true;
-        }
+        }       
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent<DragScript>(out DragScript familyMember))
@@ -42,8 +43,7 @@ namespace TMKOC.FamilyTree
                         else
                         {
                             familyMember.ReturnToOriginalPosition();
-                            isEmpty = true;
-                            GameManager.Instance.LevelManager.ReduceAttempts();
+                            isEmpty = true;                            
                         }
                     });
                 }

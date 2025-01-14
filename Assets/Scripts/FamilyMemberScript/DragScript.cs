@@ -120,7 +120,7 @@ namespace TMKOC.FamilyTree
                 isOnTree = false;
                 isBeingDragged = false;
                 touchIndex = -1;
-                DropController.canCheck = true;
+                DropController.canCheck = true;            
                 GameManager.Instance.LevelManager.StartHint();
             });
         }

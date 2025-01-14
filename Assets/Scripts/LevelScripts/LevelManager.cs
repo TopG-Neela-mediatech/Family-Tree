@@ -28,7 +28,6 @@ namespace TMKOC.FamilyTree
 
         public Vector3 GetDragPosition() => currentActiveMember.transform.localPosition;
         public Transform GetDropTransform() => currenttreeController.GetDropController(currentActiveMember.value).transform;
-        public void ReduceAttempts() => attempts--;
         private void ActivateHint(DragScript currentDraggable, DropController correctDropBox) =>
             GameManager.Instance.HandManager.StartHandTutorial(currentDraggable.transform.localPosition, correctDropBox.transform);
 
@@ -113,9 +112,12 @@ namespace TMKOC.FamilyTree
                 familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 1f).OnComplete(() =>
                 {
                     familyMembers[currentActiveMemberIndex].enabled = true;//on member spawning complete
+                    DropController dc = currenttreeController.GetDropController(currentActiveMember.value);
+                    EnableCorrectDropZone(dc);//enabling the correct drop zone rest all disabled
                 });
             });
         }
+        private void EnableCorrectDropZone(DropController dropController) => dropController.EnableCollider();
         private void IncrementLevel()
         {
             currentLevelIndex++;
@@ -135,6 +137,7 @@ namespace TMKOC.FamilyTree
         }
         public void StartHint()
         {
+            attempts--;
             if (attempts <= 0)
             {
                 DropController correctDropBox = currenttreeController.GetDropController(currentActiveMember.value);
