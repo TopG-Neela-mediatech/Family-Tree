@@ -33,6 +33,8 @@ namespace TMKOC.FamilyTree
         public Transform GetDropTransform() => currenttreeController.GetDropController(currentActiveMember.value).transform;
         private void ActivateHint(DragScript currentDraggable, DropController correctDropBox) =>
             GameManager.Instance.HandManager.StartHandTutorial(currentDraggable.transform.localPosition, correctDropBox.transform);
+        private void DestroyTree() => Destroy(currenttreeController.gameObject);
+        private void EnableCorrectDropZone(DropController dropController) => dropController.EnableCollider();
 
 
         private void Awake()
@@ -73,11 +75,6 @@ namespace TMKOC.FamilyTree
             levelUIMain.SetActive(false);
             infoAreaParent.SetActive(false);
         }
-
-
-        private void DestroyTree() => Destroy(currenttreeController.gameObject);
-
-
         private void SetLevelData()
         {
             ResetData();
@@ -132,7 +129,6 @@ namespace TMKOC.FamilyTree
                 });
             });
         }
-        private void EnableCorrectDropZone(DropController dropController) => dropController.EnableCollider();
         private void IncrementLevel()
         {
             currentLevelIndex++;
@@ -165,7 +161,7 @@ namespace TMKOC.FamilyTree
         }
         private IEnumerator TreeEndAnimation()
         {
-            confettiPrefab.SetActive(true);                     
+            confettiPrefab.SetActive(true);
             yield return new WaitForSeconds(3f);
             GameManager.Instance.InvokeTreeComplete();
             confettiPrefab.SetActive(false);
@@ -204,13 +200,11 @@ namespace TMKOC.FamilyTree
                 hintText.text += fullText[i];
                 if (fullText[i] == '.')
                 {
-                    // Add a new line after the full stop
                     hintText.text += "\n";
                 }
                 if (i == fullText.Length - 1)
                 {
                     familyMembers[currentActiveMemberIndex].enabled = true;
-
                 }
                 yield return new WaitForSeconds(typingSpeed);
             }
@@ -223,31 +217,32 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin -= ResetFamilyMemberPosition;
             GameManager.Instance.OnLevelStart -= LevelStartAnimation;
         }
-        /*private void ActivateHint2(DragScript currentDraggable, DropController correctDropBox) { 
 
-            currentDraggable.enabled = false;
-            correctDropBox.DisableChecking();
-           
-            currentDraggable.transform.SetParent(currenttreeController.transform);//use tree controller as parent as another level in heirarchy is added
-            currentDraggable.transform.DOLocalMove(correctDropBox.transform.localPosition, 1f).OnComplete(() =>
-            {
-                currentDraggable.transform.SetParent(familyMemeberParent);
-                DropController.canCheck = true;
-                EnableNextMember();
-                attempts = 3;
-            });
-        }*/
-        /* private void SetRevealedMemberData()
-         {
-             if (currenttreeController != null)
-             {
-                 foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
-                 {
-                     DropController dc = currenttreeController.GetDropController(revealedMember.Key);
-                     dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
-                     dc.enabled = false;//setting trigger of drop zone false hopefully
-                 }
-             }
-         }*/
     }
 }
+/*private void ActivateHint2(DragScript currentDraggable, DropController correctDropBox) { 
+
+           currentDraggable.enabled = false;
+           correctDropBox.DisableChecking();
+
+           currentDraggable.transform.SetParent(currenttreeController.transform);//use tree controller as parent as another level in heirarchy is added
+           currentDraggable.transform.DOLocalMove(correctDropBox.transform.localPosition, 1f).OnComplete(() =>
+           {
+               currentDraggable.transform.SetParent(familyMemeberParent);
+               DropController.canCheck = true;
+               EnableNextMember();
+               attempts = 3;
+           });
+       }*/
+/* private void SetRevealedMemberData()
+ {
+     if (currenttreeController != null)
+     {
+         foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
+         {
+             DropController dc = currenttreeController.GetDropController(revealedMember.Key);
+             dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
+             dc.enabled = false;//setting trigger of drop zone false hopefully
+         }
+     }
+ }*/
