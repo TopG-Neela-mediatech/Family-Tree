@@ -10,6 +10,7 @@ namespace TMKOC.FamilyTree
         private Vector3 startPoint;
         private float inputTimer;
         private float inputTimeout = 5f;
+        public bool isPlaying { get; private set; }
 
 
         private void Start()
@@ -18,6 +19,7 @@ namespace TMKOC.FamilyTree
             this.enabled = false;
             GameManager.Instance.OnLevelStart += () => this.enabled = true;
             GameManager.Instance.OnTreeComplete += () => this.enabled = false;
+            GameManager.Instance.OnLevelStart += () => isPlaying = false;
         }
         private void Update()
         {
@@ -29,29 +31,36 @@ namespace TMKOC.FamilyTree
         }
         private void StartHandTutorialOnIdle(Vector3 posi1, Transform p2)
         {
-            if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
+            if (!isPlaying)
             {
-                inputTimer = 0f;
-            }
-            else
-            {
-                inputTimer += Time.deltaTime;
-                if (inputTimer >= inputTimeout)
+                if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
                 {
                     inputTimer = 0f;
-                    StartHandTutorial(posi1, p2);
+                }
+                else
+                {
+                    inputTimer += Time.deltaTime;
+                    if (inputTimer >= inputTimeout)
+                    {
+                        inputTimer = 0f;
+                        StartHandTutorial(posi1, p2);
+                    }
                 }
             }
         }
         public void StartHandTutorial(Vector3 pos1, Transform pos2)
         {
+            isPlaying = true;
             handTransform.DOLocalMove(pos1, 1.25f).OnComplete(() =>
             {
                 handTransform.SetParent(pos2);
                 handTransform.DOLocalMove(pos2.position, 1.25f).OnComplete(() =>
                 {
                     handTransform.SetParent(parentT);
-                    handTransform.DOLocalMove(startPoint, 0f);
+                    handTransform.DOLocalMove(startPoint, 0f).OnComplete(() =>
+                    {
+                        isPlaying = false;
+                    });
                 });
             });
         }
@@ -59,6 +68,7 @@ namespace TMKOC.FamilyTree
         {
             GameManager.Instance.OnLevelStart -= () => this.enabled = true;
             GameManager.Instance.OnTreeComplete -= () => this.enabled = false;
+            GameManager.Instance.OnLevelStart -= () => isPlaying = false;
         }
     }
 }

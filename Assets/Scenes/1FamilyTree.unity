@@ -380,7 +380,7 @@ MonoBehaviour:
   - {fileID: 1744382721}
   - {fileID: 375085794}
   hintText: {fileID: 1564066110}
-  typingSpeed: 0.05
+  typingSpeed: 0.07
   infoAreaTransform: {fileID: 1154160531}
 --- !u!1 &57562206
 GameObject:

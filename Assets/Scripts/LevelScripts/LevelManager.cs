@@ -18,6 +18,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private TextMeshProUGUI hintText;
         [SerializeField] private float typingSpeed = 0.3f;
         [SerializeField] private Transform infoAreaTransform;
+        [SerializeField] private GameObject confettiPrefab;
         private TreeController currenttreeController;
         private GameCategoryDataManager gameCategoryDataManager;
         private UpdateCategoryApiManager updateCategoryApiManager;
@@ -111,11 +112,11 @@ namespace TMKOC.FamilyTree
         {
             if (currentActiveMemberIndex == levels[currentLevelIndex].memberCount - 1)
             {
-                GameManager.Instance.InvokeTreeComplete();//tree complete here
+                TreeEndAnimation();//tree complete here
                 return;
             }
             currentActiveMemberIndex++;
-            currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;
+            currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;         
             StartCoroutine(SetHintText());//text animation here
             familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f).OnComplete(() =>
             {
@@ -152,9 +153,20 @@ namespace TMKOC.FamilyTree
             if (attempts <= 0)
             {
                 DropController correctDropBox = currenttreeController.GetDropController(currentActiveMember.value);
-                ActivateHint(currentActiveMember, correctDropBox);
-                attempts = 3;//Resetting attempt counter;
+                if (!GameManager.Instance.HandManager.isPlaying)
+                {
+                    ActivateHint(currentActiveMember, correctDropBox);
+                    attempts = 3;//Resetting attempt counter;
+                }
             }
+        }
+        private void TreeEndAnimation()
+        {
+            confettiPrefab.SetActive(true);
+            treeParent.DOPunchPosition(new Vector3(0.3f, 0.3f, 0.3f), 1f).OnComplete(() =>
+            {
+                GameManager.Instance.InvokeTreeComplete();
+            });
         }
         private void DisableFamilyMembers()
         {
