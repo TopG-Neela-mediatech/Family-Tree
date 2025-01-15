@@ -118,7 +118,7 @@ namespace TMKOC.FamilyTree
             familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f).OnComplete(() =>
             {
                 familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
-                familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 1f).OnComplete(() =>
+                familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 2f).OnComplete(() =>
                 {
                     familyMembers[currentActiveMemberIndex].enabled = true;//on member spawning complete
                     DropController dc = currenttreeController.GetDropController(currentActiveMember.value);
