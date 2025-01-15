@@ -355,6 +355,7 @@ MonoBehaviour:
   infoAreaTransform: {fileID: 1154160531}
   confettiPrefab: {fileID: 1514944025}
   infoAreaParent: {fileID: 1145629906}
+  leavesEffect: {fileID: 1149647936}
 --- !u!1 &67920945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,7 +2157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2439457757366961244, guid: 0763cd4b58f5cd2488bba86e8a2ae714, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5389817497255133611, guid: 0763cd4b58f5cd2488bba86e8a2ae714, type: 3}
       propertyPath: m_LocalScale.x
@@ -2304,6 +2305,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1149647936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2439457757366961244, guid: 0763cd4b58f5cd2488bba86e8a2ae714, type: 3}
+  m_PrefabInstance: {fileID: 1112510727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1153449197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,7 +2495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1377589087
 Transform:
   m_ObjectHideFlags: 0

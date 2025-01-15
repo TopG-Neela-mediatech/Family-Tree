@@ -20,6 +20,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Transform infoAreaTransform;
         [SerializeField] private GameObject confettiPrefab;
         [SerializeField] private GameObject infoAreaParent;
+        [SerializeField] private GameObject leavesEffect;
         private TreeController currenttreeController;
         private GameCategoryDataManager gameCategoryDataManager;
         private UpdateCategoryApiManager updateCategoryApiManager;
@@ -69,12 +70,14 @@ namespace TMKOC.FamilyTree
             levelUIMain.SetActive(true);
             levelMain.SetActive(true);
             infoAreaParent.SetActive(true);
+            leavesEffect.SetActive(true);
         }
         private void OnTreeComplete()
         {
             levelMain.SetActive(false);
             levelUIMain.SetActive(false);
             infoAreaParent.SetActive(false);
+            leavesEffect.SetActive(false);
         }
         private void SetLevelData()
         {
