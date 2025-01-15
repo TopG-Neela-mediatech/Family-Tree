@@ -35,6 +35,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.HandManager.StartHandTutorial(currentDraggable.transform.localPosition, correctDropBox.transform);
         private void DestroyTree() => Destroy(currenttreeController.gameObject);
         private void EnableCorrectDropZone(DropController dropController) => dropController.EnableCollider();
+        private void LevelStartAnimation() => AnimateInfoArea();
 
 
         private void Awake()
@@ -84,10 +85,6 @@ namespace TMKOC.FamilyTree
             SetFamilyMember();
             GameManager.Instance.InvokeLevelStart();
             //SetRevealedMemberData();
-        }
-        private void LevelStartAnimation()
-        {
-            AnimateInfoArea();
         }
         private void AnimateInfoArea()
         {
