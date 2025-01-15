@@ -162,9 +162,7 @@ namespace TMKOC.FamilyTree
         }
         private IEnumerator TreeEndAnimation()
         {
-            confettiPrefab.SetActive(true);           
-            treeParent.DOPunchScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f, 1);
-            familyMemeberParent.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.5f, 1);
+            confettiPrefab.SetActive(true);                     
             yield return new WaitForSeconds(3f);
             GameManager.Instance.InvokeTreeComplete();
             confettiPrefab.SetActive(false);
