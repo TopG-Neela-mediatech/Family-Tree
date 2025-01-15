@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using TMPro;
@@ -9,6 +10,9 @@ namespace TMKOC.FamilyTree
 {
     public class QuizManager : MonoBehaviour
     {
+        [SerializeField] private Transform questionParent;
+        [SerializeField] private Transform optionParent;
+        [SerializeField] private Image treeImage;
         [SerializeField] private QuizSO[] quizzes;
         [SerializeField] private GameObject quizParent;
         [SerializeField] private TextMeshProUGUI questionText;
@@ -52,6 +56,24 @@ namespace TMKOC.FamilyTree
         {
             StartCoroutine(LoadNextQuestionAfterDelay());
         }
+        private void QuizStartAnimation()
+        {
+            questionParent.DOLocalMoveX(Screen.width, 0f).OnComplete(() =>
+            {
+                questionParent.DOLocalMoveX(0f, 0.5f);
+            });
+            optionParent.DOLocalMoveX(-Screen.width, 0f).OnComplete(() =>
+            {
+                optionParent.DOLocalMoveX(0f, 0.5f);
+            });
+            treeImage.transform.DOLocalMoveY(Screen.height, 0f).OnComplete(() =>
+            {
+                treeImage.transform.DOLocalMoveY(0f, 0.75f).OnComplete(() =>
+                {
+                    EnableButtons();
+                });
+            });
+        }
         private IEnumerator LoadNextQuestionAfterDelay()
         {
             yield return new WaitForSeconds(2f);
@@ -86,7 +108,7 @@ namespace TMKOC.FamilyTree
                 QuizData currentQuizData = currentQuizSO.quizSet[questionNumber];
                 SetQuestion(currentQuizData);
                 SetOptions(currentQuizData);
-                EnableButtons();
+                QuizStartAnimation();
             }
             else
             {
@@ -98,17 +120,22 @@ namespace TMKOC.FamilyTree
             DisableButtons();
             int optionSelected = qbManager.value;
             if (optionSelected == correctOption)
-            {
-                Debug.Log("Correct");
+            {               
                 qbManager.EnableCorrectImage();
             }
             else
             {
-                Debug.Log("Incorrect");
+                QuizButtonManager correctQBManager = FindCorrectButtonManager(correctOption);
+                correctQBManager.EnableCorrectImage();
                 qbManager.EnableIncorrectImage();
             }
             LoadNextQuestion();
             //OnOptionSelected?.Invoke();
+        }
+        private QuizButtonManager FindCorrectButtonManager(int correct)
+        {
+            ButtonData bd = Array.Find(quizButtons, i => i.buttonManager.value==correct);
+            return bd.buttonManager;
         }
         private void SetQuestion(QuizData currentQuizdata)
         {

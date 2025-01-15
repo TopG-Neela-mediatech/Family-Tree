@@ -48,7 +48,7 @@ namespace TMKOC.FamilyTree
         }
         private IEnumerator EnableWinPanelAfterDelay()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0f);
             winPanel.SetActive(true);
         }
         private void OnDestroy()
