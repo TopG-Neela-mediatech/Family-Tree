@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -15,13 +16,13 @@ namespace TMKOC.FamilyTree
         private Vector3 offset;
         private bool isBeingDragged = false;
         private int touchIndex = -1;
-        public int value { get; private set; }
+        public int value { get; private set; }      
 
 
         void Start()
         {
             originalPosition = transform.position;
-            GameManager.Instance.OnLevelWin += ResetTouchData;
+            GameManager.Instance.OnLevelWin += ResetTouchData;          
         }
         void Update()
         {
@@ -59,6 +60,10 @@ namespace TMKOC.FamilyTree
                     touchIndex = -1;
                 }
             }
+        }
+        private void OnTreeCompleteAnimation()
+        {
+            this.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f, 1).SetLoops(3, LoopType.Restart);
         }
         public void SetData(Sprite sprite, string data, int key)
         {
@@ -127,7 +132,7 @@ namespace TMKOC.FamilyTree
         }
         private void OnDestroy()
         {
-            GameManager.Instance.OnLevelWin -= ResetTouchData;
+            GameManager.Instance.OnLevelWin -= ResetTouchData;           
         }
     }
 }

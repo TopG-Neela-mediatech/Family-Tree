@@ -112,7 +112,7 @@ namespace TMKOC.FamilyTree
         {
             if (currentActiveMemberIndex == levels[currentLevelIndex].memberCount - 1)
             {
-                TreeEndAnimation();//tree complete here
+                StartCoroutine(TreeEndAnimation());//tree complete here
                 return;
             }
             currentActiveMemberIndex++;
@@ -160,13 +160,14 @@ namespace TMKOC.FamilyTree
                 }
             }
         }
-        private void TreeEndAnimation()
+        private IEnumerator TreeEndAnimation()
         {
-            confettiPrefab.SetActive(true);
-            treeParent.DOPunchPosition(new Vector3(0.3f, 0.3f, 0.3f), 1f).OnComplete(() =>
-            {
-                GameManager.Instance.InvokeTreeComplete();
-            });
+            confettiPrefab.SetActive(true);           
+            treeParent.DOPunchScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f, 1);
+            familyMemeberParent.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.5f, 1);
+            yield return new WaitForSeconds(3f);
+            GameManager.Instance.InvokeTreeComplete();
+            confettiPrefab.SetActive(false);
         }
         private void DisableFamilyMembers()
         {
