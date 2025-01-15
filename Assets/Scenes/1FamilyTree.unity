@@ -354,6 +354,7 @@ MonoBehaviour:
   typingSpeed: 0.07
   infoAreaTransform: {fileID: 1154160531}
   confettiPrefab: {fileID: 1079258608}
+  infoAreaParent: {fileID: 1145629906}
 --- !u!1 &57562206
 GameObject:
   m_ObjectHideFlags: 0

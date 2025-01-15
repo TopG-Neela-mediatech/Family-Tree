@@ -19,6 +19,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private float typingSpeed = 0.3f;
         [SerializeField] private Transform infoAreaTransform;
         [SerializeField] private GameObject confettiPrefab;
+        [SerializeField] private GameObject infoAreaParent;
         private TreeController currenttreeController;
         private GameCategoryDataManager gameCategoryDataManager;
         private UpdateCategoryApiManager updateCategoryApiManager;
@@ -64,11 +65,13 @@ namespace TMKOC.FamilyTree
         {
             levelUIMain.SetActive(true);
             levelMain.SetActive(true);
+            infoAreaParent.SetActive(true);
         }
         private void OnTreeComplete()
         {
             levelMain.SetActive(false);
             levelUIMain.SetActive(false);
+            infoAreaParent.SetActive(false);
         }
 
 
