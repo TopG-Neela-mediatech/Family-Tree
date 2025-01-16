@@ -61,7 +61,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin += ResetFamilyMemberPosition;
             GameManager.Instance.OnLevelStart += LevelStartAnimation;
             GameManager.Instance.OnLevelWin += SetMemberScaleAndPosition;
-            currentLevelIndex = 2;
+            currentLevelIndex = 3;
             SetLevelData();
         }
         private void ResetData()
