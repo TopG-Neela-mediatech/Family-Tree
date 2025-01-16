@@ -343,6 +343,7 @@ MonoBehaviour:
   familyMemeberParent: {fileID: 1347927944}
   levels:
   - {fileID: 11400000, guid: 4ea09b91901570f4780287683610acb8, type: 2}
+  - {fileID: 11400000, guid: 13751cff70b32c1438d36e01023fefa7, type: 2}
   gameID: 2
   familyMembers:
   - {fileID: 1567991772}
@@ -1814,7 +1815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8405715, g: 0.6462264, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2355,7 +2356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   familyMemberParentTransform: {fileID: 1347927944}
-  treeParentTransform: {fileID: 1600659692}
 --- !u!1 &1154160530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,7 +2495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1377589087
 Transform:
   m_ObjectHideFlags: 0

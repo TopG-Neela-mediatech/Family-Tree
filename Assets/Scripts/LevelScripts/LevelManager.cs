@@ -58,6 +58,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin += DestroyTree;
             GameManager.Instance.OnLevelWin += ResetFamilyMemberPosition;
             GameManager.Instance.OnLevelStart += LevelStartAnimation;
+            currentLevelIndex = 1;
             SetLevelData();
         }
         private void ResetData()
@@ -86,8 +87,8 @@ namespace TMKOC.FamilyTree
             DisableFamilyMembers();
             SetTree();
             SetFamilyMember();
-            GameManager.Instance.InvokeLevelStart();
             //SetRevealedMemberData();
+            GameManager.Instance.InvokeLevelStart();
         }
         private void AnimateInfoArea()
         {
@@ -190,6 +191,18 @@ namespace TMKOC.FamilyTree
                 gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
             }
         }
+        /*private void SetRevealedMemberData()
+        {
+            if (currenttreeController != null)
+            {
+                foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
+                {
+                    DropController dc = currenttreeController.GetDropController(revealedMember.Key);
+                    dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
+                    dc.enabled = false;//setting trigger of drop zone false hopefully
+                }
+            }
+        }*/
         private IEnumerator SetHintText()
         {
             hintText.text = "";
@@ -233,16 +246,6 @@ namespace TMKOC.FamilyTree
                EnableNextMember();
                attempts = 3;
            });
-       }*/
-/* private void SetRevealedMemberData()
- {
-     if (currenttreeController != null)
-     {
-         foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
-         {
-             DropController dc = currenttreeController.GetDropController(revealedMember.Key);
-             dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
-             dc.enabled = false;//setting trigger of drop zone false hopefully
-         }
-     }
- }*/
+       }
+*/
+

@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace TMKOC.FamilyTree
@@ -10,6 +11,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private int value;
         [SerializeField] private TextMeshProUGUI dataText;
         [SerializeField] private Collider2D col;
+       // [SerializeField] private Image displaySprite;
         public static bool canCheck;
         private bool isEmpty;
 
@@ -22,7 +24,12 @@ namespace TMKOC.FamilyTree
         {
             canCheck = true;
             isEmpty = true;
-        }       
+        }
+        /*public void SetRevealedData(Sprite sprite, string data)
+        {
+            displaySprite.sprite = sprite;
+            dataText.text = data;
+        }*/
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent<DragScript>(out DragScript familyMember))
@@ -52,13 +59,8 @@ namespace TMKOC.FamilyTree
 
     }
 }
-/* public void SetRevealedData(Sprite sprite, string data)
-       {
-           displaySprite.sprite = sprite;
-           dataText.text = data;
-           NormalizeRenderer();
-       }
-*/
+ 
+
 /*public void DisableChecking()
         {
             this.isEmpty = false;
