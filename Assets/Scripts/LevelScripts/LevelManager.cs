@@ -21,6 +21,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private GameObject confettiPrefab;
         [SerializeField] private GameObject infoAreaParent;
         [SerializeField] private GameObject leavesEffect;
+        [SerializeField] private MemberPositionSetter memberPositionSetter;
         private TreeController currenttreeController;
         private GameCategoryDataManager gameCategoryDataManager;
         private UpdateCategoryApiManager updateCategoryApiManager;
@@ -49,7 +50,8 @@ namespace TMKOC.FamilyTree
             #endregion
             gameCategoryDataManager = new GameCategoryDataManager(gameID, PlayerPrefs.GetString("currentGameName", "a"));
             updateCategoryApiManager = new UpdateCategoryApiManager(gameID);
-            SetCurrentLevelIndex();
+            SetCurrentLevelIndex();  
+            SetMemberScaleAndPosition();
         }
         private void Start()
         {
@@ -65,6 +67,13 @@ namespace TMKOC.FamilyTree
         {
             currentActiveMemberIndex = -1;//increment first to acess the first member
             attempts = 3;
+        }
+        private void SetMemberScaleAndPosition()
+        {
+            foreach (var member in familyMembers)
+            {
+                memberPositionSetter.SetFamilyMemberPositionAndScale(member.transform);
+            }
         }
         private void EnableLevel()
         {
@@ -119,10 +128,11 @@ namespace TMKOC.FamilyTree
             currentActiveMemberIndex++;
             currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;         
             StartCoroutine(SetHintText());//text animation here
+            Vector3 actualScale = currentActiveMember.transform.localScale;
             familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f).OnComplete(() =>
             {
                 familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
-                familyMembers[currentActiveMemberIndex].transform.DOScale(1f, 2f).OnComplete(() =>
+                familyMembers[currentActiveMemberIndex].transform.DOScale(actualScale, 2f).OnComplete(() =>
                 {
                     familyMembers[currentActiveMemberIndex].enabled = true;//on member spawning complete
                     DropController dc = currenttreeController.GetDropController(currentActiveMember.value);
