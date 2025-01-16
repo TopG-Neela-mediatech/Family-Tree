@@ -15,14 +15,6 @@ MonoBehaviour:
   treeObject: {fileID: 9090969719089849808, guid: 6bbfaed80c2126743ba54ff6cc38e056, type: 3}
   memberCount: 4
   memberData:
-  - faceSprite: {fileID: 21300000, guid: bac475e114c41264fbddae18aa2013bc, type: 3}
-    Name: Dave
-    Description: Dave Is The Father
-    Key: 0
-  - faceSprite: {fileID: 21300000, guid: da8136ecc0d192e439445a8acc75a8ea, type: 3}
-    Name: Jenny
-    Description: Jenny Is The Mother
-    Key: 1
   - faceSprite: {fileID: 21300000, guid: bd3e64d2992d29840985db9576644d32, type: 3}
     Name: Lucy
     Description: Lucy Is The Daughter
@@ -31,3 +23,11 @@ MonoBehaviour:
     Name: Tom
     Description: Tom Is The Son
     Key: 3
+  - faceSprite: {fileID: 21300000, guid: bac475e114c41264fbddae18aa2013bc, type: 3}
+    Name: Dave
+    Description: Dave Is The Father
+    Key: 0
+  - faceSprite: {fileID: 21300000, guid: da8136ecc0d192e439445a8acc75a8ea, type: 3}
+    Name: Jenny
+    Description: Jenny Is The Mother
+    Key: 1

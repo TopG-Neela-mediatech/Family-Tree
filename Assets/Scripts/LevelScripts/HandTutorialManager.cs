@@ -15,7 +15,7 @@ namespace TMKOC.FamilyTree
 
         private void Start()
         {
-            startPoint = new Vector3(0, -4f, 0);
+            startPoint = new Vector3(0, -6f, 0);
             this.enabled = false;
             GameManager.Instance.OnLevelStart += () => this.enabled = true;
             GameManager.Instance.OnTreeComplete += () => this.enabled = false;
