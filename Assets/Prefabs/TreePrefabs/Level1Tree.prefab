@@ -54,7 +54,7 @@ MonoBehaviour:
   - {fileID: 8905049227704371295}
   - {fileID: 8295866190893436658}
   - {fileID: 8431918785393946294}
-  scale_mobile: {x: 0.95, y: 0.95, z: 0.95}
+  scale_mobile: {x: 0.9, y: 0.9, z: 0.9}
   scale_tablet: {x: 0.8, y: 0.8, z: 0.8}
   position_mobile: {x: 4, y: -0.5, z: 0}
   position_tablet: {x: 2.15, y: 0.5, z: 0}
@@ -458,7 +458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7097112099490827594, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.26
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 7097112099490827594, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -583,7 +583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7097112099490827594, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.35
+      value: 2.58
       objectReference: {fileID: 0}
     - target: {fileID: 7097112099490827594, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_LocalPosition.y
