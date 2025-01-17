@@ -156,7 +156,7 @@ namespace TMKOC.FamilyTree
         private void OnDestroy()
         {
             GameManager.Instance.UIManager.OnFullTreeShown -= StartCurrentQuiz;
-            GameManager.Instance.OnLevelWin += () => quizParent.SetActive(false);
+            GameManager.Instance.OnLevelWin -= () => quizParent.SetActive(false);
         }
     }
     [System.Serializable]
