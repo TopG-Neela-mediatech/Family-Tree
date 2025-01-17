@@ -62,6 +62,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelStart += LevelStartAnimation;
             GameManager.Instance.OnLevelWin += SetMemberScaleAndPosition;
             GameManager.Instance.OnLevelWin += () => attempts = 3;
+            GameManager.Instance.OnTreeComplete += () => infoAreaParent.SetActive(false);
             SetLevelData();
         }
         private void ResetData()
@@ -242,6 +243,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelStart -= LevelStartAnimation;
             GameManager.Instance.OnLevelWin -= SetMemberScaleAndPosition;
             GameManager.Instance.OnLevelWin -= () => attempts = 3;
+            GameManager.Instance.OnTreeComplete -= () => infoAreaParent.SetActive(false);
         }
 
     }
