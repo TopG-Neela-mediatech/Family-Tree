@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -14,22 +15,39 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Button restartButton;
         [SerializeField] private Button playSchoolBackButton;
         [SerializeField] private GameObject endPanel;
+        [SerializeField] private Image fullTreeImage;
+        public event Action OnFullTreeShown;
+
 
         private void Start()
         {
             GameManager.Instance.OnLevelWin += EnableWinPanel;
             GameManager.Instance.OnLevelStart += DisableUIPanels;
             GameManager.Instance.OnGameEnd += EnableFinalWinPanel;
+            GameManager.Instance.OnTreeComplete += ShowFullTree;
             playSchoolBackButton.onClick.AddListener(() => SceneManager.LoadScene(TMKOCPlaySchoolConstants.TMKOCPlayMainMenu));
             nextButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
             restartButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
+            fullTreeImage.enabled = false;
         }
-    
 
 
         private void EnableWinPanel() => StartCoroutine(EnableWinPanelAfterDelay());
+        private void ShowFullTree() => StartCoroutine(ShowFullTreeOnTreeComplete());
 
 
+        private IEnumerator ShowFullTreeOnTreeComplete()
+        {
+            fullTreeImage.transform.DOLocalMoveY(Screen.height, 0f);
+            fullTreeImage.enabled = true;
+            fullTreeImage.transform.DOLocalMoveY(0f, 1f);
+            yield return new WaitForSeconds(4f);
+            fullTreeImage.transform.DOLocalMoveY(Screen.height, 1f).OnComplete(() =>
+            {
+                fullTreeImage.enabled = false;
+                OnFullTreeShown?.Invoke();
+            });
+        }
         private void DisableUIPanels()
         {
             winPanel.SetActive(false);
@@ -56,6 +74,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin -= EnableWinPanel;
             GameManager.Instance.OnGameEnd -= EnableFinalWinPanel;
             GameManager.Instance.OnLevelStart -= DisableUIPanels;
+            GameManager.Instance.OnTreeComplete -= ShowFullTree;
         }
     }
 }

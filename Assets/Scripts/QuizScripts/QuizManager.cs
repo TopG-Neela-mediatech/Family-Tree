@@ -16,7 +16,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private QuizSO[] quizzes;
         [SerializeField] private GameObject quizParent;
         [SerializeField] private TextMeshProUGUI questionText;
-        [SerializeField] private ButtonData[] quizButtons;
+        [SerializeField] private ButtonData[] quizButtons;       
         private int levelIndex;
         private int questionNumber;
         private const int correctOption = 1;//correct answer always one
@@ -27,7 +27,7 @@ namespace TMKOC.FamilyTree
         {
             quizParent.SetActive(false);
             questionNumber = 0;
-            GameManager.Instance.OnTreeComplete += StartCurrentQuiz;
+            GameManager.Instance.UIManager.OnFullTreeShown += StartCurrentQuiz;
             GameManager.Instance.OnLevelWin += () => quizParent.SetActive(false);
         }
         private void StartCurrentQuiz()
@@ -155,7 +155,7 @@ namespace TMKOC.FamilyTree
         }
         private void OnDestroy()
         {
-            GameManager.Instance.OnTreeComplete -= StartCurrentQuiz;
+            GameManager.Instance.UIManager.OnFullTreeShown -= StartCurrentQuiz;
             GameManager.Instance.OnLevelWin += () => quizParent.SetActive(false);
         }
     }
