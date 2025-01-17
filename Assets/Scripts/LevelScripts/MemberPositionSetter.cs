@@ -13,14 +13,14 @@ namespace TMKOC.FamilyTree
 
         public void SetFamilyMemberPositionAndScale(Transform fMember)
         {
-            SetPositionAndScale(DetectAspectRatio(),fMember);
+            SetPositionAndScale(DetectAspectRatio(), fMember);
         }
         private float DetectAspectRatio()
         {
             float screenAspect = (float)Screen.width / (float)Screen.height;
             return screenAspect;
         }
-        private void SetPositionAndScale(float screenAspect,Transform familyMember)
+        private void SetPositionAndScale(float screenAspect, Transform familyMember)
         {
             if (screenAspect < 1.5f)
             {

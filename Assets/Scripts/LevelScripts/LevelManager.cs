@@ -60,7 +60,8 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin += DestroyTree;
             GameManager.Instance.OnLevelWin += ResetFamilyMemberPosition;
             GameManager.Instance.OnLevelStart += LevelStartAnimation;
-            GameManager.Instance.OnLevelWin += SetMemberScaleAndPosition;          
+            GameManager.Instance.OnLevelWin += SetMemberScaleAndPosition;
+            GameManager.Instance.OnLevelWin += () => attempts = 3;
             SetLevelData();
         }
         private void ResetData()
@@ -240,6 +241,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin -= ResetFamilyMemberPosition;
             GameManager.Instance.OnLevelStart -= LevelStartAnimation;
             GameManager.Instance.OnLevelWin -= SetMemberScaleAndPosition;
+            GameManager.Instance.OnLevelWin -= () => attempts = 3;
         }
 
     }
