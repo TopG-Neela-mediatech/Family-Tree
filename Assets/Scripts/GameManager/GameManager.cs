@@ -21,6 +21,7 @@ namespace TMKOC.FamilyTree
             {
                 Destroy(instance);
             }
+            Application.targetFrameRate = 60;
         }
 
 
