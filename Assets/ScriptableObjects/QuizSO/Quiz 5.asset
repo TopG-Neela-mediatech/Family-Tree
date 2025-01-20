@@ -37,3 +37,4 @@ MonoBehaviour:
       value: 0
     - name: Brother
       value: 1
+  hintSprite: {fileID: 21300000, guid: b52347991d6cce94a9f6029e7f19a6d3, type: 3}

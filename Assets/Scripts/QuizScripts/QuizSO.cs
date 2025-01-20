@@ -6,6 +6,7 @@ namespace TMKOC.FamilyTree
     public class QuizSO : ScriptableObject
     {
         public QuizData[] quizSet;
+        public Sprite hintSprite;
     }
     [System.Serializable]
     public class QuizData

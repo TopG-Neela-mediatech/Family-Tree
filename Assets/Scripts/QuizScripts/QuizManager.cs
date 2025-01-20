@@ -109,11 +109,16 @@ namespace TMKOC.FamilyTree
                 SetQuestion(currentQuizData);
                 SetOptions(currentQuizData);
                 QuizStartAnimation();
+                SetHintSprite(currentQuizSO.hintSprite);
             }
             else
             {
                 Debug.Log("Quiz not Found");
             }
+        }
+        private void SetHintSprite(Sprite sprite)
+        {
+            treeImage.sprite = sprite;
         }
         private void CheckIfCorrect(QuizButtonManager qbManager)
         {
