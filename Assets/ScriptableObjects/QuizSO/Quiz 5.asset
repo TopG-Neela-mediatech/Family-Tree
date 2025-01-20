@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quiz 5
   m_EditorClassIdentifier: 
   quizSet:
-  - question: Jenny Is Dave's ?
+  - question: Sarah Is Andrew's?
     options:
     - name: Wife
       value: 1
@@ -21,20 +21,20 @@ MonoBehaviour:
       value: 2
     - name: Son
       value: 3
-  - question: Dave is Tom's ?
+  - question: Tom Is Andew's?
     options:
-    - name: Mother
-      value: 0
-    - name: Father
+    - name: GrandSon
       value: 1
+    - name: Son
+      value: 2
     - name: Brother
       value: 2
-  - question: Tom is Lucy's ?
+  - question: Megan Is Andrew's?
     options:
-    - name: Father
-      value: 3
-    - name: Sister
-      value: 0
-    - name: Brother
+    - name: Daughter
       value: 1
+    - name: GrandDaughter
+      value: 0
+    - name: Wife
+      value: 2
   hintSprite: {fileID: 21300000, guid: b52347991d6cce94a9f6029e7f19a6d3, type: 3}

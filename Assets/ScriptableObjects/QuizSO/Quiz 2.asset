@@ -13,28 +13,28 @@ MonoBehaviour:
   m_Name: Quiz 2
   m_EditorClassIdentifier: 
   quizSet:
-  - question: Jenny Is Dave's ?
+  - question: Mary Is Lucy's ?
     options:
-    - name: Wife
-      value: 1
-    - name: Daughter
+    - name: Aunt
       value: 2
-    - name: Son
+    - name: Cousin
+      value: 1
+    - name: Uncle
       value: 3
-  - question: Dave is Tom's ?
+  - question: Lucy is John's?
     options:
-    - name: Mother
-      value: 0
-    - name: Father
+    - name: Niece
       value: 1
-    - name: Brother
+    - name: Aunt
       value: 2
-  - question: Tom is Lucy's ?
+    - name: Uncle
+      value: 3
+  - question: Lisa is Lucy's?
     options:
-    - name: Father
+    - name: Uncle
       value: 3
     - name: Sister
       value: 0
-    - name: Brother
+    - name: Aunt
       value: 1
   hintSprite: {fileID: 21300000, guid: 933207692162d0948865c759e78080db, type: 3}
