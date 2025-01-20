@@ -21,13 +21,13 @@ MonoBehaviour:
     Key: 2
   - faceSprite: {fileID: 21300000, guid: 11bed5475779def4598a808ff8a0cd39, type: 3}
     Name: Tom
-    Description: Tom Is The Son
+    Description: Tom Is The Son And Lucy's Brother
     Key: 3
   - faceSprite: {fileID: 21300000, guid: bac475e114c41264fbddae18aa2013bc, type: 3}
     Name: Dave
-    Description: Dave Is The Father
+    Description: Dave Is Lucy's And Tom's Father
     Key: 0
   - faceSprite: {fileID: 21300000, guid: da8136ecc0d192e439445a8acc75a8ea, type: 3}
     Name: Jenny
-    Description: Jenny Is The Mother
+    Description: Jenny Is Lucy's And Tom's Mother And Dave's Wife
     Key: 1

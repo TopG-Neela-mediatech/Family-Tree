@@ -17,9 +17,9 @@ MonoBehaviour:
   memberData:
   - faceSprite: {fileID: 21300000, guid: 8c5ecbdaacd4fcc44ac6eb867a73c94c, type: 3}
     Name: Robert
-    Description: Robert Is The Grand-Father
+    Description: Robert Is Lucy's Grand-Father And Dave's Father
     Key: 0
   - faceSprite: {fileID: 21300000, guid: b6547b8bf3b17b8439a3ccb9da74bb9c, type: 3}
     Name: Emily
-    Description: Emily Is The Grand Mother
+    Description: Emily Is Lucy's Grand-Mother And Dave's Mother
     Key: 1
