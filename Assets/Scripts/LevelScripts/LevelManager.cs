@@ -38,7 +38,7 @@ namespace TMKOC.FamilyTree
         private void DestroyTree() => Destroy(currenttreeController.gameObject);
         private void EnableCorrectDropZone(DropController dropController) => dropController.EnableCollider();
         private void LevelStartAnimation() => AnimateInfoArea();
-
+        public int GetLevelIndex()=>currentLevelIndex;
 
         private void Awake()
         {

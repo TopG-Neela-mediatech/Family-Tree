@@ -16,7 +16,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private QuizSO[] quizzes;
         [SerializeField] private GameObject quizParent;
         [SerializeField] private TextMeshProUGUI questionText;
-        [SerializeField] private ButtonData[] quizButtons;       
+        [SerializeField] private ButtonData[] quizButtons;
         private int levelIndex;
         private int questionNumber;
         private const int correctOption = 1;//correct answer always one
@@ -26,9 +26,11 @@ namespace TMKOC.FamilyTree
         private void Start()
         {
             quizParent.SetActive(false);
-            questionNumber = 0;
+            GameManager.Instance.OnLevelWin += () => questionNumber = 0;
             GameManager.Instance.UIManager.OnFullTreeShown += StartCurrentQuiz;
             GameManager.Instance.OnLevelWin += () => quizParent.SetActive(false);
+            GameManager.Instance.OnLevelStart += () => levelIndex = GameManager.Instance.LevelManager.GetLevelIndex();
+            questionNumber = 0;
         }
         private void StartCurrentQuiz()
         {
@@ -125,7 +127,7 @@ namespace TMKOC.FamilyTree
             DisableButtons();
             int optionSelected = qbManager.value;
             if (optionSelected == correctOption)
-            {               
+            {
                 qbManager.EnableCorrectImage();
             }
             else
@@ -139,7 +141,7 @@ namespace TMKOC.FamilyTree
         }
         private QuizButtonManager FindCorrectButtonManager(int correct)
         {
-            ButtonData bd = Array.Find(quizButtons, i => i.buttonManager.value==correct);
+            ButtonData bd = Array.Find(quizButtons, i => i.buttonManager.value == correct);
             return bd.buttonManager;
         }
         private void SetQuestion(QuizData currentQuizdata)
@@ -160,8 +162,10 @@ namespace TMKOC.FamilyTree
         }
         private void OnDestroy()
         {
+            GameManager.Instance.OnLevelWin -= () => questionNumber = 0;
             GameManager.Instance.UIManager.OnFullTreeShown -= StartCurrentQuiz;
             GameManager.Instance.OnLevelWin -= () => quizParent.SetActive(false);
+            GameManager.Instance.OnLevelStart -= () => levelIndex = GameManager.Instance.LevelManager.GetLevelIndex();
         }
     }
     [System.Serializable]
