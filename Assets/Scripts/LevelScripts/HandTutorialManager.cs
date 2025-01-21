@@ -9,7 +9,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Transform handTransform;
         private Vector3 startPoint;
         private float inputTimer;
-        private float inputTimeout = 5f;
+        private float inputTimeout = 10f;
         public bool isPlaying { get; private set; }
 
 

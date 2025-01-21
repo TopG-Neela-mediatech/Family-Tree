@@ -40,6 +40,7 @@ namespace TMKOC.FamilyTree
         private void LevelStartAnimation() => AnimateInfoArea();
         public int GetLevelIndex()=>currentLevelIndex;
 
+
         private void Awake()
         {
             #region GameID

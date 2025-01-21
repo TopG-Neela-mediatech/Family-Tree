@@ -29,7 +29,6 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin += () => questionNumber = 0;
             GameManager.Instance.UIManager.OnFullTreeShown += StartCurrentQuiz;
             GameManager.Instance.OnLevelWin += () => quizParent.SetActive(false);
-            GameManager.Instance.OnLevelStart += () => levelIndex = GameManager.Instance.LevelManager.GetLevelIndex();
             questionNumber = 0;
         }
         private void StartCurrentQuiz()
@@ -39,6 +38,7 @@ namespace TMKOC.FamilyTree
         }
         private QuizSO GetQuizData()
         {
+            levelIndex = GameManager.Instance.LevelManager.GetLevelIndex();
             switch (levelIndex)
             {
                 case 0:
@@ -165,7 +165,6 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin -= () => questionNumber = 0;
             GameManager.Instance.UIManager.OnFullTreeShown -= StartCurrentQuiz;
             GameManager.Instance.OnLevelWin -= () => quizParent.SetActive(false);
-            GameManager.Instance.OnLevelStart -= () => levelIndex = GameManager.Instance.LevelManager.GetLevelIndex();
         }
     }
     [System.Serializable]
