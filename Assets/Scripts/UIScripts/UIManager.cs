@@ -14,10 +14,12 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Button nextButton;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button playSchoolBackButton;
+        [SerializeField] private Button menuButton1;
         [SerializeField] private GameObject endPanel;
         [SerializeField] private Image fullTreeImage;
         [SerializeField] private GameObject SelectionScreenObject;
         public event Action OnFullTreeShown;
+        public event Action OnMenuPressed;
 
 
         private void Start()
@@ -30,6 +32,7 @@ namespace TMKOC.FamilyTree
             nextButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
             restartButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
             fullTreeImage.enabled = false;
+            menuButton1.onClick.AddListener(EnableSelectionScreen);
         }
 
 
@@ -49,10 +52,22 @@ namespace TMKOC.FamilyTree
                 OnFullTreeShown?.Invoke();
             });
         }
-
-
-        public void DisableSelectionScreen()=>SelectionScreenObject.SetActive(false);
-
+        public void DisableSelectionScreen() => StartCoroutine(DisableSelectionScreenAfterDelay());
+        private IEnumerator DisableSelectionScreenAfterDelay()
+        {
+            yield return new WaitForSeconds(1f);
+            SelectionScreenObject.SetActive(false);
+            playSchoolBackButton.gameObject.SetActive(false);
+            menuButton1.gameObject.SetActive(true);
+        }
+        public void EnableSelectionScreen()
+        {
+            OnMenuPressed?.Invoke();
+            SelectionScreenObject.SetActive(true);
+            playSchoolBackButton.gameObject.SetActive(true);
+            menuButton1.gameObject.SetActive(false);
+            GameManager.Instance.LevelManager.DisableLevel();
+        }
 
         private IEnumerator ShowFullTreeBeforeLevelStart()
         {

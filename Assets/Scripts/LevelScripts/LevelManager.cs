@@ -22,6 +22,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private GameObject infoAreaParent;
         [SerializeField] private GameObject leavesEffect;
         [SerializeField] private MemberPositionSetter memberPositionSetter;
+        private Vector3 familyMemberLocalPosition;
         private TreeController currenttreeController;
         private GameCategoryDataManager gameCategoryDataManager;
         private UpdateCategoryApiManager updateCategoryApiManager;
@@ -64,7 +65,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin += SetMemberScaleAndPosition;
             GameManager.Instance.OnLevelWin += () => attempts = 3;
             GameManager.Instance.OnTreeComplete += () => infoAreaParent.SetActive(false);
-            // SetLevelData();
+            familyMemberLocalPosition = familyMembers[0].transform.localPosition;
         }
         private void ResetData()
         {
@@ -85,6 +86,15 @@ namespace TMKOC.FamilyTree
             infoAreaParent.SetActive(true);
             leavesEffect.SetActive(true);
         }
+        public void DisableLevel()
+        {
+            levelUIMain.SetActive(false);
+            levelMain.SetActive(false);
+            infoAreaParent.SetActive(false);
+            leavesEffect.SetActive(false);
+            DestroyTree();
+            ResetFamilyMemberPosition();
+        }
         private void OnTreeComplete()
         {
             levelMain.SetActive(false);
@@ -94,10 +104,15 @@ namespace TMKOC.FamilyTree
         }
         public void LoadLevel(int levelNumber)
         {
+            StartCoroutine(LoadLevelAfterDelay(levelNumber));
+        }
+        private IEnumerator LoadLevelAfterDelay(int levelNumber)
+        {
+            yield return new WaitForSeconds(1f);
             if (levelNumber > levels.Length - 1)
             {
                 Debug.Log("Invalid Level Number");
-                return;
+                yield break;
             }
             currentLevelIndex = levelNumber;
             ResetData();
@@ -144,8 +159,11 @@ namespace TMKOC.FamilyTree
                 familyMembers[currentActiveMemberIndex].transform.DOScale(actualScale, 2f).OnComplete(() =>
                 {
                     familyMembers[currentActiveMemberIndex].enabled = true;//on member spawning complete
-                    DropController dc = currenttreeController.GetDropController(currentActiveMember.value);
-                    EnableCorrectDropZone(dc);//enabling the correct drop zone rest all disabled
+                    if (currenttreeController != null)
+                    {
+                        DropController dc = currenttreeController.GetDropController(currentActiveMember.value);
+                        EnableCorrectDropZone(dc);//enabling the correct drop zone rest all disabled
+                    }
                 });
             });
         }
@@ -197,7 +215,7 @@ namespace TMKOC.FamilyTree
         {
             foreach (var item in familyMembers)
             {
-                item.gameObject.transform.localPosition = Vector3.zero;
+                item.gameObject.transform.localPosition = familyMemberLocalPosition;
             }
 
         }

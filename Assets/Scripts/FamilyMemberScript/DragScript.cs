@@ -16,13 +16,14 @@ namespace TMKOC.FamilyTree
         private Vector3 offset;
         private bool isBeingDragged = false;
         private int touchIndex = -1;
-        public int value { get; private set; }      
+        public int value { get; private set; }
 
 
         void Start()
         {
             originalPosition = transform.position;
-            GameManager.Instance.OnLevelWin += ResetTouchData;          
+            GameManager.Instance.OnLevelWin += ResetTouchData;
+            GameManager.Instance.UIManager.OnMenuPressed += ResetTouchData;
         }
         void Update()
         {
@@ -126,13 +127,14 @@ namespace TMKOC.FamilyTree
                 isOnTree = false;
                 isBeingDragged = false;
                 touchIndex = -1;
-                DropController.canCheck = true;            
+                DropController.canCheck = true;
                 GameManager.Instance.LevelManager.StartHint();
             });
         }
         private void OnDestroy()
         {
-            GameManager.Instance.OnLevelWin -= ResetTouchData;           
+            GameManager.Instance.OnLevelWin -= ResetTouchData;
+            GameManager.Instance.UIManager.OnMenuPressed -= ResetTouchData;
         }
     }
 }

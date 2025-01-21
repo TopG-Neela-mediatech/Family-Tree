@@ -20,6 +20,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelStart += () => this.enabled = true;
             GameManager.Instance.OnTreeComplete += () => this.enabled = false;
             GameManager.Instance.OnLevelStart += () => isPlaying = false;
+            GameManager.Instance.UIManager.OnMenuPressed += () => this.enabled = false;
         }
         private void Update()
         {
@@ -69,6 +70,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelStart -= () => this.enabled = true;
             GameManager.Instance.OnTreeComplete -= () => this.enabled = false;
             GameManager.Instance.OnLevelStart -= () => isPlaying = false;
+            GameManager.Instance.UIManager.OnMenuPressed -= () => this.enabled = false;
         }
     }
 }
