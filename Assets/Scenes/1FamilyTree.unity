@@ -460,11 +460,11 @@ RectTransform:
   - {fileID: 1577277116}
   - {fileID: 1455369061}
   - {fileID: 1514944024}
-  - {fileID: 1026952422}
-  - {fileID: 2122798452}
   - {fileID: 2026448005}
   - {fileID: 2073307889}
   - {fileID: 1166728271}
+  - {fileID: 1026952422}
+  - {fileID: 2122798452}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
