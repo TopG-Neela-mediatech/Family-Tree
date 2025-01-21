@@ -26,15 +26,20 @@ namespace TMKOC.FamilyTree
         private void Start()
         {
             quizParent.SetActive(false);
-            GameManager.Instance.OnLevelWin += () => questionNumber = 0;
+            GameManager.Instance.OnLevelWin += ResetQuiz;
             GameManager.Instance.UIManager.OnFullTreeShown += StartCurrentQuiz;
-            GameManager.Instance.OnLevelWin += () => quizParent.SetActive(false);
+            GameManager.Instance.UIManager.OnMenuPressed += ResetQuiz;
             questionNumber = 0;
         }
         private void StartCurrentQuiz()
         {
             quizParent.SetActive(true);
             StartQuiz();
+        }
+        private void ResetQuiz()
+        {
+            questionNumber = 0;
+            quizParent.SetActive(false);
         }
         private QuizSO GetQuizData()
         {
@@ -162,9 +167,9 @@ namespace TMKOC.FamilyTree
         }
         private void OnDestroy()
         {
-            GameManager.Instance.OnLevelWin -= () => questionNumber = 0;
+            GameManager.Instance.OnLevelWin -= ResetQuiz;
             GameManager.Instance.UIManager.OnFullTreeShown -= StartCurrentQuiz;
-            GameManager.Instance.OnLevelWin -= () => quizParent.SetActive(false);
+            GameManager.Instance.UIManager.OnMenuPressed -= ResetQuiz;
         }
     }
     [System.Serializable]

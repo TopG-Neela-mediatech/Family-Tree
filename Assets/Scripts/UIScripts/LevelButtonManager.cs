@@ -14,6 +14,7 @@ namespace TMKOC.FamilyTree
         {
             SetLevelStatus();
             LevelLoadButton.onClick.AddListener(LoadLevel);
+            GameManager.Instance.UIManager.OnMenuPressed += SetLevelStatus;
         }
         private void LoadLevel()
         {
@@ -38,6 +39,10 @@ namespace TMKOC.FamilyTree
             {
                 currentLevelStatus = LevelState.Locked;
             }
+        }
+        private void OnDestroy()
+        {
+            GameManager.Instance.UIManager.OnMenuPressed -= SetLevelStatus;
         }
     }
     public enum LevelState

@@ -33,6 +33,7 @@ namespace TMKOC.FamilyTree
             restartButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
             fullTreeImage.enabled = false;
             menuButton1.onClick.AddListener(EnableSelectionScreen);
+            OnMenuPressed += () => fullTreeImage.enabled = false;
         }
 
 
@@ -48,8 +49,11 @@ namespace TMKOC.FamilyTree
             yield return new WaitForSeconds(4f);
             fullTreeImage.transform.DOLocalMoveY(Screen.height, 1f).OnComplete(() =>
             {
+                if (fullTreeImage.isActiveAndEnabled)
+                {
+                    OnFullTreeShown?.Invoke();
+                }
                 fullTreeImage.enabled = false;
-                OnFullTreeShown?.Invoke();
             });
         }
         public void DisableSelectionScreen() => StartCoroutine(DisableSelectionScreenAfterDelay());
@@ -67,6 +71,7 @@ namespace TMKOC.FamilyTree
             playSchoolBackButton.gameObject.SetActive(true);
             menuButton1.gameObject.SetActive(false);
             GameManager.Instance.LevelManager.DisableLevel();
+            DisableUIPanels();
         }
 
         private IEnumerator ShowFullTreeBeforeLevelStart()
@@ -108,6 +113,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnGameEnd -= EnableFinalWinPanel;
             GameManager.Instance.OnLevelStart -= DisableUIPanels;
             GameManager.Instance.OnTreeComplete -= ShowFullTree;
+            OnMenuPressed -= () => fullTreeImage.enabled = false;
         }
     }
 }

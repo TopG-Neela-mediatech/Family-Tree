@@ -36,7 +36,6 @@ namespace TMKOC.FamilyTree
         public Transform GetDropTransform() => currenttreeController.GetDropController(currentActiveMember.value).transform;
         private void ActivateHint(DragScript currentDraggable, DropController correctDropBox) =>
             GameManager.Instance.HandManager.StartHandTutorial(currentDraggable.transform.localPosition, correctDropBox.transform);
-        private void DestroyTree() => Destroy(currenttreeController.gameObject);
         private void EnableCorrectDropZone(DropController dropController) => dropController.EnableCollider();
         private void LevelStartAnimation() => AnimateInfoArea();
         public int GetLevelIndex() => currentLevelIndex;
@@ -71,6 +70,13 @@ namespace TMKOC.FamilyTree
         {
             currentActiveMemberIndex = -1;//increment first to acess the first member
             attempts = 3;
+        }
+        private void DestroyTree()
+        {
+            if (currenttreeController != null)
+            {
+                Destroy(currenttreeController.gameObject);
+            }
         }
         private void SetMemberScaleAndPosition()
         {
