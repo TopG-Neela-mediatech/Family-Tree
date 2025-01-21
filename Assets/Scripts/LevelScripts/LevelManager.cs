@@ -38,7 +38,7 @@ namespace TMKOC.FamilyTree
         private void DestroyTree() => Destroy(currenttreeController.gameObject);
         private void EnableCorrectDropZone(DropController dropController) => dropController.EnableCollider();
         private void LevelStartAnimation() => AnimateInfoArea();
-        public int GetLevelIndex()=>currentLevelIndex;
+        public int GetLevelIndex() => currentLevelIndex;
 
 
         private void Awake()
@@ -51,7 +51,7 @@ namespace TMKOC.FamilyTree
             #endregion
             gameCategoryDataManager = new GameCategoryDataManager(gameID, PlayerPrefs.GetString("currentGameName", "a"));
             updateCategoryApiManager = new UpdateCategoryApiManager(gameID);
-            SetCurrentLevelIndex();  
+            SetCurrentLevelIndex();
             SetMemberScaleAndPosition();
         }
         private void Start()
@@ -64,7 +64,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin += SetMemberScaleAndPosition;
             GameManager.Instance.OnLevelWin += () => attempts = 3;
             GameManager.Instance.OnTreeComplete += () => infoAreaParent.SetActive(false);
-            SetLevelData();
+            // SetLevelData();
         }
         private void ResetData()
         {
@@ -92,8 +92,14 @@ namespace TMKOC.FamilyTree
             infoAreaParent.SetActive(false);
             leavesEffect.SetActive(false);
         }
-        private void SetLevelData()
+        public void LoadLevel(int levelNumber)
         {
+            if (levelNumber > levels.Length - 1)
+            {
+                Debug.Log("Invalid Level Number");
+                return;
+            }
+            currentLevelIndex = levelNumber;
             ResetData();
             EnableLevel();
             DisableFamilyMembers();
@@ -158,7 +164,7 @@ namespace TMKOC.FamilyTree
                 //GameManager.Instance.SoundManager.PlayFinalAudio();
                 return;
             }
-            SetLevelData();
+            LoadLevel(currentLevelIndex);
         }
         public void StartHint()
         {

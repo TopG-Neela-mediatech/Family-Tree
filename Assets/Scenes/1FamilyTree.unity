@@ -1102,6 +1102,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 974616360}
     m_Modifications:
+    - target: {fileID: 2168788141874325788, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: currentLevelButtonIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_text
+      value: Father's Parents Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_fontSize
+      value: 29.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3586795159988604162, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2540,6 +2564,7 @@ MonoBehaviour:
   playSchoolBackButton: {fileID: 2122798453}
   endPanel: {fileID: 1026952421}
   fullTreeImage: {fileID: 1436351597}
+  SelectionScreenObject: {fileID: 1166728270}
 --- !u!1001 &1112510727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2932,7 +2957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1377589087
 Transform:
   m_ObjectHideFlags: 0
@@ -3699,6 +3724,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 974616360}
     m_Modifications:
+    - target: {fileID: 2168788141874325788, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: currentLevelButtonIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_text
+      value: Father's Extended Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_fontSize
+      value: 26.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3586795159988604162, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3805,6 +3850,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 974616360}
     m_Modifications:
+    - target: {fileID: 2168788141874325788, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: currentLevelButtonIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_text
+      value: Mother's Extended Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_fontSize
+      value: 26.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3586795159988604162, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4180,6 +4245,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 974616360}
     m_Modifications:
+    - target: {fileID: 2168788141874325788, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: currentLevelButtonIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_text
+      value: Mother's Parents Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_fontSize
+      value: 29.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3586795159988604162, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4590,47 +4671,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
       propertyPath: m_text
-      value: Level 1
+      value: Parent  Child Tree
       objectReference: {fileID: 0}
     - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: ae605e462ecd8e849add767acf07663e, type: 2}
+      propertyPath: m_fontSize
+      value: 30.95
+      objectReference: {fileID: 0}
     - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -3462643136671018270, guid: ae605e462ecd8e849add767acf07663e, type: 2}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2418946846055073839, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851403055152665774, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851403055152665774, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851403055152665774, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851403055152665774, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851403055152665774, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 174.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851403055152665774, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851403055152665774, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 80.5
+      propertyPath: m_enableWordWrapping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6295711568491841755, guid: 634dc7e1cac9b154db503752fd38344d, type: 3}
       propertyPath: m_Pivot.x

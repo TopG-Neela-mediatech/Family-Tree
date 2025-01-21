@@ -6,9 +6,43 @@ namespace TMKOC.FamilyTree
 {
     public class LevelButtonManager : MonoBehaviour
     {
-        [SerializeField] private Image levelImage;
         [SerializeField] private Button LevelLoadButton;
-        [SerializeField] private Sprite incompleteSprite;
-        [SerializeField] private Sprite completeSprite;
+        [SerializeField] private int currentLevelButtonIndex;
+        private LevelState currentLevelStatus;
+
+        private void Start()
+        {
+            SetLevelStatus();
+            LevelLoadButton.onClick.AddListener(LoadLevel);
+        }
+        private void LoadLevel()
+        {
+            if (currentLevelStatus == LevelState.Unlocked)
+            {
+                GameManager.Instance.LevelManager.LoadLevel(currentLevelButtonIndex);
+                GameManager.Instance.UIManager.DisableSelectionScreen();
+            }
+            else
+            {
+                Debug.Log("Level Not Unlocked Yet");
+            }
+        }
+        private void SetLevelStatus()
+        {
+            int totalUnlockedLevels = GameManager.Instance.LevelManager.GetLevelIndex();
+            if (currentLevelButtonIndex <= totalUnlockedLevels)
+            {
+                currentLevelStatus = LevelState.Unlocked;
+            }
+            else
+            {
+                currentLevelStatus = LevelState.Locked;
+            }
+        }
+    }
+    public enum LevelState
+    {
+        Locked,
+        Unlocked
     }
 }

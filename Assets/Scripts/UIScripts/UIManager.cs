@@ -16,6 +16,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Button playSchoolBackButton;
         [SerializeField] private GameObject endPanel;
         [SerializeField] private Image fullTreeImage;
+        [SerializeField] private GameObject SelectionScreenObject;
         public event Action OnFullTreeShown;
 
 
@@ -37,6 +38,23 @@ namespace TMKOC.FamilyTree
 
 
         private IEnumerator ShowFullTreeOnTreeComplete()
+        {
+            fullTreeImage.transform.DOLocalMoveY(Screen.height, 0f);
+            fullTreeImage.enabled = true;
+            fullTreeImage.transform.DOLocalMoveY(0f, 1f);
+            yield return new WaitForSeconds(4f);
+            fullTreeImage.transform.DOLocalMoveY(Screen.height, 1f).OnComplete(() =>
+            {
+                fullTreeImage.enabled = false;
+                OnFullTreeShown?.Invoke();
+            });
+        }
+
+
+        public void DisableSelectionScreen()=>SelectionScreenObject.SetActive(false);
+
+
+        private IEnumerator ShowFullTreeBeforeLevelStart()
         {
             fullTreeImage.transform.DOLocalMoveY(Screen.height, 0f);
             fullTreeImage.enabled = true;
