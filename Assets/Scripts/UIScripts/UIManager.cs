@@ -18,6 +18,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private GameObject endPanel;
         [SerializeField] private Image fullTreeImage;
         [SerializeField] private GameObject SelectionScreenObject;
+        [SerializeField] private TextMeshProUGUI winScreenText;
         public event Action OnFullTreeShown;
         public event Action OnMenuPressed;
 
@@ -39,6 +40,7 @@ namespace TMKOC.FamilyTree
 
         private void EnableWinPanel() => StartCoroutine(EnableWinPanelAfterDelay());
         private void ShowFullTree() => StartCoroutine(ShowFullTreeOnTreeComplete());
+        public void DisableSelectionScreen() => StartCoroutine(DisableSelectionScreenAfterDelay());
 
 
         private IEnumerator ShowFullTreeOnTreeComplete()
@@ -56,7 +58,6 @@ namespace TMKOC.FamilyTree
                 fullTreeImage.enabled = false;
             });
         }
-        public void DisableSelectionScreen() => StartCoroutine(DisableSelectionScreenAfterDelay());
         private IEnumerator DisableSelectionScreenAfterDelay()
         {
             yield return new WaitForSeconds(1f);
@@ -73,7 +74,32 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.LevelManager.DisableLevel();
             DisableUIPanels();
         }
-
+        private void SetWinPanelText()
+        {
+            int levelNumber = GameManager.Instance.LevelManager.GetLevelIndex();
+            levelNumber--;
+            switch (levelNumber)
+            {
+                case 0:
+                    winScreenText.text = "Parent Tree Completed";
+                    break;
+                case 1:
+                    winScreenText.text = "Father's Extended Tree Completed";
+                    break;
+                case 2:
+                    winScreenText.text = "Mother's Extended Tree Completed";
+                    break;
+                case 3:
+                    winScreenText.text = "Father's Parents Tree Completed";
+                    break;
+                case 4:
+                    winScreenText.text = "Mother's Parents Tree Completed";
+                    break;
+                default:
+                    winScreenText.text = "Tree Completed";
+                    break;
+            }
+        }
         private IEnumerator ShowFullTreeBeforeLevelStart()
         {
             fullTreeImage.transform.DOLocalMoveY(Screen.height, 0f);
@@ -104,7 +130,8 @@ namespace TMKOC.FamilyTree
         }
         private IEnumerator EnableWinPanelAfterDelay()
         {
-            yield return new WaitForSeconds(0f);
+            yield return new WaitForSeconds(0.25f);
+            SetWinPanelText();
             winPanel.SetActive(true);
         }
         private void OnDestroy()
