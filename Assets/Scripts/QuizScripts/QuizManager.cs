@@ -65,11 +65,11 @@ namespace TMKOC.FamilyTree
         }
         private void QuizStartAnimation()
         {
-            questionParent.DOLocalMoveX(Screen.width, 0f).OnComplete(() =>
+            questionParent.DOLocalMoveY(-Screen.height, 0f).OnComplete(() =>
             {
-                questionParent.DOLocalMoveX(0f, 0.5f);
+                questionParent.DOLocalMoveY(440f, 0.5f);//hardcoded
             });
-            optionParent.DOLocalMoveX(-Screen.width, 0f).OnComplete(() =>
+            optionParent.DOLocalMoveX(Screen.width, 0f).OnComplete(() =>
             {
                 optionParent.DOLocalMoveX(0f, 0.5f);
             });

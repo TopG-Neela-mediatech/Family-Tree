@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,18 +9,31 @@ namespace TMKOC.FamilyTree
     {
         [SerializeField] private Button LevelLoadButton;
         [SerializeField] private int currentLevelButtonIndex;
+        [SerializeField] private Image ButtonImage;
         private LevelState currentLevelStatus;
+        private static event Action OnLevelButtonPressed;
+        private int totalUnlockedLevels;
+
+
+        private void DisableButton() => LevelLoadButton.enabled = false;
+        private void EnableButton() => LevelLoadButton.enabled = true;
+
 
         private void Start()
         {
+            totalUnlockedLevels = GameManager.Instance.LevelManager.GetLevelIndex();
             SetLevelStatus();
             LevelLoadButton.onClick.AddListener(LoadLevel);
             GameManager.Instance.UIManager.OnMenuPressed += SetLevelStatus;
+            GameManager.Instance.UIManager.OnMenuPressed += EnableButton;
+            OnLevelButtonPressed += DisableButton;
         }
         private void LoadLevel()
         {
             if (currentLevelStatus == LevelState.Unlocked)
             {
+                OnLevelButtonPressed?.Invoke();
+                DisableButton();
                 GameManager.Instance.LevelManager.LoadLevel(currentLevelButtonIndex);
                 GameManager.Instance.UIManager.DisableSelectionScreen();
             }
@@ -30,19 +44,27 @@ namespace TMKOC.FamilyTree
         }
         private void SetLevelStatus()
         {
-            int totalUnlockedLevels = GameManager.Instance.LevelManager.GetLevelIndex();
+           int currentLevelNumber = GameManager.Instance.LevelManager.GetLevelIndex();
+            if (totalUnlockedLevels < currentLevelNumber)
+            {
+                totalUnlockedLevels = currentLevelNumber;
+            }
             if (currentLevelButtonIndex <= totalUnlockedLevels)
             {
                 currentLevelStatus = LevelState.Unlocked;
+                ButtonImage.color = new Color(ButtonImage.color.r, ButtonImage.color.g, ButtonImage.color.b, 1f);
             }
             else
             {
                 currentLevelStatus = LevelState.Locked;
+                ButtonImage.color = new Color(ButtonImage.color.r, ButtonImage.color.g, ButtonImage.color.b, 0.8f);
             }
         }
         private void OnDestroy()
         {
             GameManager.Instance.UIManager.OnMenuPressed -= SetLevelStatus;
+            GameManager.Instance.UIManager.OnMenuPressed -= EnableButton;
+            OnLevelButtonPressed -= DisableButton;
         }
     }
     public enum LevelState

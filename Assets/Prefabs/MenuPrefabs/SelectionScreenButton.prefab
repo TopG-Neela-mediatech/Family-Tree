@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1
+  m_text: Parent  Child Tree
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae605e462ecd8e849add767acf07663e, type: 2}
   m_sharedMaterial: {fileID: -3462643136671018270, guid: ae605e462ecd8e849add767acf07663e, type: 2}
@@ -92,10 +92,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 30.95
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d9bb4a9e07306044dafee597c522779d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 964e312cf1815ca439dea81ea3a401ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -270,3 +270,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelLoadButton: {fileID: 6503078155067360216}
   currentLevelButtonIndex: 0
+  ButtonImage: {fileID: 3586795159988604162}

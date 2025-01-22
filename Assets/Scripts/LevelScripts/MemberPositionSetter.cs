@@ -8,6 +8,7 @@ namespace TMKOC.FamilyTree
     {
         [SerializeField] private Transform familyMemberParentTransform;
         [SerializeField] private Image fullTreeImage;
+        [SerializeField] private Image quizTreeImage;
         [SerializeField] private Vector3 scale_mobile;
         [SerializeField] private Vector3 scale_tablet;
         [SerializeField] private Vector3 position_mobile;
@@ -17,6 +18,7 @@ namespace TMKOC.FamilyTree
         private void Start()
         {
             SetFullTreeScale(DetectAspectRatio());
+            SetQuizTreeScale(DetectAspectRatio());
         }
         public void SetFamilyMemberPositionAndScale(Transform fMember)
         {
@@ -51,6 +53,17 @@ namespace TMKOC.FamilyTree
             else
             {
                 fullTreeImage.transform.localScale = new Vector3(2f, 2f, 2f);
+            }
+        }
+        private void SetQuizTreeScale(float screenAspect)
+        {
+            if (screenAspect < 1.5f)
+            {
+                quizTreeImage.transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else
+            {
+                quizTreeImage.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             }
         }
     }
