@@ -181,7 +181,7 @@ namespace TMKOC.FamilyTree
         public void LoadNextLevel()
         {
             if (currentLevelIndex > levels.Length - 1)
-            {
+            {                
                 currentLevelIndex = 0;
                 gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
                 GameManager.Instance.InvokeGameEnd();

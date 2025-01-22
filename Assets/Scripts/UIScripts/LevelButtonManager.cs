@@ -17,6 +17,7 @@ namespace TMKOC.FamilyTree
 
         private void DisableButton() => LevelLoadButton.enabled = false;
         private void EnableButton() => LevelLoadButton.enabled = true;
+        private  void ResetTotalUnlockedLevels() => totalUnlockedLevels = 0;
 
 
         private void Start()
@@ -27,6 +28,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.UIManager.OnMenuPressed += SetLevelStatus;
             GameManager.Instance.UIManager.OnMenuPressed += EnableButton;
             OnLevelButtonPressed += DisableButton;
+            GameManager.Instance.OnGameEnd += ResetTotalUnlockedLevels;
         }
         private void LoadLevel()
         {
@@ -44,7 +46,7 @@ namespace TMKOC.FamilyTree
         }
         private void SetLevelStatus()
         {
-           int currentLevelNumber = GameManager.Instance.LevelManager.GetLevelIndex();
+            int currentLevelNumber = GameManager.Instance.LevelManager.GetLevelIndex();
             if (totalUnlockedLevels < currentLevelNumber)
             {
                 totalUnlockedLevels = currentLevelNumber;
@@ -65,6 +67,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.UIManager.OnMenuPressed -= SetLevelStatus;
             GameManager.Instance.UIManager.OnMenuPressed -= EnableButton;
             OnLevelButtonPressed -= DisableButton;
+            GameManager.Instance.OnGameEnd -= ResetTotalUnlockedLevels;
         }
     }
     public enum LevelState
