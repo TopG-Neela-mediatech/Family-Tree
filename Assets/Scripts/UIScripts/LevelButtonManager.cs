@@ -11,7 +11,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private int currentLevelButtonIndex;
         [SerializeField] private Image ButtonImage;
         private LevelState currentLevelStatus;
-        private static event Action OnLevelButtonPressed;
+        public static event Action OnLevelButtonPressed;
         private int totalUnlockedLevels;
 
 
