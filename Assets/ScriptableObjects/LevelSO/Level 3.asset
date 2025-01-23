@@ -16,14 +16,14 @@ MonoBehaviour:
   memberCount: 3
   memberData:
   - faceSprite: {fileID: 21300000, guid: 6e57a6d7500a74341b00aec798227136, type: 3}
-    Name: Megan
-    Description: Megan Is Tom's Aunt And Jenny's Sister
+    Name: Nikita
+    Description: Nikita Is Henry's Aunt And Anita's Sister
     Key: 0
   - faceSprite: {fileID: 21300000, guid: a31c951696d71fa4ea6871d13181ad46, type: 3}
-    Name: James
-    Description: James is Megan's Husband And Tom's Uncle
+    Name: Rahul
+    Description: Rahul is Nikita's Husband And Henry's Uncle
     Key: 1
   - faceSprite: {fileID: 21300000, guid: e59ef0e352a64ee47a40c24fa6d09f62, type: 3}
-    Name: Chris
-    Description: Chris Is Tom's Cousin and Jenny's Nephew
+    Name: Vivek
+    Description: Vivek Is Henry's Cousin and Anita's Nephew
     Key: 2

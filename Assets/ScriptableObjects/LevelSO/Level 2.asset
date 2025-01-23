@@ -16,14 +16,14 @@ MonoBehaviour:
   memberCount: 3
   memberData:
   - faceSprite: {fileID: 21300000, guid: a31c951696d71fa4ea6871d13181ad46, type: 3}
-    Name: John
-    Description: John Is Lucy's Uncle And Dave's Brother
+    Name: Karan
+    Description: Karan Is Natasha's Uncle And Arjun's Brother
     Key: 0
   - faceSprite: {fileID: 21300000, guid: 6e57a6d7500a74341b00aec798227136, type: 3}
-    Name: Lisa
-    Description: Lisa Is Lucy's Aunt And John's Wife
+    Name: Monica
+    Description: Monica Is Natasha's Aunt And Karan's's Wife
     Key: 1
   - faceSprite: {fileID: 21300000, guid: dff20e06ae32920469c1ca34f9723873, type: 3}
-    Name: Mary
-    Description: Mary Is Lucy's Cousin And Dave's Niece
+    Name: Rachel
+    Description: Rachel Is Natasha's Cousin And karan's Niece
     Key: 2

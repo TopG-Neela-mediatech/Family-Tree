@@ -16,10 +16,10 @@ MonoBehaviour:
   memberCount: 2
   memberData:
   - faceSprite: {fileID: 21300000, guid: 8c5ecbdaacd4fcc44ac6eb867a73c94c, type: 3}
-    Name: Robert
-    Description: Robert Is Lucy's Grand-Father And Dave's Father
+    Name: Aryan
+    Description: Ayan Is Natasha's  Grand-Father And Arjun's Father
     Key: 0
   - faceSprite: {fileID: 21300000, guid: b6547b8bf3b17b8439a3ccb9da74bb9c, type: 3}
-    Name: Emily
-    Description: Emily Is Lucy's Grand-Mother And Dave's Mother
+    Name: Christina
+    Description: Christina Is Natasha's Grand-Mother And Arjun's Mother
     Key: 1
