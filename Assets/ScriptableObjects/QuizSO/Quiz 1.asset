@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quiz 1
   m_EditorClassIdentifier: 
   quizSet:
-  - question: Jenny Is Dave's ?
+  - question: Anita Is Arjun's?
     options:
     - name: Wife
       value: 1
@@ -21,7 +21,7 @@ MonoBehaviour:
       value: 2
     - name: Son
       value: 3
-  - question: Dave is Tom's ?
+  - question: Arjun Is Henry's?
     options:
     - name: Mother
       value: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
       value: 1
     - name: Brother
       value: 2
-  - question: Tom is Lucy's ?
+  - question: Henry Is Natasha's?
     options:
     - name: Father
       value: 3

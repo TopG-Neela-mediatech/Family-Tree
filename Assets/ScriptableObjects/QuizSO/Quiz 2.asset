@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quiz 2
   m_EditorClassIdentifier: 
   quizSet:
-  - question: Mary Is Lucy's ?
+  - question: Rachel Is Natasha's?
     options:
     - name: Aunt
       value: 2
@@ -21,7 +21,7 @@ MonoBehaviour:
       value: 1
     - name: Uncle
       value: 3
-  - question: Lucy is John's?
+  - question: Natasha Is Karan's?
     options:
     - name: Niece
       value: 1
@@ -29,7 +29,7 @@ MonoBehaviour:
       value: 2
     - name: Uncle
       value: 3
-  - question: Lisa is Lucy's?
+  - question: Monica Is Natasha's?
     options:
     - name: Uncle
       value: 3

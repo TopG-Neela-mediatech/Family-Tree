@@ -1512,7 +1512,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Who is Arya and Nunya
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ae605e462ecd8e849add767acf07663e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 81c1f31db8cd63b46a33423d99739f27, type: 2}
   m_sharedMaterial: {fileID: -3462643136671018270, guid: ae605e462ecd8e849add767acf07663e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1520,7 +1520,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278210468
-  m_fontColor: {r: 0.6415094, g: 0.3097646, b: 0, a: 1}
+  m_fontColor: {r: 0.45490196, g: 0.23921569, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   m_margin: {x: 14.183777, y: 14.183792, z: 17.729645, w: 14.183945}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &463261918
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 26de844a16b8f2147a8b45a96c8775b0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c17eba90bc624c04da2dec24e9c17c72, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3152,7 +3152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7219868095857522745, guid: 0763cd4b58f5cd2488bba86e8a2ae714, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7219868095857522745, guid: 0763cd4b58f5cd2488bba86e8a2ae714, type: 3}
       propertyPath: InitialModule.startSize.minScalar
@@ -3645,7 +3645,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 26de844a16b8f2147a8b45a96c8775b0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c17eba90bc624c04da2dec24e9c17c72, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4001,7 +4001,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ae605e462ecd8e849add767acf07663e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 81c1f31db8cd63b46a33423d99739f27, type: 2}
   m_sharedMaterial: {fileID: -3462643136671018270, guid: ae605e462ecd8e849add767acf07663e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4009,7 +4009,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294901882
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.45490196, g: 0.23921569, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4065,7 +4065,7 @@ MonoBehaviour:
   m_margin: {x: 10.415878, y: 25.70031, z: 11.649643, w: 16.539764}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1564066111
@@ -4084,18 +4084,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1347927944}
     m_Modifications:
-    - target: {fileID: 1297754605897730264, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297754605897730264, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297754605897730264, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1297754605897730264, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4139,10 +4127,6 @@ PrefabInstance:
     - target: {fileID: 5805924315815380107, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
       propertyPath: m_Name
       value: FamilyMember
-      objectReference: {fileID: 0}
-    - target: {fileID: 5805924315815380107, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7925712784274546695, guid: c0816eec1dc39174e94829d3f2d29df2, type: 3}
       propertyPath: mainCamera

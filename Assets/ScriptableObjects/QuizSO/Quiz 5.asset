@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quiz 5
   m_EditorClassIdentifier: 
   quizSet:
-  - question: Sarah Is Andrew's?
+  - question: Sarah Is Sid's?
     options:
     - name: Wife
       value: 1
@@ -21,7 +21,7 @@ MonoBehaviour:
       value: 2
     - name: Son
       value: 3
-  - question: Tom Is Andew's?
+  - question: Henry Is Sid's?
     options:
     - name: GrandSon
       value: 1
@@ -29,7 +29,7 @@ MonoBehaviour:
       value: 2
     - name: Brother
       value: 2
-  - question: Megan Is Andrew's?
+  - question: Anita Is Sid's?
     options:
     - name: Daughter
       value: 1

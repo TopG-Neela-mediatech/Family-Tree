@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quiz 3
   m_EditorClassIdentifier: 
   quizSet:
-  - question: Megan Is Tom's?
+  - question: Nikita Is Henry's?
     options:
     - name: Aunt
       value: 1
@@ -21,7 +21,7 @@ MonoBehaviour:
       value: 2
     - name: Son
       value: 3
-  - question: Chris Is Tom's
+  - question: Vivek Is Henry's?
     options:
     - name: Mother
       value: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
       value: 0
     - name: Cousin
       value: 1
-  - question: Jenny Is Megan's?
+  - question: Nikita Is Anita's?
     options:
     - name: Daughter
       value: 3

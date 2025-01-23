@@ -22,6 +22,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private GameObject infoAreaParent;
         [SerializeField] private GameObject leavesEffect;
         [SerializeField] private MemberPositionSetter memberPositionSetter;
+        private Coroutine infoAreaCoroutine;
         private Vector3 familyMemberLocalPosition;
         private TreeController currenttreeController;
         private GameCategoryDataManager gameCategoryDataManager;
@@ -131,7 +132,11 @@ namespace TMKOC.FamilyTree
         }
         private void AnimateInfoArea()
         {
-            infoAreaTransform.DOLocalMoveX(-Screen.width, 0f);
+            infoAreaTransform.gameObject.SetActive(false);
+            infoAreaTransform.DOLocalMoveX(-Screen.width, 0f).OnComplete(() =>
+            {
+                infoAreaTransform.gameObject.SetActive(true);
+            });
             infoAreaTransform.DOLocalMoveX(100f, 0.5f);//hard coded
         }
         private void SetTree()
@@ -157,7 +162,11 @@ namespace TMKOC.FamilyTree
             }
             currentActiveMemberIndex++;
             currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;         
-            StartCoroutine(SetHintText());//text animation here
+            if(infoAreaCoroutine != null)
+            {
+                StopCoroutine(infoAreaCoroutine);
+            }
+            infoAreaCoroutine = StartCoroutine(SetHintText());//text animation here
             Vector3 actualScale = currentActiveMember.transform.localScale;
             familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f).OnComplete(() =>
             {
@@ -181,7 +190,7 @@ namespace TMKOC.FamilyTree
         public void LoadNextLevel()
         {
             if (currentLevelIndex > levels.Length - 1)
-            {                
+            {
                 currentLevelIndex = 0;
                 gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
                 GameManager.Instance.InvokeGameEnd();

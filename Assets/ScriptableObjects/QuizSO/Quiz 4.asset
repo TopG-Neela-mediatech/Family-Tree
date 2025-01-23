@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quiz 4
   m_EditorClassIdentifier: 
   quizSet:
-  - question: Robert Is Lucy's?
+  - question: Aryan Is Natasha's?
     options:
     - name: Grand-Father
       value: 1
@@ -21,15 +21,15 @@ MonoBehaviour:
       value: 2
     - name: Brother
       value: 3
-  - question: Dave is Robert's?
+  - question: Aryan Is Arjun's?
     options:
     - name: Father
-      value: 0
-    - name: Son
       value: 1
+    - name: Son
+      value: 0
     - name: Brother
       value: 2
-  - question: Emily is John's?
+  - question: Christina Is Karan's?
     options:
     - name: Father
       value: 3
