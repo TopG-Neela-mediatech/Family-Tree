@@ -22,6 +22,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Button enableMenuFullTreeButton;
         [SerializeField] private Button disableMenuFullTreeButton;
         [SerializeField] private GameObject menuFullTree;
+        [SerializeField] private RectMask2D mask2D;
         public event Action OnFullTreeShown;
         public event Action OnMenuPressed;
 
@@ -68,6 +69,12 @@ namespace TMKOC.FamilyTree
                 }
                 fullTreeImage.enabled = false;
             });
+        }
+        private void SetRectMask(int levelIndex)
+        {
+            switch (levelIndex)
+            {
+            }
         }
         private IEnumerator DisableSelectionScreenAfterDelay()
         {
