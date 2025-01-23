@@ -37,4 +37,4 @@ MonoBehaviour:
       value: 0
     - name: Mother
       value: 1
-  hintSprite: {fileID: 21300000, guid: 15946eb4edba9494d9acda0cbbbe521e, type: 3}
+  hintSprite: {fileID: 21300000, guid: 7439c2c7470c48848b4d05eb2505eb91, type: 3}

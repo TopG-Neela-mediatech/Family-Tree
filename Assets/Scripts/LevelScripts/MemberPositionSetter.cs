@@ -62,9 +62,11 @@ namespace TMKOC.FamilyTree
             {
                 quizTreeImage.transform.localScale = new Vector3(1f, 1f, 1f);
                 menuFullTreeImage.transform.localScale = Vector3.one;
+                quizTreeImage.transform.localPosition = new Vector3(0f, 0f, 0f);
             }
             else
             {
+                quizTreeImage.transform.localPosition = new Vector3(200f, 0f, 0f);//setting position for android quiz tree 
                 quizTreeImage.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
                 menuFullTreeImage.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
             }

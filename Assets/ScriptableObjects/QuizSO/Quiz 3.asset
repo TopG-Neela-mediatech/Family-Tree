@@ -37,4 +37,4 @@ MonoBehaviour:
       value: 0
     - name: Sister
       value: 1
-  hintSprite: {fileID: 21300000, guid: 3a10001a004685a4aae0a69af7d7676e, type: 3}
+  hintSprite: {fileID: 21300000, guid: 520e6518c2a340e498ff3b81ddca5f70, type: 3}

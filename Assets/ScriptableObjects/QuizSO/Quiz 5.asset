@@ -37,4 +37,4 @@ MonoBehaviour:
       value: 0
     - name: Wife
       value: 2
-  hintSprite: {fileID: 21300000, guid: b52347991d6cce94a9f6029e7f19a6d3, type: 3}
+  hintSprite: {fileID: 21300000, guid: 164533fc0b0d8814383eae68138eeeba, type: 3}
