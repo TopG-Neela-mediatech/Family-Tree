@@ -17,12 +17,13 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Button menuButton1;
         [SerializeField] private GameObject endPanel;
         [SerializeField] private Image fullTreeImage;
+        [SerializeField] private Image highLightedTreeImage;
+        [SerializeField] private Sprite[] treeSpritesIndividual;
         [SerializeField] private GameObject SelectionScreenObject;
         [SerializeField] private TextMeshProUGUI winScreenText;
         [SerializeField] private Button enableMenuFullTreeButton;
         [SerializeField] private Button disableMenuFullTreeButton;
         [SerializeField] private GameObject menuFullTree;
-        [SerializeField] private RectMask2D mask2D;
         public event Action OnFullTreeShown;
         public event Action OnMenuPressed;
 
@@ -57,9 +58,13 @@ namespace TMKOC.FamilyTree
 
         private IEnumerator ShowFullTreeOnTreeComplete()
         {
-            fullTreeImage.transform.DOLocalMoveY(Screen.height, 0f);
-            fullTreeImage.enabled = true;
-            fullTreeImage.transform.DOLocalMoveY(0f, 1f);
+            fullTreeImage.transform.DOLocalMoveY(Screen.height, 0f).OnComplete(() =>
+            {
+                fullTreeImage.enabled = true;
+                highLightedTreeImage.enabled = true;
+                SetHighLightedImage();
+                fullTreeImage.transform.DOLocalMoveY(0f, 1f);
+            });
             yield return new WaitForSeconds(4f);
             fullTreeImage.transform.DOLocalMoveY(Screen.height, 1f).OnComplete(() =>
             {
@@ -70,10 +75,33 @@ namespace TMKOC.FamilyTree
                 fullTreeImage.enabled = false;
             });
         }
-        private void SetRectMask(int levelIndex)
+        private void SetHighLightedImage()
+        {
+            int levelIndex = GameManager.Instance.LevelManager.GetLevelIndex();
+            SetHighLightedSprite(levelIndex);
+        }
+        private void SetHighLightedSprite(int levelIndex)
         {
             switch (levelIndex)
             {
+                case 0:
+                    highLightedTreeImage.sprite = treeSpritesIndividual[0];
+                    break;
+                case 1:
+                    highLightedTreeImage.sprite = treeSpritesIndividual[1];
+                    break;
+                case 2:
+                    highLightedTreeImage.sprite = treeSpritesIndividual[2];
+                    break;
+                case 3:
+                    highLightedTreeImage.sprite = treeSpritesIndividual[3];
+                    break;
+                case 4:
+                    highLightedTreeImage.sprite = treeSpritesIndividual[4];
+                    break;
+                default:
+                    Debug.Log("Sprite Not Found");
+                    break;
             }
         }
         private IEnumerator DisableSelectionScreenAfterDelay()
