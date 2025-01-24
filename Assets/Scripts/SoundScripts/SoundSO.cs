@@ -4,18 +4,9 @@ using UnityEngine;
 
 namespace TMKOC.FamilyTree
 {
-    public class SoundSO : MonoBehaviour
+    [CreateAssetMenu(fileName = "FamilyTreeSoundSO", menuName = "SoundSO")]
+    public class SoundSO : ScriptableObject
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }
