@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 2a096af5635d9ea40a8f8bb41b777b88, type: 3}
   m_Name: EnglishMemberSoundSO
-  m_EditorClassIdentifier: Assembly-CSharp:TMKOC.FamilyTree:MemberSoundSO
+  m_EditorClassIdentifier: 
   memberAudio:
   - memberIdentity: 1
     memberClip: {fileID: 8300000, guid: cd9523243a463ac47be528af3589fccd, type: 3}

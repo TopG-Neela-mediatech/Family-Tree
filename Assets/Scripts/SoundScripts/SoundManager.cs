@@ -95,9 +95,8 @@ namespace TMKOC.FamilyTree
             if (quizAudioSource.isPlaying) { quizAudioSource.Stop(); }
             PlayQuizAudio(incorrectAnswerClip);
         }
-        public float PlayLevelStartAudio()
-        {
-            int currentLevelNumber = GameManager.Instance.LevelManager.GetLevelIndex();
+        public float PlayLevelStartAudio(int currentLevelNumber)
+        {           
             if (levelAudio.isPlaying) { levelAudio.Stop(); }
             PlayLevelAudio(levelSounds.levelsAudio[currentLevelNumber].intro);
             float length = levelSounds.levelsAudio[currentLevelNumber].intro.length;

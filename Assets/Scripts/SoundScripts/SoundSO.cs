@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TMKOC.FamilyTree
@@ -8,12 +6,7 @@ namespace TMKOC.FamilyTree
     public class SoundSO : ScriptableObject
     {
         public IndividualLevelSound[] levelsAudio;
-    }
-    [CreateAssetMenu(fileName = "FamilyMemberSoundSO", menuName = "MemberSoundSO")]
-    public class MemberSoundSO : ScriptableObject
-    { 
-        public IndividualMemberAudio[] memberAudio;        
-    }
+    }  
     [System.Serializable]
     public class IndividualLevelSound
     {
