@@ -19,11 +19,14 @@ MonoBehaviour:
     Name: Nikita
     Description: Nikita Is Henry's Aunt And Anita's Sister
     Key: 0
+    member: 9
   - faceSprite: {fileID: 21300000, guid: a31c951696d71fa4ea6871d13181ad46, type: 3}
     Name: Rahul
     Description: Rahul is Nikita's Husband And Henry's Uncle
     Key: 1
+    member: 10
   - faceSprite: {fileID: 21300000, guid: e59ef0e352a64ee47a40c24fa6d09f62, type: 3}
     Name: Vivek
     Description: Vivek Is Henry's Cousin and Anita's Nephew
     Key: 2
+    member: 4

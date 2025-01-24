@@ -19,15 +19,19 @@ MonoBehaviour:
     Name: Natasha
     Description: Natasha Is The Daughter
     Key: 2
+    member: 2
   - faceSprite: {fileID: 21300000, guid: 11bed5475779def4598a808ff8a0cd39, type: 3}
     Name: Henry
     Description: Henry Is The Son And Natasha's Brother
     Key: 3
+    member: 1
   - faceSprite: {fileID: 21300000, guid: bac475e114c41264fbddae18aa2013bc, type: 3}
     Name: Arjun
     Description: Arjun Is Lucy's And Henry's Father
     Key: 0
+    member: 6
   - faceSprite: {fileID: 21300000, guid: da8136ecc0d192e439445a8acc75a8ea, type: 3}
     Name: Anita
     Description: Anita Is Natahsa's And Henry's Mother And Arjun's Wife
     Key: 1
+    member: 5

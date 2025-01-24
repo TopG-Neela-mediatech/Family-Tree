@@ -18,5 +18,6 @@ namespace TMKOC.FamilyTree
         public string Name;
         public string Description;
         public int Key;
+        public FamilyMember member;
     }
 }

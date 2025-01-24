@@ -19,7 +19,9 @@ MonoBehaviour:
     Name: Sid
     Description: Sid Is Tom's Grand-Father And Anita's Father
     Key: 0
+    member: 13
   - faceSprite: {fileID: 21300000, guid: 5ec3a2bd762755b4d8911770f5253392, type: 3}
     Name: Sarah
     Description: Sarah Is Henry's Grand-Mother And Anita's Mother
     Key: 1
+    member: 14

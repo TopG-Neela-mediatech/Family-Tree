@@ -31,6 +31,7 @@ namespace TMKOC.FamilyTree
         private int currentActiveMemberIndex;
         private DragScript currentActiveMember;
         private int attempts;
+        private FamilyMember currentMemberEnum;
 
 
         public Vector3 GetDragPosition() => currentActiveMember.transform.localPosition;
@@ -161,18 +162,20 @@ namespace TMKOC.FamilyTree
                 return;
             }
             currentActiveMemberIndex++;
+            currentMemberEnum = levels[currentLevelIndex].memberData[currentActiveMemberIndex].member;
             currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;         
             if(infoAreaCoroutine != null)
             {
                 StopCoroutine(infoAreaCoroutine);
             }
             infoAreaCoroutine = StartCoroutine(SetHintText());//text animation here
+            GameManager.Instance.SoundManager.PlayCurrentMemberSound(currentMemberEnum);
             Vector3 actualScale = currentActiveMember.transform.localScale;
             familyMembers[currentActiveMemberIndex].transform.DOScale(0f, 0f).OnComplete(() =>
             {
                 familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
                 familyMembers[currentActiveMemberIndex].transform.DOScale(actualScale, 2f).OnComplete(() =>
-                {
+                {                 
                     familyMembers[currentActiveMemberIndex].enabled = true;//on member spawning complete
                     if (currenttreeController != null)
                     {

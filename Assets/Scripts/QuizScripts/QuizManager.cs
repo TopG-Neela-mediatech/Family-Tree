@@ -67,6 +67,7 @@ namespace TMKOC.FamilyTree
         {
             questionParent.DOLocalMoveY(Screen.height, 0f).OnComplete(() =>
             {
+                GameManager.Instance.SoundManager.PlayQuestion();
                 questionParent.DOLocalMoveY(440f, 0.5f);//hardcoded
             });
             optionParent.DOLocalMoveX(Screen.width, 0f).OnComplete(() =>
@@ -83,7 +84,7 @@ namespace TMKOC.FamilyTree
         }
         private IEnumerator LoadNextQuestionAfterDelay()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(4f);
             questionNumber++;
             if (questionNumber > 2)
             {
@@ -134,9 +135,11 @@ namespace TMKOC.FamilyTree
             if (optionSelected == correctOption)
             {
                 qbManager.EnableCorrectImage();
+                GameManager.Instance.SoundManager.PlayCorrectAnswer();
             }
             else
             {
+                GameManager.Instance.SoundManager.PlayInCorrectAnswer();
                 QuizButtonManager correctQBManager = FindCorrectButtonManager(correctOption);
                 correctQBManager.EnableCorrectImage();
                 qbManager.EnableIncorrectImage();

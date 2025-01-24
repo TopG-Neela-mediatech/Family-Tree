@@ -19,11 +19,14 @@ MonoBehaviour:
     Name: Karan
     Description: Karan Is Natasha's Uncle And Arjun's Brother
     Key: 0
+    member: 7
   - faceSprite: {fileID: 21300000, guid: 6e57a6d7500a74341b00aec798227136, type: 3}
     Name: Monica
     Description: Monica Is Natasha's Aunt And Karan's's Wife
     Key: 1
+    member: 8
   - faceSprite: {fileID: 21300000, guid: dff20e06ae32920469c1ca34f9723873, type: 3}
     Name: Rachel
     Description: Rachel Is Natasha's Cousin And karan's Niece
     Key: 2
+    member: 3
