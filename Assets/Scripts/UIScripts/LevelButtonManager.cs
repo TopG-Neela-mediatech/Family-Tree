@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,7 @@ namespace TMKOC.FamilyTree
         private void DisableButton() => LevelLoadButton.enabled = false;
         private void EnableButton() => LevelLoadButton.enabled = true;
         private  void ResetTotalUnlockedLevels() => totalUnlockedLevels = 0;
+        private void LoadLevel()=>StartCoroutine(LoadLevelAfterIntro());   
 
 
         private void Start()
@@ -29,13 +31,15 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.UIManager.OnMenuPressed += EnableButton;
             OnLevelButtonPressed += DisableButton;
             GameManager.Instance.OnGameEnd += ResetTotalUnlockedLevels;
-        }
-        private void LoadLevel()
+        }         
+        private IEnumerator LoadLevelAfterIntro()
         {
             if (currentLevelStatus == LevelState.Unlocked)
             {
                 OnLevelButtonPressed?.Invoke();
                 DisableButton();
+                float delay = GameManager.Instance.SoundManager.PlayLevelStartAudio();
+                yield return new WaitForSeconds(delay);
                 GameManager.Instance.LevelManager.LoadLevel(currentLevelButtonIndex);
                 GameManager.Instance.UIManager.DisableSelectionScreen();
             }

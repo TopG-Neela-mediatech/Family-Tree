@@ -24,8 +24,7 @@ namespace TMKOC.FamilyTree
         {
             isAlreadyPlayed = false;
             GameManager.Instance.OnLevelWin += PlayLevelCompleteAudio;
-            GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;
-            GameManager.Instance.OnLevelStart += PlayLevelStartAudio;
+            GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;           
             GameManager.Instance.OnLevelStart += () => questionIndex = -1;
             GameManager.Instance.UIManager.OnMenuPressed += DisableAudioSources;
         }
@@ -98,11 +97,13 @@ namespace TMKOC.FamilyTree
             if (quizAudioSource.isPlaying) { quizAudioSource.Stop(); }
             PlayQuizAudio(incorrectAnswerClip);
         }
-        private void PlayLevelStartAudio()
+        public float PlayLevelStartAudio()
         {
             int currentLevelNumber = GameManager.Instance.LevelManager.GetLevelIndex();
             if (levelAudio.isPlaying) { levelAudio.Stop(); }
             PlayLevelAudio(levelSounds.levelsAudio[currentLevelNumber].intro);
+            float length = levelSounds.levelsAudio[currentLevelNumber].intro.length;
+            return length;
         }
         private void PlayLevelCompleteAudio()
         {
@@ -128,8 +129,7 @@ namespace TMKOC.FamilyTree
         private void OnDestroy()
         {
             GameManager.Instance.OnLevelWin += PlayLevelCompleteAudio;
-            GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;
-            GameManager.Instance.OnLevelStart += PlayLevelStartAudio;
+            GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;           
             GameManager.Instance.OnLevelStart += () => questionIndex = -1;
             GameManager.Instance.UIManager.OnMenuPressed += DisableAudioSources;
         }
