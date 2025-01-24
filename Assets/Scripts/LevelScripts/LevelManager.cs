@@ -162,8 +162,7 @@ namespace TMKOC.FamilyTree
                 return;
             }
             currentActiveMemberIndex++;
-            currentMemberEnum = levels[currentLevelIndex].memberData[currentActiveMemberIndex].member;
-            Debug.Log(currentMemberEnum);
+            currentMemberEnum = levels[currentLevelIndex].memberData[currentActiveMemberIndex].member;           
             currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;         
             if (infoAreaCoroutine != null)
             {
