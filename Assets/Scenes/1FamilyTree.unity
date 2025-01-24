@@ -968,6 +968,7 @@ MonoBehaviour:
   levelManager: {fileID: 55829472}
   handManager: {fileID: 254811457}
   uiManager: {fileID: 1076900773}
+  soundManager: {fileID: 0}
 --- !u!1001 &278032496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3067,7 +3068,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 84c2d18f1c5c0b742bf784759b6fe104, type: 3}
   - {fileID: 21300000, guid: 4522b3c1b0c6e234e9e9274555da5197, type: 3}
   - {fileID: 21300000, guid: bf64821e50163ea4ca8731af89d730b2, type: 3}
-  - {fileID: 21300000, guid: 4dbe69b2e022b7445b56ba1b8fd31a56, type: 3}
+  - {fileID: 21300000, guid: c17eba90bc624c04da2dec24e9c17c72, type: 3}
   SelectionScreenObject: {fileID: 1166728270}
   winScreenText: {fileID: 1190928342}
   enableMenuFullTreeButton: {fileID: 942024672}
