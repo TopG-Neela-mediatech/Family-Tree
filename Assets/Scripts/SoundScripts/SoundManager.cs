@@ -9,8 +9,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private AudioSource quizAudioSource;
         [SerializeField] private SoundSO ENGUS;
         [SerializeField] private MemberSoundSO memberSO_ENGUS;
-        [SerializeField] private string audioLocalization;
-        private bool isAlreadyPlayed;
+        [SerializeField] private string audioLocalization;     
         private SoundSO levelSounds;
         private MemberSoundSO memberSound;
         private int questionIndex;
@@ -21,8 +20,7 @@ namespace TMKOC.FamilyTree
             SetLanguage();
         }
         private void Start()
-        {
-            isAlreadyPlayed = false;
+        {           
             GameManager.Instance.OnLevelWin += PlayLevelCompleteAudio;
             GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;           
             GameManager.Instance.OnLevelStart += () => questionIndex = -1;
