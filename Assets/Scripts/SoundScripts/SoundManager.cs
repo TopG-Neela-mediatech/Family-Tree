@@ -119,6 +119,7 @@ namespace TMKOC.FamilyTree
             IndividualMemberAudio memberAudio = Array.Find(memberSO_ENGUS.memberAudio, i => i.memberIdentity == member);
             if (memberAudio != null)
             {
+                if(levelAudio.isPlaying) { levelAudio.Stop(); }
                 PlayLevelAudio(memberAudio.memberClip);
             }
         }
