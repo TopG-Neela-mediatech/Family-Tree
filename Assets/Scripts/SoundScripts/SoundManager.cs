@@ -5,10 +5,10 @@ namespace TMKOC.FamilyTree
 {
     public class SoundManager : MonoBehaviour
     {
-        [SerializeField] private AudioSource levelAudio;       
+        [SerializeField] private AudioSource levelAudio;
         [SerializeField] private AudioSource quizAudioSource;
         [SerializeField] private SoundSO ENGUS;
-        [SerializeField] private MemberSoundSO memberSO_ENGUS;      
+        [SerializeField] private MemberSoundSO memberSO_ENGUS;
         [SerializeField] private string audioLocalization;
         private bool isAlreadyPlayed;
         private SoundSO levelSounds;
@@ -24,7 +24,6 @@ namespace TMKOC.FamilyTree
         {
             isAlreadyPlayed = false;
             GameManager.Instance.OnLevelWin += PlayLevelCompleteAudio;
-            GameManager.Instance.OnLevelWin += () => SetIsPlayed(false);
             GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;
             GameManager.Instance.OnLevelStart += PlayLevelStartAudio;
             GameManager.Instance.OnLevelStart += () => questionIndex = -1;
@@ -72,7 +71,7 @@ namespace TMKOC.FamilyTree
         }
         private void PlayQuizAudio(AudioClip clip)
         {
-            if(clip!= null)
+            if (clip != null)
             {
                 quizAudioSource.PlayOneShot(clip);
             }
@@ -101,12 +100,9 @@ namespace TMKOC.FamilyTree
         }
         private void PlayLevelStartAudio()
         {
-            if (levelAudio.isPlaying) { levelAudio.Stop(); }
             int currentLevelNumber = GameManager.Instance.LevelManager.GetLevelIndex();
-            if (!isAlreadyPlayed)
-            {
-                PlayLevelAudio(levelSounds.levelsAudio[currentLevelNumber].intro);
-            }
+            if (levelAudio.isPlaying) { levelAudio.Stop(); }
+            PlayLevelAudio(levelSounds.levelsAudio[currentLevelNumber].intro);
         }
         private void PlayLevelCompleteAudio()
         {
@@ -122,21 +118,16 @@ namespace TMKOC.FamilyTree
         }
         public void PlayCurrentMemberSound(FamilyMember member)
         {
+            if (levelAudio.isPlaying) { levelAudio.Stop(); }
             IndividualMemberAudio memberAudio = Array.Find(memberSO_ENGUS.memberAudio, i => i.memberIdentity == member);
             if (memberAudio != null)
             {
-                if(levelAudio.isPlaying) { levelAudio.Stop(); }
                 PlayLevelAudio(memberAudio.memberClip);
             }
         }
-
-        private void SetIsPlayed(bool status) => isAlreadyPlayed = status;
-
-
         private void OnDestroy()
         {
             GameManager.Instance.OnLevelWin += PlayLevelCompleteAudio;
-            GameManager.Instance.OnLevelWin += () => SetIsPlayed(false);
             GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;
             GameManager.Instance.OnLevelStart += PlayLevelStartAudio;
             GameManager.Instance.OnLevelStart += () => questionIndex = -1;

@@ -163,8 +163,9 @@ namespace TMKOC.FamilyTree
             }
             currentActiveMemberIndex++;
             currentMemberEnum = levels[currentLevelIndex].memberData[currentActiveMemberIndex].member;
+            Debug.Log(currentMemberEnum);
             currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;         
-            if(infoAreaCoroutine != null)
+            if (infoAreaCoroutine != null)
             {
                 StopCoroutine(infoAreaCoroutine);
             }
@@ -175,7 +176,7 @@ namespace TMKOC.FamilyTree
             {
                 familyMembers[currentActiveMemberIndex].gameObject.SetActive(true);
                 familyMembers[currentActiveMemberIndex].transform.DOScale(actualScale, 2f).OnComplete(() =>
-                {                 
+                {
                     familyMembers[currentActiveMemberIndex].enabled = true;//on member spawning complete
                     if (currenttreeController != null)
                     {
