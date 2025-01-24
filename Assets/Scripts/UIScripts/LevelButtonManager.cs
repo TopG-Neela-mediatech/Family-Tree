@@ -39,7 +39,7 @@ namespace TMKOC.FamilyTree
                 OnLevelButtonPressed?.Invoke();
                 DisableButton();
                 float delay = GameManager.Instance.SoundManager.PlayLevelStartAudio();
-                yield return new WaitForSeconds(delay);
+                yield return new WaitForSeconds(delay-1);//-1 because delay in main loadlevel method
                 GameManager.Instance.LevelManager.LoadLevel(currentLevelButtonIndex);
                 GameManager.Instance.UIManager.DisableSelectionScreen();
             }
