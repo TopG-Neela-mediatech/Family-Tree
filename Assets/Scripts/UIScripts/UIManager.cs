@@ -38,8 +38,8 @@ namespace TMKOC.FamilyTree
             LevelButtonManager.OnLevelButtonPressed += () => enableMenuFullTreeButton.enabled = false;
             OnMenuPressed += () => enableMenuFullTreeButton.enabled = true;
             playSchoolBackButton.onClick.AddListener(() => SceneManager.LoadScene(TMKOCPlaySchoolConstants.TMKOCPlayMainMenu));
-            nextButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
-            restartButton.onClick.AddListener(GameManager.Instance.LevelManager.LoadNextLevel);
+            nextButton.onClick.AddListener(() => LoadNextLevel(nextButton));
+            restartButton.onClick.AddListener(() => LoadNextLevel(restartButton));
             fullTreeImage.enabled = false;
             menuButton1.onClick.AddListener(EnableSelectionScreen);
             OnMenuPressed += () => fullTreeImage.enabled = false;
@@ -74,6 +74,11 @@ namespace TMKOC.FamilyTree
                 }
                 fullTreeImage.enabled = false;
             });
+        }
+        private void LoadNextLevel(Button bt)
+        {
+            bt.enabled = false;
+            GameManager.Instance.LevelManager.LoadNextLevel();
         }
         private void SetHighLightedImage()
         {
@@ -172,6 +177,7 @@ namespace TMKOC.FamilyTree
 #else
             //Your testing End panel
             endPanel.SetActive(true);
+            restartButton.enabled = true;
 #endif
         }
         private IEnumerator EnableWinPanelAfterDelay()
@@ -179,6 +185,7 @@ namespace TMKOC.FamilyTree
             yield return new WaitForSeconds(0.25f);
             SetWinPanelText();
             winPanel.SetActive(true);
+            nextButton.enabled = true;
         }
         private void OnDestroy()
         {

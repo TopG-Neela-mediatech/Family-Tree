@@ -106,6 +106,7 @@ namespace TMKOC.FamilyTree
         {
             if (levelAudio.isPlaying) { levelAudio.Stop(); }
             int currentLevelNumber = GameManager.Instance.LevelManager.GetLevelIndex();
+            Debug.Log(currentLevelNumber);
             PlayLevelAudio(levelSounds.levelsAudio[currentLevelNumber].outro);
         }
         private void PlayTreeCompleteAudio()

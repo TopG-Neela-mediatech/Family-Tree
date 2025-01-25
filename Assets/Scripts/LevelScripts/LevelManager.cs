@@ -185,8 +185,10 @@ namespace TMKOC.FamilyTree
                 });
             });
         }
-        private void IncrementLevel()
+        private void IncrementLevel()=>StartCoroutine(IncrementLevelAfterDElay());
+        private IEnumerator IncrementLevelAfterDElay()
         {
+            yield return new WaitForSeconds(0.1f);
             currentLevelIndex++;
             gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
         }
