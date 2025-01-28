@@ -9,7 +9,13 @@ namespace TMKOC.FamilyTree
         [SerializeField] private AudioSource quizAudioSource;
         [SerializeField] private SoundSO ENGUS;
         [SerializeField] private MemberSoundSO memberSO_ENGUS;
-        [SerializeField] private string audioLocalization;     
+        [SerializeField] private SoundSO Hindi;
+        [SerializeField] private MemberSoundSO memberSO_Hindi;
+        [SerializeField] private SoundSO French;
+        [SerializeField] private MemberSoundSO memberSO_French;
+        [SerializeField] private SoundSO Tamil;
+        [SerializeField] private MemberSoundSO memberSO_Tamil;
+        [SerializeField] private string audioLocalization;
         private SoundSO levelSounds;
         private MemberSoundSO memberSound;
         private int questionIndex;
@@ -20,9 +26,9 @@ namespace TMKOC.FamilyTree
             SetLanguage();
         }
         private void Start()
-        {           
+        {
             GameManager.Instance.OnLevelWin += PlayLevelCompleteAudio;
-            GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;           
+            GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;
             GameManager.Instance.OnLevelStart += () => questionIndex = -1;
             GameManager.Instance.UIManager.OnMenuPressed += DisableAudioSources;
         }
@@ -39,15 +45,18 @@ namespace TMKOC.FamilyTree
                     levelSounds = ENGUS;
                     memberSound = memberSO_ENGUS;
                     break;
-                /*case "Hindi":
+                case "Hindi":
                     levelSounds = Hindi;
+                    memberSound = memberSO_Hindi;
                     break;
                 case "Tamil":
                     levelSounds = Tamil;
+                    memberSound = memberSO_Tamil;
                     break;
                 case "French":
                     levelSounds = French;
-                    break;*/
+                    memberSound = memberSO_French;
+                    break;
                 default:
                     levelSounds = ENGUS;
                     memberSound = memberSO_ENGUS;
@@ -96,7 +105,7 @@ namespace TMKOC.FamilyTree
             PlayQuizAudio(incorrectAnswerClip);
         }
         public float PlayLevelStartAudio(int currentLevelNumber)
-        {           
+        {
             if (levelAudio.isPlaying) { levelAudio.Stop(); }
             PlayLevelAudio(levelSounds.levelsAudio[currentLevelNumber].intro);
             float length = levelSounds.levelsAudio[currentLevelNumber].intro.length;
@@ -118,7 +127,7 @@ namespace TMKOC.FamilyTree
         public void PlayCurrentMemberSound(FamilyMember member)
         {
             if (levelAudio.isPlaying) { levelAudio.Stop(); }
-            IndividualMemberAudio memberAudio = Array.Find(memberSO_ENGUS.memberAudio, i => i.memberIdentity == member);
+            IndividualMemberAudio memberAudio = Array.Find(memberSound.memberAudio, i => i.memberIdentity == member);
             if (memberAudio != null)
             {
                 PlayLevelAudio(memberAudio.memberClip);
@@ -127,7 +136,7 @@ namespace TMKOC.FamilyTree
         private void OnDestroy()
         {
             GameManager.Instance.OnLevelWin += PlayLevelCompleteAudio;
-            GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;           
+            GameManager.Instance.OnTreeComplete += PlayTreeCompleteAudio;
             GameManager.Instance.OnLevelStart += () => questionIndex = -1;
             GameManager.Instance.UIManager.OnMenuPressed += DisableAudioSources;
         }

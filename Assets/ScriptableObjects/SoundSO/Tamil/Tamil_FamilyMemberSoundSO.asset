@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a096af5635d9ea40a8f8bb41b777b88, type: 3}
+  m_Name: Tamil_FamilyMemberSoundSO
+  m_EditorClassIdentifier: 
+  memberAudio:
+  - memberIdentity: 1
+    memberClip: {fileID: 8300000, guid: 623bd81409e49b449937ea70e6933c41, type: 3}
+  - memberIdentity: 2
+    memberClip: {fileID: 8300000, guid: 8517e8fadac50c346bb88b64e60bfe8e, type: 3}
+  - memberIdentity: 3
+    memberClip: {fileID: 8300000, guid: 15bdfb3edf40bef4e86d794ca339e5ec, type: 3}
+  - memberIdentity: 4
+    memberClip: {fileID: 8300000, guid: 56c6fcbde1bc3254d9a89ab310fe1d43, type: 3}
+  - memberIdentity: 6
+    memberClip: {fileID: 8300000, guid: e1b09d66856539546afb6fdc1e937a13, type: 3}
+  - memberIdentity: 5
+    memberClip: {fileID: 8300000, guid: 408b13f6b80194942ab2147e4d8b5846, type: 3}
+  - memberIdentity: 7
+    memberClip: {fileID: 8300000, guid: 7765e5f70a6ebdf40a55e493240df08f, type: 3}
+  - memberIdentity: 8
+    memberClip: {fileID: 8300000, guid: 2956b1614fea340408e65c6246b608e5, type: 3}
+  - memberIdentity: 9
+    memberClip: {fileID: 8300000, guid: 7fb398c6f1662a84490cbb9c19add00d, type: 3}
+  - memberIdentity: 10
+    memberClip: {fileID: 8300000, guid: d08badcfc3536174f851bcf20931c50a, type: 3}
+  - memberIdentity: 11
+    memberClip: {fileID: 8300000, guid: ede87f2ed40c270429334e5b0a565aae, type: 3}
+  - memberIdentity: 12
+    memberClip: {fileID: 8300000, guid: f1e1a54319e0e494db0ab47757b13a1c, type: 3}
+  - memberIdentity: 13
+    memberClip: {fileID: 8300000, guid: 0d40d2c2f3c7f2041a31435e86e92ac0, type: 3}
+  - memberIdentity: 14
+    memberClip: {fileID: 8300000, guid: 998bd800137f5b94fb1360571b203703, type: 3}
