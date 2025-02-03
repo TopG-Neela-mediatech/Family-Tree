@@ -72,6 +72,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.UIManager.OnMenuPressed -= EnableButton;
             OnLevelButtonPressed -= DisableButton;
             GameManager.Instance.OnGameEnd -= ResetTotalUnlockedLevels;
+            OnLevelButtonPressed = null;
         }
     }
     public enum LevelState
