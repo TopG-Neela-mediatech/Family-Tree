@@ -134,7 +134,7 @@ public class BundleTestandLoad : MonoBehaviour
 
 
     public void selectLangugae(string language){
-        PlayerPrefs.SetString("PlaySchoolLanguage" , language);
+        PlayerPrefs.SetString("PlaySchoolLanguageAudio" , language);
     }
 
 }

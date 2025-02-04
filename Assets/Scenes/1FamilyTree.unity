@@ -538,7 +538,7 @@ MonoBehaviour:
   memberSO_French: {fileID: 11400000, guid: eeedaca0fdb9c5f43b210b63d14506ab, type: 2}
   Tamil: {fileID: 11400000, guid: d36d14cd96af2cd4fb07e19a84d82f8a, type: 2}
   memberSO_Tamil: {fileID: 11400000, guid: 813be140830c58d43bf66c21dbbf15b5, type: 2}
-  audioLocalization: Tamil
+  audioLocalization: French
 --- !u!1 &67920945
 GameObject:
   m_ObjectHideFlags: 0

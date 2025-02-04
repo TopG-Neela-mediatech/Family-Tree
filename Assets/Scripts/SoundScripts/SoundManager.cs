@@ -34,7 +34,7 @@ namespace TMKOC.FamilyTree
         }
         private void SetLanguage()
         {
-            audioLocalization = PlayerPrefs.GetString("PlayschoolLanguageAudio", audioLocalization);
+            audioLocalization = PlayerPrefs.GetString("PlaySchoolLanguageAudio", audioLocalization);
             switch (audioLocalization)
             {
                 case "English":
