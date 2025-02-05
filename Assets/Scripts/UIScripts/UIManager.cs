@@ -26,7 +26,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private GameObject menuFullTree;
         public event Action OnFullTreeShown;
         public event Action OnMenuPressed;
-
+        public event Action OnLevelButtonPressed;
 
         private void Start()
         {
@@ -35,7 +35,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelStart += DisableMenuTree;
             GameManager.Instance.OnGameEnd += EnableFinalWinPanel;
             GameManager.Instance.OnTreeComplete += ShowFullTree;
-            LevelButtonManager.OnLevelButtonPressed += () => enableMenuFullTreeButton.enabled = false;
+            OnLevelButtonPressed += () => enableMenuFullTreeButton.enabled = false;
             OnMenuPressed += () => enableMenuFullTreeButton.enabled = true;
             playSchoolBackButton.onClick.AddListener(() => SceneManager.LoadScene(TMKOCPlaySchoolConstants.TMKOCPlayMainMenu));
             nextButton.onClick.AddListener(() => LoadNextLevel(nextButton));
@@ -54,7 +54,7 @@ namespace TMKOC.FamilyTree
         public void DisableSelectionScreen() => StartCoroutine(DisableSelectionScreenAfterDelay());
         private void EnableMenuTree() => menuFullTree.SetActive(true);
         private void DisableMenuTree() => menuFullTree.SetActive(false);
-
+        public void InvokeLevelButtonpressed() => OnLevelButtonPressed?.Invoke();
 
         private IEnumerator ShowFullTreeOnTreeComplete()
         {
@@ -195,7 +195,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnTreeComplete -= ShowFullTree;
             GameManager.Instance.OnLevelStart -= DisableMenuTree;
             OnMenuPressed -= () => fullTreeImage.enabled = false;
-            LevelButtonManager.OnLevelButtonPressed -= () => enableMenuFullTreeButton.enabled = false;
+            OnLevelButtonPressed -= () => enableMenuFullTreeButton.enabled = false;
             OnMenuPressed -= () => enableMenuFullTreeButton.enabled = true;
         }
     }

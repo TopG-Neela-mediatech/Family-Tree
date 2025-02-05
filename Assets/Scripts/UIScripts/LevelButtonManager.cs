@@ -12,7 +12,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private int currentLevelButtonIndex;
         [SerializeField] private Image ButtonImage;
         private LevelState currentLevelStatus;
-        public static event Action OnLevelButtonPressed;
+        
         private int totalUnlockedLevels;
 
 
@@ -29,14 +29,14 @@ namespace TMKOC.FamilyTree
             LevelLoadButton.onClick.AddListener(LoadLevel);
             GameManager.Instance.UIManager.OnMenuPressed += SetLevelStatus;
             GameManager.Instance.UIManager.OnMenuPressed += EnableButton;
-            OnLevelButtonPressed += DisableButton;
+            GameManager.Instance.UIManager.OnLevelButtonPressed += DisableButton;
             GameManager.Instance.OnGameEnd += ResetTotalUnlockedLevels;
         }         
         private IEnumerator LoadLevelAfterIntro()
         {
             if (currentLevelStatus == LevelState.Unlocked)
             {
-                OnLevelButtonPressed?.Invoke();
+                GameManager.Instance.UIManager.InvokeLevelButtonpressed();
                 DisableButton();
                 float delay = GameManager.Instance.SoundManager.PlayLevelStartAudio(currentLevelButtonIndex);
                 yield return new WaitForSeconds(delay-1);//-1 because delay in main loadlevel method
@@ -70,9 +70,8 @@ namespace TMKOC.FamilyTree
         {
             GameManager.Instance.UIManager.OnMenuPressed -= SetLevelStatus;
             GameManager.Instance.UIManager.OnMenuPressed -= EnableButton;
-            OnLevelButtonPressed -= DisableButton;
-            GameManager.Instance.OnGameEnd -= ResetTotalUnlockedLevels;
-            OnLevelButtonPressed = null;
+            GameManager.Instance.UIManager.OnLevelButtonPressed -= DisableButton;
+            GameManager.Instance.OnGameEnd -= ResetTotalUnlockedLevels;         
         }
     }
     public enum LevelState
