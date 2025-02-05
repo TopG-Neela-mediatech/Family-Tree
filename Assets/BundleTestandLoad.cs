@@ -54,12 +54,12 @@ public class BundleTestandLoad : MonoBehaviour
        AssetBundle.UnloadAllAssetBundles(true);
         string filePath = filePathAssetBundle;
         
-           if (!System.IO.File.Exists(filePath))
+          /* if (!System.IO.File.Exists(filePath))
             {
                 Debug.LogWarning(" Abe Asset  bundle kaa naam sahi daal.   Please check the file path.");
                   Debug.Log(" Abe Asset  bundle kaa naam sahi daal.   Please check the file path.");
                 yield break;
-            }
+            }*/
 
         var assetBundleCreateRequest = AssetBundle.LoadFromFileAsync(filePath);
 
