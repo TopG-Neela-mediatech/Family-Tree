@@ -1,21 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
 namespace TMKOC.FamilyTree
 {
-    [CreateAssetMenu(fileName = "LocalizedName", menuName = "ScritpableObejct")]
+    [CreateAssetMenu(fileName = "LocalizedName", menuName = "LocalizedNameSO")]
     public class MemberLocalNameSO : ScriptableObject
     {
         public LocalizeNames[] localNames;
+        public TMP_FontAsset respectiveFontAsset;
     }
 
     [System.Serializable]
     public class LocalizeNames
     {
-        public TextMeshProUGUI text;
-        public FamilyMember respectiveMember;
+        public MemberRelationShip respectiveMember;
         public string localizedName;
+    }
+    public enum MemberRelationShip
+    {
+        None,
+        Father,
+        Mother,
+        Daughter,
+        Son
     }
 }

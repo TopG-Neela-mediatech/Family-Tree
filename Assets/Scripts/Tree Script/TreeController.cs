@@ -1,5 +1,7 @@
 using System;
+using TMPro;
 using UnityEngine;
+using IndianFontCorrector.ConvertLanguage;
 
 
 namespace TMKOC.FamilyTree
@@ -11,11 +13,51 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Vector3 scale_tablet;
         [SerializeField] private Vector3 position_mobile;
         [SerializeField] private Vector3 position_tablet;
+        [SerializeField] private RelationTextLink[] relationLocaltext;
+        [SerializeField] private string textLocalization;
+        [SerializeField] private MemberLocalNameSO hindiLocalSO;
+        private MemberLocalNameSO localNames;
 
 
         private void Awake()
         {
             SetPosition(DetectAspectRatio());
+            SetLanguage();
+        }
+        private void SetLanguage()
+        {
+            textLocalization = PlayerPrefs.GetString("PlaySchoolLanguageAudio", textLocalization);
+            textLocalization = "Hindi";
+            switch (textLocalization)
+            {
+                case "English":
+                    break;
+                case "EnglishUS":
+                    break;
+                case "Hindi":
+                    localNames = hindiLocalSO;
+                    ConvertLang.SetLanguage(Language.Hindi);
+                    LocalizeText();                   
+                    break;
+            }
+        }
+        private void LocalizeText()
+        {
+            foreach (var rtmp in relationLocaltext)
+            {
+                LocalizeNames localText = Array.Find(localNames.localNames, relation => relation.respectiveMember == rtmp.relationShip);
+                if (localText != null)
+                {
+                    rtmp.relationTMP.font = localNames.respectiveFontAsset;
+                    string tempSt = localText.localizedName;
+                    ConvertLang.Convert(tempSt);
+                    rtmp.relationTMP.text = tempSt;
+                }
+                else
+                {
+                    Debug.Log("String Not Found");
+                }
+            }
         }
         private float DetectAspectRatio()
         {
@@ -44,5 +86,11 @@ namespace TMKOC.FamilyTree
                 transform.localScale = scale_mobile;
             }
         }
+    }
+    [System.Serializable]
+    public class RelationTextLink
+    {
+        public TextMeshProUGUI relationTMP;
+        public MemberRelationShip relationShip;
     }
 }

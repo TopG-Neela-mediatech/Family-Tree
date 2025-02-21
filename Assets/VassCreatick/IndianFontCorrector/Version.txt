@@ -1,0 +1,67 @@
+(1.1.7)
+
+Here are some of the fixes in Hindi     
+आचमनम्
+प्रचोदयात्
+सन्निरोधन
+सन्निधापन
+पशुमान्
+तीर्थक्रियावान्
+श्रीमान्
+विष्णुरंशुमान् 
+सहस्रपात्
+ग्वँग् 
+पश्यन् 
+गर्भधम् 
+अयम्
+मम् 
+अश्विनी 
+अर्थात्
+पूर्णम्
+
+Here are fixes in Kannada
+
+ಕೋರ್ಸ್‌ಗೆ ಪ್ರವೇಶ
+ನಿರ್ಮಾಣ ಕೋರ್ಸ್
+ಮೌಲ್ಯೀಕರಿಸಿ
+ಕೋರ್ಸ್ {[DATE_END]} ವರೆಗೆ ಲಭ್ಯವಿದೆ
+ತ್ಯಾಜ್ಯದ 7 ವಿಧಗಳು
+"ಅನ್ಲಾಕ್" ಮೋಡ್
+ಕೋರ್ಸ್ ಪ್ರದರ್ಶನವು ನಿಧಾನವಾಗಿದ್ದರೆ ಅಥವಾ ಜರ್ಕಿ ಆಗಿದ್ದರೆ, ಇಲ್ಲಿ ಗ್ರಾಫಿಕ್ಸ್ ಗುಣಮಟ್ಟವನ್ನು ಕಡಿಮೆ ಮಾಡಿ.
+
+(1.1.6)
+ Fixed Some of the Telugu and Kannada characters.
+
+(1.1.5)
+Fixed outline, Glow etc properties in Textmesh pro , which were not rendering correctly while applying effects.
+
+1.1.4
+Fixed Bengali Characters
+
+1.1.3
+Fixed Character Alignments in Tamil & Hindi Fonts
+
+(1.1.2)
+1. Fixed Maximum Combinations in Hindi, and also there was underline issue which was not rendering properly.
+
+2. Added 3 New languages(Bengali,Gujrathi, Marathi).
+
+3. Json.Net has been removed from Assetstore, So Unity is providing default Newtonsoft json in the packages.please copy this "com.unity.nuget.newtonsoft-json": "3.2.1" in your project folder-->Packages--> manifest and open the file and paste above command at last
+
+
+(1.1.1)
+Fixed Hindi Characters
+विश्लेषण
+पुनर्भ्यास
+कन्फर्म
+प्रकाश संश्लेषण
+ग्वाटेमाला
+सर्बिया
+बेल्जियम,
+लात्व्हिया
+
+(1.1.0)
+Added Malayalam Font
+
+(1.0.0)
+Initial Release

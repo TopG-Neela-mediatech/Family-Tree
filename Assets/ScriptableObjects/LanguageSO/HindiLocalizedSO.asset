@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edf503da09014c4fb42a0ecd80a013a, type: 3}
+  m_Name: HindiLocalizedSO
+  m_EditorClassIdentifier: 
+  localNames:
+  - respectiveMember: 1
+    localizedName: "\u092A\u093F\u0924\u093E"
+  - respectiveMember: 2
+    localizedName: "\u092E\u093E\u0901"
+  - respectiveMember: 3
+    localizedName: "\u092C\u0947\u091F\u0940"
+  - respectiveMember: 4
+    localizedName: "\u092C\u0947\u091F\u093E"
+  respectiveFontAsset: {fileID: 11400000, guid: 80d2b37f999ff034aa6d07adfddad30e, type: 2}
