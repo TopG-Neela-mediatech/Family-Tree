@@ -23,6 +23,16 @@ namespace TMKOC.FamilyTree
         Father,
         Mother,
         Daughter,
-        Son
+        Son,
+        FatherBrother,
+        FatherBrotherWife,
+        FatherBrotherDaughter,
+        MotherSister,
+        MotherSisHusband,
+        MotherSisterSon,
+        FatherFather,
+        FatherMother,
+        MotherFather,
+        MotherMother
     }
 }

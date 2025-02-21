@@ -21,4 +21,24 @@ MonoBehaviour:
     localizedName: "\u092C\u0947\u091F\u0940"
   - respectiveMember: 4
     localizedName: "\u092C\u0947\u091F\u093E"
+  - respectiveMember: 5
+    localizedName: "\u091A\u093E\u091A\u093E"
+  - respectiveMember: 6
+    localizedName: "\u091A\u093E\u091A\u0940"
+  - respectiveMember: 7
+    localizedName: "\u091A\u091A\u0947\u0930\u0940 \u092C\u0939\u0928"
+  - respectiveMember: 8
+    localizedName: "\u092E\u093E\u0938\u0940"
+  - respectiveMember: 9
+    localizedName: "\u092E\u093E\u092E\u093E"
+  - respectiveMember: 10
+    localizedName: "\u092E\u0938\u0947\u0930\u093E \u092D\u093E\u0908"
+  - respectiveMember: 11
+    localizedName: "\u0926\u093E\u0926\u093E"
+  - respectiveMember: 12
+    localizedName: "\u0926\u093E\u0926\u0940"
+  - respectiveMember: 13
+    localizedName: "\u0928\u093E\u0928\u093E"
+  - respectiveMember: 14
+    localizedName: "\u0928\u093E\u0928\u0940"
   respectiveFontAsset: {fileID: 11400000, guid: 80d2b37f999ff034aa6d07adfddad30e, type: 2}
