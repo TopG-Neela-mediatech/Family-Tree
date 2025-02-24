@@ -16,7 +16,9 @@ namespace TMKOC.FamilyTree
         [SerializeField] private RelationTextLink[] relationLocaltext;
         [SerializeField] private string textLocalization;
         [SerializeField] private MemberLocalNameSO hindiLocalSO;
+        [SerializeField] private MemberLocalNameSO tamilLocalSO;
         private MemberLocalNameSO localNames;
+        private TMP_FontAsset localFontAsset;
 
 
         private void Awake()
@@ -26,8 +28,7 @@ namespace TMKOC.FamilyTree
         }
         private void SetLanguage()
         {
-            textLocalization = PlayerPrefs.GetString("PlaySchoolLanguageAudio", textLocalization);
-            textLocalization = "Hindi";
+            textLocalization = PlayerPrefs.GetString("PlaySchoolLanguageAudio", textLocalization);          
             switch (textLocalization)
             {
                 case "English":
@@ -35,9 +36,14 @@ namespace TMKOC.FamilyTree
                 case "EnglishUS":
                     break;
                 case "Hindi":
-                    localNames = hindiLocalSO;
-                    ConvertLang.SetLanguage(Language.Hindi);
+                    localNames = hindiLocalSO;                    
                     LocalizeText();                   
+                    break;
+                case "Tamil":
+                    localNames = tamilLocalSO;
+                    LocalizeText();
+                    break;
+                default:
                     break;
             }
         }

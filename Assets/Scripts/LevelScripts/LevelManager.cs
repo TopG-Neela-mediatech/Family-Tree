@@ -1,7 +1,9 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using IndianFontCorrector.ConvertLanguage;
 
 
 namespace TMKOC.FamilyTree
@@ -33,6 +35,8 @@ namespace TMKOC.FamilyTree
         private int attempts;
         private FamilyMember currentMemberEnum;
         private Coroutine treeCompleteCoroutine;
+        private string language;
+        private DescriptionLanguage descriptionLanguageEnum;        
 
 
         public Vector3 GetDragPosition() => currentActiveMember.transform.localPosition;
@@ -56,6 +60,7 @@ namespace TMKOC.FamilyTree
             updateCategoryApiManager = new UpdateCategoryApiManager(gameID);
             SetCurrentLevelIndex();
             SetMemberScaleAndPosition();
+            SetDescriptionLanguageEnum();
         }
         private void Start()
         {
@@ -69,6 +74,27 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin += () => attempts = 3;
             GameManager.Instance.OnTreeComplete += () => infoAreaParent.SetActive(false);
             familyMemberLocalPosition = familyMembers[0].transform.localPosition;
+        }
+        private void SetDescriptionLanguageEnum()
+        {
+            language = PlayerPrefs.GetString("PlaySchoolLanguageAudio", "English");
+            switch (language)
+            {
+                case "English":
+                    descriptionLanguageEnum = DescriptionLanguage.English;
+                    break;
+                case "Hindi":
+                    descriptionLanguageEnum = DescriptionLanguage.Hindi;
+                    ConvertLang.SetLanguage(Language.Hindi);
+                    break;
+                case "Tamil":
+                    descriptionLanguageEnum = DescriptionLanguage.Tamil;
+                    ConvertLang.SetLanguage(Language.Tamil);
+                    break;
+                default:
+                    descriptionLanguageEnum = DescriptionLanguage.English;
+                    break;
+            }
         }
         private void StopTreeComplete()
         {
@@ -259,22 +285,38 @@ namespace TMKOC.FamilyTree
         }
         private IEnumerator SetHintText()
         {
+            hintText.font = GetRespectiveFont();
             hintText.text = "";
             yield return new WaitForSeconds(0.5f);
-            string fullText = levels[currentLevelIndex].memberData[currentActiveMemberIndex].Description;
-            for (int i = 0; i < fullText.Length; i++)
+            string fullText = GetLocalizedDescritpion();
+            if (fullText != null)
             {
-                hintText.text += fullText[i];
-                if (fullText[i] == '.')
+                for (int i = 0; i < fullText.Length; i++)
                 {
-                    hintText.text += "\n";
+                    hintText.text += fullText[i];
+                    if (fullText[i] == '.')
+                    {
+                        hintText.text += "\n";
+                    }
+                    if (i == fullText.Length - 1)
+                    {
+                        familyMembers[currentActiveMemberIndex].enabled = true;
+                    }
+                    yield return new WaitForSeconds(typingSpeed);
                 }
-                if (i == fullText.Length - 1)
-                {
-                    familyMembers[currentActiveMemberIndex].enabled = true;
-                }
-                yield return new WaitForSeconds(typingSpeed);
             }
+        }
+        private string GetLocalizedDescritpion()
+        {
+            LocalDescription ld = Array.Find(levels[currentLevelIndex].memberData[currentActiveMemberIndex].Description,
+                i=>i.language==descriptionLanguageEnum );
+            return ld.description;
+        }
+        private TMP_FontAsset GetRespectiveFont()
+        {
+            FontData FD = Array.Find(levels[currentLevelIndex].fontDatas,
+                i => i.language == descriptionLanguageEnum);
+            return FD.fontAsset;
         }
         private void OnDestroy()
         {
