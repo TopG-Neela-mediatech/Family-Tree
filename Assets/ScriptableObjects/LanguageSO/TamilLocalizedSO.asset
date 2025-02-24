@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edf503da09014c4fb42a0ecd80a013a, type: 3}
+  m_Name: TamilLocalizedSO
+  m_EditorClassIdentifier: 
+  individualRelation:
+    respectiveMember: 0
+    localizedName: 
+  localNames:
+  - respectiveMember: 1
+    localizedName: "\u0B85\u0BAA\u0BCD\u0BAA\u0BBE"
+  - respectiveMember: 2
+    localizedName: "\u0BA4\u0BBE\u0BAF\u0BCD"
+  - respectiveMember: 3
+    localizedName: "\u0BAE\u0B95\u0BB3\u0BCD"
+  - respectiveMember: 4
+    localizedName: "\u0BAE\u0B95\u0BA9\u0BCD"
+  - respectiveMember: 5
+    localizedName: "\u0B9A\u0BCD\u0B9A\u0BBE\u0B9A\u0BBE"
+  - respectiveMember: 6
+    localizedName: "\u0B9A\u0BCD\u0B9A\u0BBE\u0B9A\u0BBF"
+  - respectiveMember: 7
+    localizedName: "\u0B9A\u0BCD\u0B9A\u0BBE\u0B9A\u0BC7\u0BB0\u0BBF \u0B9A\u0B95\u0BCB\u0BA4\u0BB0\u0BBF"
+  - respectiveMember: 8
+    localizedName: "\u0BAE\u0BBE\u0B9A\u0BBF"
+  - respectiveMember: 9
+    localizedName: "\u0BAE\u0BBE\u0BAE\u0BBE"
+  - respectiveMember: 10
+    localizedName: "\u0BAE\u0BBE\u0BAE\u0BC7\u0BB0\u0BBE \u0B85\u0BA3\u0BCD\u0BA3\u0BA9\u0BCD"
+  - respectiveMember: 11
+    localizedName: " \u0BA4\u0BBE\u0BA4\u0BCD\u0BA4\u0BBE"
+  - respectiveMember: 12
+    localizedName: "\u0BAA\u0BBE\u0B9F\u0BCD\u0B9F\u0BBF"
+  - respectiveMember: 13
+    localizedName: "\u0BA8\u0BBE\u0BA9\u0BBE"
+  - respectiveMember: 14
+    localizedName: "\u0BAA\u0BBE\u0B9F\u0BCD\u0B9F\u0BBF"
+  - respectiveMember: 15
+    localizedName: "\u0BAA\u0B9A\u0B99\u0BCD\u0B95"
+  - respectiveMember: 16
+    localizedName: "\u0BAA\u0BC6\u0BA3\u0BCD \u0B95\u0BC1\u0BB4\u0BA8\u0BCD\u0BA4\u0BC8"
+  - respectiveMember: 17
+    localizedName: "\u0BAA\u0BC7\u0BB0\u0BB5\u0BB3\u0BCD"
+  - respectiveMember: 18
+    localizedName: "\u0BAA\u0BC7\u0BB0\u0BA9\u0BCD"
+  respectiveFontAsset: {fileID: 11400000, guid: 7a2f3aee4359fe3499927973db52c721, type: 2}
