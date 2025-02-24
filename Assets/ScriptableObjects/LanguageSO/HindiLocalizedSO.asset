@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6edf503da09014c4fb42a0ecd80a013a, type: 3}
   m_Name: HindiLocalizedSO
   m_EditorClassIdentifier: 
+  individualRelation:
+    respectiveMember: 0
+    localizedName: 
   localNames:
   - respectiveMember: 1
     localizedName: "\u092A\u093F\u0924\u093E"
@@ -41,4 +44,12 @@ MonoBehaviour:
     localizedName: "\u0928\u093E\u0928\u093E"
   - respectiveMember: 14
     localizedName: "\u0928\u093E\u0928\u0940"
+  - respectiveMember: 15
+    localizedName: "\u092D\u0924\u0940\u091C\u093E"
+  - respectiveMember: 16
+    localizedName: "\u092D\u0924\u0940\u091C\u0940"
+  - respectiveMember: 17
+    localizedName: "\u092A\u094B\u0924\u0940"
+  - respectiveMember: 18
+    localizedName: "\u092A\u094B\u0924\u093E"
   respectiveFontAsset: {fileID: 11400000, guid: 80d2b37f999ff034aa6d07adfddad30e, type: 2}

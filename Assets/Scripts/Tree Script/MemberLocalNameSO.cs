@@ -7,6 +7,7 @@ namespace TMKOC.FamilyTree
     [CreateAssetMenu(fileName = "LocalizedName", menuName = "LocalizedNameSO")]
     public class MemberLocalNameSO : ScriptableObject
     {
+        public LocalizeNames individualRelation;
         public LocalizeNames[] localNames;
         public TMP_FontAsset respectiveFontAsset;
     }
@@ -33,6 +34,10 @@ namespace TMKOC.FamilyTree
         FatherFather,
         FatherMother,
         MotherFather,
-        MotherMother
+        MotherMother,
+        Nephew,
+        Niece,
+        GrandDaughter,
+        GrandSon
     }
 }
