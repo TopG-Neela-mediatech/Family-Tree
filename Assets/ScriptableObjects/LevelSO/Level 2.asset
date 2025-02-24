@@ -17,16 +17,53 @@ MonoBehaviour:
   memberData:
   - faceSprite: {fileID: 21300000, guid: a31c951696d71fa4ea6871d13181ad46, type: 3}
     Name: Karan
-    Description: Karan Is Natasha's Uncle And Arjun's Brother
+    Description:
+    - language: 0
+      description: Karan Is Arjun's Brother And Natasha's Uncle
+    - language: 1
+      description: "\u0915\u0930\u0923 \u0905\u0930\u094D\u091C\u0941\u0928 \u0915\u0947
+        \u092D\u093E\u0908 \u0914\u0930 \u0928\u0924\u093E\u0936\u093E \u0915\u0947
+        \u091A\u093E\u091A\u093E \u0939\u0948\u0902\u0964"
+    - language: 2
+      description: "\u0B95\u0BB0\u0BA3\u0BCD \u0B85\u0BB0\u0BCD\u0B9C\u0BC1\u0BA9\u0BBF\u0BA9\u0BCD
+        \u0B9A\u0B95\u0BCB\u0BA4\u0BB0\u0BB0\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD
+        \u0BA8\u0BA4\u0BCD\u0BA4\u0BBE\u0B9A\u0BBE\u0BB5\u0BBF\u0BA9\u0BCD \u0B9A\u0BCD\u0B9A\u0BBE\u0B9A\u0BBE."
     Key: 0
     member: 7
   - faceSprite: {fileID: 21300000, guid: 6e57a6d7500a74341b00aec798227136, type: 3}
     Name: Monica
-    Description: Monica Is Natasha's Aunt And Karan's's Wife
+    Description:
+    - language: 0
+      description: Monica Is Karan's Wife And Natasha's Aunt
+    - language: 1
+      description: "\u092E\u094B\u0928\u093F\u0915\u093E \u0915\u0930\u0923 \u0915\u0940
+        \u092A\u0924\u094D\u0928\u0940 \u0914\u0930 \u0928\u0924\u093E\u0936\u093E
+        \u0915\u0940 \u092C\u0941\u0906 \u0939\u0948\u0902\u0964"
+    - language: 2
+      description: "\u0BAE\u0BCB\u0BA9\u0BBF\u0B95\u0BBE \u0B95\u0BB0\u0BA3\u0BBF\u0BA9\u0BCD
+        \u0BAE\u0BA9\u0BC8\u0BB5\u0BBF \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD
+        \u0BA8\u0BA4\u0BCD\u0BA4\u0BBE\u0B9A\u0BBE\u0BB5\u0BBF\u0BA9\u0BCD \u0B86\u0BA3\u0BCD\u0B9F\u0BBF."
     Key: 1
     member: 8
   - faceSprite: {fileID: 21300000, guid: dff20e06ae32920469c1ca34f9723873, type: 3}
     Name: Rachel
-    Description: Rachel Is Natasha's Cousin And karan's Niece
+    Description:
+    - language: 0
+      description: Rachel Is Karan's Daughter And Natasha's Cousin
+    - language: 1
+      description: "\u0930\u0948\u091A\u0947\u0932 \u0915\u0930\u0923 \u0915\u0940
+        \u092C\u0947\u091F\u0940 \u0914\u0930 \u0928\u0924\u093E\u0936\u093E \u0915\u0940
+        \u091A\u091A\u0947\u0930\u0940 \u092C\u0939\u0928 \u0939\u0948\u0902\u0964"
+    - language: 2
+      description: "\u0BB0\u0BC7\u0B9A\u0BCD\u0B9A\u0BB2\u0BCD \u0B95\u0BB0\u0BA3\u0BBF\u0BA9\u0BCD
+        \u0BAE\u0B95\u0BB3\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BA8\u0BA4\u0BCD\u0BA4\u0BBE\u0B9A\u0BBE\u0BB5\u0BBF\u0BA9\u0BCD
+        \u0B9A\u0B9A\u0BC7\u0BB0\u0BBF \u0BAA\u0BC6\u0BA3\u0BCD."
     Key: 2
     member: 3
+  fontDatas:
+  - language: 0
+    fontAsset: {fileID: 11400000, guid: 81c1f31db8cd63b46a33423d99739f27, type: 2}
+  - language: 1
+    fontAsset: {fileID: 11400000, guid: 80d2b37f999ff034aa6d07adfddad30e, type: 2}
+  - language: 2
+    fontAsset: {fileID: 11400000, guid: 7a2f3aee4359fe3499927973db52c721, type: 2}

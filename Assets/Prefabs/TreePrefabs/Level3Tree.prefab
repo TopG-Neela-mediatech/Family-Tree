@@ -158,6 +158,7 @@ MonoBehaviour:
     relationShip: 15
   textLocalization: 
   hindiLocalSO: {fileID: 11400000, guid: 3bb7801b51f81c74783813397748cdf7, type: 2}
+  tamilLocalSO: {fileID: 0}
 --- !u!1 &2910330159966340565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,9 +1137,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: RelationBoardText
       objectReference: {fileID: 0}
+    - target: {fileID: 193693680565095844, guid: 8fdadd91449054a40906c9cbc25f4d98, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4315530433379230303, guid: 8fdadd91449054a40906c9cbc25f4d98, type: 3}
       propertyPath: m_text
       value: Nephew
+      objectReference: {fileID: 0}
+    - target: {fileID: 4315530433379230303, guid: 8fdadd91449054a40906c9cbc25f4d98, type: 3}
+      propertyPath: m_fontSize
+      value: 1.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4315530433379230303, guid: 8fdadd91449054a40906c9cbc25f4d98, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 81c1f31db8cd63b46a33423d99739f27, type: 2}
+    - target: {fileID: 4315530433379230303, guid: 8fdadd91449054a40906c9cbc25f4d98, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4392515212503406415, guid: 81c1f31db8cd63b46a33423d99739f27, type: 2}
+    - target: {fileID: 4315530433379230303, guid: 8fdadd91449054a40906c9cbc25f4d98, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985889281070358951, guid: 8fdadd91449054a40906c9cbc25f4d98, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

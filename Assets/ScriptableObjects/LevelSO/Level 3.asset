@@ -17,16 +17,55 @@ MonoBehaviour:
   memberData:
   - faceSprite: {fileID: 21300000, guid: 6e57a6d7500a74341b00aec798227136, type: 3}
     Name: Nikita
-    Description: Nikita Is Henry's Aunt And Anita's Sister
+    Description:
+    - language: 0
+      description: Nikita Is Anita's Sister And Henry's Aunt
+    - language: 1
+      description: "\u0928\u093F\u0915\u093F\u0924\u093E \u0905\u0928\u0940\u0924\u093E
+        \u0915\u0940 \u092C\u0939\u0928 \u0914\u0930 \u0939\u0947\u0928\u0930\u0940
+        \u0915\u0940 \u092E\u093E\u0938\u0940 \u0939\u0948\u0902\u0964"
+    - language: 2
+      description: "\u0BA8\u0BBF\u0B95\u0BBF\u0BA4\u0BBE \u0B85\u0BA9\u0BBF\u0BA4\u0BBE\u0BB5\u0BBF\u0BA9\u0BCD
+        \u0B9A\u0B95\u0BCB\u0BA4\u0BB0\u0BBF \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD
+        \u0BB9\u0BC6\u0BA9\u0BCD\u0BB1\u0BBF\u0BAF\u0BBF\u0BA9\u0BCD \u0BAE\u0BBE\u0B9A\u0BBF."
     Key: 0
     member: 9
   - faceSprite: {fileID: 21300000, guid: a31c951696d71fa4ea6871d13181ad46, type: 3}
     Name: Rahul
-    Description: Rahul is Nikita's Husband And Henry's Uncle
+    Description:
+    - language: 0
+      description: Rahul Is Nikita's Husband And Henry's Uncle
+    - language: 1
+      description: "\u0930\u093E\u0939\u0941\u0932 \u0928\u093F\u0915\u093F\u0924\u093E
+        \u0915\u0947 \u092A\u0924\u093F \u0914\u0930 \u0939\u0947\u0928\u0930\u0940
+        \u0915\u0947 \u092E\u093E\u092E\u093E \u0939\u0948\u0902\u0964"
+    - language: 2
+      description: "\u0BB0\u0BBE\u0B95\u0BC1\u0BB2\u0BCD \u0BA8\u0BBF\u0B95\u0BBF\u0BA4\u0BBE\u0BB5\u0BBF\u0BA9\u0BCD
+        \u0B95\u0BA3\u0BB5\u0BA9\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD
+        \u0BB9\u0BC6\u0BA9\u0BCD\u0BB1\u0BBF\u0BAF\u0BBF\u0BA9\u0BCD \u0BAE\u0BBE\u0BAE\u0BBE."
     Key: 1
     member: 10
   - faceSprite: {fileID: 21300000, guid: e59ef0e352a64ee47a40c24fa6d09f62, type: 3}
     Name: Vivek
-    Description: Vivek Is Henry's Cousin and Anita's Nephew
+    Description:
+    - language: 0
+      description: Vivek Is Henry's Cousin And Nikita's Son
+    - language: 1
+      description: "\u0935\u093F\u0935\u0947\u0915 \u0939\u0947\u0928\u0930\u0940
+        \u0915\u0947 \u091A\u091A\u0947\u0930\u0947 \u092D\u093E\u0908 \u0914\u0930
+        \u0928\u093F\u0915\u093F\u0924\u093E \u0915\u0947 \u092C\u0947\u091F\u0947
+        \u0939\u0948\u0902\u0964"
+    - language: 2
+      description: "\u0BB5\u0BBF\u0BB5\u0BC7\u0B95\u0BCD \u0BB9\u0BC6\u0BA9\u0BCD\u0BB1\u0BBF\u0BAF\u0BBF\u0BA9\u0BCD
+        \u0B9A\u0B9A\u0BC7\u0BB0\u0BBF \u0B9A\u0B95\u0BCB\u0BA4\u0BB0\u0BB0\u0BCD
+        \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BA8\u0BBF\u0B95\u0BBF\u0BA4\u0BBE\u0BB5\u0BBF\u0BA9\u0BCD
+        \u0BAE\u0B95\u0BA9\u0BCD."
     Key: 2
     member: 4
+  fontDatas:
+  - language: 0
+    fontAsset: {fileID: 11400000, guid: 81c1f31db8cd63b46a33423d99739f27, type: 2}
+  - language: 1
+    fontAsset: {fileID: 11400000, guid: 80d2b37f999ff034aa6d07adfddad30e, type: 2}
+  - language: 2
+    fontAsset: {fileID: 11400000, guid: 7a2f3aee4359fe3499927973db52c721, type: 2}

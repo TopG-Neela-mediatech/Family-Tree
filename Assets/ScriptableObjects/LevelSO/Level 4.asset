@@ -17,11 +17,39 @@ MonoBehaviour:
   memberData:
   - faceSprite: {fileID: 21300000, guid: 8c5ecbdaacd4fcc44ac6eb867a73c94c, type: 3}
     Name: Aryan
-    Description: Ayan Is Natasha's  Grand-Father And Arjun's Father
+    Description:
+    - language: 0
+      description: Aryan Is Natasha's GrandFather And Arjun's Father
+    - language: 1
+      description: "\u0906\u0930\u094D\u092F\u0928 \u0928\u0924\u093E\u0936\u093E
+        \u0915\u0947 \u0926\u093E\u0926\u093E \u0914\u0930 \u0905\u0930\u094D\u091C\u0941\u0928
+        \u0915\u0947 \u092A\u093F\u0924\u093E \u0939\u0948\u0902\u0964"
+    - language: 2
+      description: "\u0B86\u0BB0\u0BCD\u0BAF\u0BA9\u0BCD \u0BA8\u0BA4\u0BCD\u0BA4\u0BBE\u0B9A\u0BBE\u0BB5\u0BBF\u0BA9\u0BCD
+        \u0BA4\u0BBE\u0BA4\u0BCD\u0BA4\u0BBE \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD
+        \u0B85\u0BB0\u0BCD\u0B9C\u0BC1\u0BA9\u0BBF\u0BA9\u0BCD \u0B85\u0BAA\u0BCD\u0BAA\u0BBE."
     Key: 0
     member: 11
   - faceSprite: {fileID: 21300000, guid: b6547b8bf3b17b8439a3ccb9da74bb9c, type: 3}
     Name: Christina
-    Description: Christina Is Natasha's Grand-Mother And Arjun's Mother
+    Description:
+    - language: 0
+      description: Christina Is Natasha's GrandMother And Arjun's Mother
+    - language: 1
+      description: "\u0915\u094D\u0930\u093F\u0938\u094D\u091F\u093F\u0928\u093E
+        \u0928\u0924\u093E\u0936\u093E \u0915\u0940 \u0926\u093E\u0926\u0940 \u0914\u0930
+        \u0905\u0930\u094D\u091C\u0941\u0928 \u0915\u0940 \u092E\u093E\u0901 \u0939\u0948\u0902\u0964"
+    - language: 2
+      description: "\u0B95\u0BBF\u0BB1\u0BBF\u0BB8\u0BCD\u0B9F\u0BBF\u0BA9\u0BBE
+        \u0BA8\u0BA4\u0BCD\u0BA4\u0BBE\u0B9A\u0BBE\u0BB5\u0BBF\u0BA9\u0BCD \u0BAA\u0BBE\u0B9F\u0BCD\u0B9F\u0BBF
+        \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B85\u0BB0\u0BCD\u0B9C\u0BC1\u0BA9\u0BBF\u0BA9\u0BCD
+        \u0BA4\u0BBE\u0BAF\u0BCD."
     Key: 1
     member: 12
+  fontDatas:
+  - language: 0
+    fontAsset: {fileID: 11400000, guid: 81c1f31db8cd63b46a33423d99739f27, type: 2}
+  - language: 1
+    fontAsset: {fileID: 11400000, guid: 80d2b37f999ff034aa6d07adfddad30e, type: 2}
+  - language: 2
+    fontAsset: {fileID: 11400000, guid: 7a2f3aee4359fe3499927973db52c721, type: 2}
