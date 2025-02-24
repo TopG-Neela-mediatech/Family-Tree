@@ -32,6 +32,7 @@ namespace TMKOC.FamilyTree
         private DragScript currentActiveMember;
         private int attempts;
         private FamilyMember currentMemberEnum;
+        private Coroutine treeCompleteCoroutine;
 
 
         public Vector3 GetDragPosition() => currentActiveMember.transform.localPosition;
@@ -58,6 +59,7 @@ namespace TMKOC.FamilyTree
         }
         private void Start()
         {
+            GameManager.Instance.UIManager.OnMenuPressed += StopTreeComplete;
             GameManager.Instance.OnTreeComplete += this.OnTreeComplete;
             GameManager.Instance.OnLevelWin += IncrementLevel;
             GameManager.Instance.OnLevelWin += DestroyTree;
@@ -67,6 +69,13 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin += () => attempts = 3;
             GameManager.Instance.OnTreeComplete += () => infoAreaParent.SetActive(false);
             familyMemberLocalPosition = familyMembers[0].transform.localPosition;
+        }
+        private void StopTreeComplete()
+        {
+            if (treeCompleteCoroutine != null)
+            {
+                StopCoroutine(treeCompleteCoroutine);
+            }
         }
         private void ResetData()
         {
@@ -158,11 +167,11 @@ namespace TMKOC.FamilyTree
         {
             if (currentActiveMemberIndex == levels[currentLevelIndex].memberCount - 1)
             {
-                StartCoroutine(TreeEndAnimation());//tree complete here
+                treeCompleteCoroutine = StartCoroutine(TreeEndAnimation());//tree complete here
                 return;
             }
             currentActiveMemberIndex++;
-            currentMemberEnum = levels[currentLevelIndex].memberData[currentActiveMemberIndex].member;           
+            currentMemberEnum = levels[currentLevelIndex].memberData[currentActiveMemberIndex].member;
             currentActiveMember = familyMembers[currentActiveMemberIndex];//setting the reference for active member;         
             if (infoAreaCoroutine != null)
             {
@@ -185,7 +194,7 @@ namespace TMKOC.FamilyTree
                 });
             });
         }
-        private void IncrementLevel()=>StartCoroutine(IncrementLevelAfterDElay());
+        private void IncrementLevel() => StartCoroutine(IncrementLevelAfterDElay());
         private IEnumerator IncrementLevelAfterDElay()
         {
             yield return new WaitForSeconds(0.1f);
@@ -248,18 +257,6 @@ namespace TMKOC.FamilyTree
                 gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
             }
         }
-        /*private void SetRevealedMemberData()
-        {
-            if (currenttreeController != null)
-            {
-                foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
-                {
-                    DropController dc = currenttreeController.GetDropController(revealedMember.Key);
-                    dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
-                    dc.enabled = false;//setting trigger of drop zone false hopefully
-                }
-            }
-        }*/
         private IEnumerator SetHintText()
         {
             hintText.text = "";
@@ -289,6 +286,7 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.OnLevelWin -= SetMemberScaleAndPosition;
             GameManager.Instance.OnLevelWin -= () => attempts = 3;
             GameManager.Instance.OnTreeComplete -= () => infoAreaParent.SetActive(false);
+            GameManager.Instance.UIManager.OnMenuPressed -= StopTreeComplete;
         }
 
     }
@@ -308,4 +306,16 @@ namespace TMKOC.FamilyTree
            });
        }
 */
+/*private void SetRevealedMemberData()
+        {
+            if (currenttreeController != null)
+            {
+                foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
+                {
+                    DropController dc = currenttreeController.GetDropController(revealedMember.Key);
+                    dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
+                    dc.enabled = false;//setting trigger of drop zone false hopefully
+                }
+            }
+        }*/
 

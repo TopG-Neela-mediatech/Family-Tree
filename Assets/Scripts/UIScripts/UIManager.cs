@@ -26,7 +26,8 @@ namespace TMKOC.FamilyTree
         [SerializeField] private GameObject menuFullTree;
         public event Action OnFullTreeShown;
         public event Action OnMenuPressed;
-        public event Action OnLevelButtonPressed;
+        public event Action OnLevelButtonPressed;       
+
 
         private void Start()
         {
@@ -43,6 +44,7 @@ namespace TMKOC.FamilyTree
             fullTreeImage.enabled = false;
             menuButton1.onClick.AddListener(EnableSelectionScreen);
             OnMenuPressed += () => fullTreeImage.enabled = false;
+            OnMenuPressed += () => fullTreeImage.gameObject.SetActive(false);
             enableMenuFullTreeButton.onClick.AddListener(EnableMenuTree);
             disableMenuFullTreeButton.onClick.AddListener(DisableMenuTree);
             DisableMenuTree();
@@ -50,14 +52,16 @@ namespace TMKOC.FamilyTree
 
 
         private void EnableWinPanel() => StartCoroutine(EnableWinPanelAfterDelay());
-        private void ShowFullTree() => StartCoroutine(ShowFullTreeOnTreeComplete());
         public void DisableSelectionScreen() => StartCoroutine(DisableSelectionScreenAfterDelay());
         private void EnableMenuTree() => menuFullTree.SetActive(true);
         private void DisableMenuTree() => menuFullTree.SetActive(false);
         public void InvokeLevelButtonpressed() => OnLevelButtonPressed?.Invoke();
+        private void ShowFullTree()=>StartCoroutine(ShowFullTreeOnTreeComplete());  
+        
 
         private IEnumerator ShowFullTreeOnTreeComplete()
         {
+            fullTreeImage.gameObject.SetActive(true);
             fullTreeImage.transform.DOLocalMoveY(Screen.height, 0f).OnComplete(() =>
             {
                 fullTreeImage.enabled = true;
@@ -150,19 +154,7 @@ namespace TMKOC.FamilyTree
                     winScreenText.text = "Tree Completed";
                     break;
             }
-        }
-        private IEnumerator ShowFullTreeBeforeLevelStart()
-        {
-            fullTreeImage.transform.DOLocalMoveY(Screen.height, 0f);
-            fullTreeImage.enabled = true;
-            fullTreeImage.transform.DOLocalMoveY(0f, 1f);
-            yield return new WaitForSeconds(4f);
-            fullTreeImage.transform.DOLocalMoveY(Screen.height, 1f).OnComplete(() =>
-            {
-                fullTreeImage.enabled = false;
-                OnFullTreeShown?.Invoke();
-            });
-        }
+        }       
         private void DisableUIPanels()
         {
             winPanel.SetActive(false);
@@ -197,6 +189,7 @@ namespace TMKOC.FamilyTree
             OnMenuPressed -= () => fullTreeImage.enabled = false;
             OnLevelButtonPressed -= () => enableMenuFullTreeButton.enabled = false;
             OnMenuPressed -= () => enableMenuFullTreeButton.enabled = true;
+            OnMenuPressed -= () => fullTreeImage.gameObject.SetActive(false);
         }
     }
 }
