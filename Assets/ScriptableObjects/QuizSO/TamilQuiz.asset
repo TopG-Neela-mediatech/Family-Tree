@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d59000356bbd15246a40a16a8edcc491, type: 3}
-  m_Name: Quiz 2
+  m_Name: TamilQuiz
   m_EditorClassIdentifier: 
   quizSet:
-  - question: Rachel Is Natasha's?
+  - question: Anita Is Arjun's?
     options:
-    - name: Aunt
-      value: 2
-    - name: Cousin
+    - name: Wife
       value: 1
-    - name: Uncle
-      value: 3
-  - question: Natasha Is Karan's?
-    options:
-    - name: Niece
-      value: 1
-    - name: Aunt
+    - name: Daughter
       value: 2
-    - name: Uncle
+    - name: Son
       value: 3
-  - question: Monica Is Natasha's?
+  - question: Arjun Is Henry's?
     options:
-    - name: Uncle
+    - name: Mother
+      value: 0
+    - name: Father
+      value: 1
+    - name: Brother
+      value: 2
+  - question: Henry Is Natasha's?
+    options:
+    - name: Father
       value: 3
     - name: Sister
       value: 0
-    - name: Aunt
+    - name: Brother
       value: 1
-  hintSprite: {fileID: 21300000, guid: 0da3c030f1485e0438466b1bcff7e635, type: 3}
+  hintSprite: {fileID: 21300000, guid: a3bfefbadbc79cd43a29f6ab4211f561, type: 3}

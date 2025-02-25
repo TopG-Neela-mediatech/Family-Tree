@@ -11,14 +11,14 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Image incorrectImage;
 
 
-        public int value { get; private set; }
+        public Options value { get; private set; }
 
 
         public void EnableCorrectImage()=>correctImage.enabled = true;
         public void EnableIncorrectImage()=>incorrectImage.enabled = true;
 
 
-        public void SetData(int val, string optionText)
+        public void SetData(Options val, string optionText)
         {
             value = val;
             this.optionText.text = optionText;

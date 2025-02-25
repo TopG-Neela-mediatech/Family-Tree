@@ -13,16 +13,22 @@ namespace TMKOC.FamilyTree
         [SerializeField] private Transform questionParent;
         [SerializeField] private Transform optionParent;
         [SerializeField] private Image treeImage;
-        [SerializeField] private QuizSO[] quizzes;
         [SerializeField] private GameObject quizParent;
         [SerializeField] private TextMeshProUGUI questionText;
         [SerializeField] private ButtonData[] quizButtons;
+        [SerializeField] private QuizSO englishQuiz;
+        [SerializeField] private QuizSO hindiQuiz;
+        [SerializeField] private QuizSO tamilQuiz;
+        private QuizSO quizSO;
         private int levelIndex;
         private int questionNumber;
-        private const int correctOption = 1;//correct answer always one
+        private string languageString;
         //public event Action OnOptionSelected;
 
-
+        private void Awake()
+        {
+            SetQuizSO();
+        }
         private void Start()
         {
             quizParent.SetActive(false);
@@ -30,6 +36,28 @@ namespace TMKOC.FamilyTree
             GameManager.Instance.UIManager.OnFullTreeShown += StartCurrentQuiz;
             GameManager.Instance.UIManager.OnMenuPressed += ResetQuiz;
             questionNumber = 0;
+        }
+        private void SetQuizSO()
+        {
+            languageString = PlayerPrefs.GetString("PlaySchoolLanguageAudio", languageString);
+            switch (languageString)
+            {
+                case "English":
+                    quizSO = englishQuiz;
+                    break;
+                case "EnglishUS":
+                    quizSO = englishQuiz;
+                    break;
+                case "Hindi":
+                    quizSO = hindiQuiz;
+                    break;
+                case "Tamil":
+                    quizSO = tamilQuiz;
+                    break;
+                default:
+                    quizSO = englishQuiz;
+                    break;
+            }
         }
         private void StartCurrentQuiz()
         {
@@ -41,23 +69,10 @@ namespace TMKOC.FamilyTree
             questionNumber = 0;
             quizParent.SetActive(false);
         }
-        private QuizSO GetQuizData()
+        private QuizLevels GetQuizLevels()
         {
             levelIndex = GameManager.Instance.LevelManager.GetLevelIndex();
-            switch (levelIndex)
-            {
-                case 0:
-                    return quizzes[0];
-                case 1:
-                    return quizzes[1];
-                case 2:
-                    return quizzes[2];
-                case 3:
-                    return quizzes[3];
-                case 4:
-                    return quizzes[4];
-            }
-            return null;
+            return quizSO.quizLevels[levelIndex];
         }
         private void LoadNextQuestion()
         {
@@ -110,14 +125,14 @@ namespace TMKOC.FamilyTree
         }
         private void StartQuiz()
         {
-            QuizSO currentQuizSO = GetQuizData();
-            if (currentQuizSO != null)
+            QuizLevels currentLevel = GetQuizLevels();
+            if (currentLevel != null)
             {
-                QuizData currentQuizData = currentQuizSO.quizSet[questionNumber];
+                QuizData currentQuizData = currentLevel.quizSet[questionNumber];
                 SetQuestion(currentQuizData);
                 SetOptions(currentQuizData);
                 QuizStartAnimation();
-                SetHintSprite(currentQuizSO.hintSprite);
+                SetHintSprite(currentLevel.hintSprite);
             }
             else
             {
@@ -131,8 +146,8 @@ namespace TMKOC.FamilyTree
         private void CheckIfCorrect(QuizButtonManager qbManager)
         {
             DisableButtons();
-            int optionSelected = qbManager.value;
-            if (optionSelected == correctOption)
+            Options optionSelected = qbManager.value;
+            if (optionSelected == Options.Correct)
             {
                 qbManager.EnableCorrectImage();
                 GameManager.Instance.SoundManager.PlayCorrectAnswer();
@@ -140,14 +155,14 @@ namespace TMKOC.FamilyTree
             else
             {
                 GameManager.Instance.SoundManager.PlayInCorrectAnswer();
-                QuizButtonManager correctQBManager = FindCorrectButtonManager(correctOption);
+                QuizButtonManager correctQBManager = FindCorrectButtonManager(Options.Correct);
                 correctQBManager.EnableCorrectImage();
                 qbManager.EnableIncorrectImage();
             }
             LoadNextQuestion();
             //OnOptionSelected?.Invoke();
         }
-        private QuizButtonManager FindCorrectButtonManager(int correct)
+        private QuizButtonManager FindCorrectButtonManager(Options correct)
         {
             ButtonData bd = Array.Find(quizButtons, i => i.buttonManager.value == correct);
             return bd.buttonManager;
@@ -160,7 +175,7 @@ namespace TMKOC.FamilyTree
         {
             for (int i = 0; i < quizButtons.Length; i++)
             {
-                int value = currentQuizdata.options[i].value;
+                Options value = currentQuizdata.options[i].value;
                 string name = currentQuizdata.options[i].name;
                 QuizButtonManager currentQBManager = quizButtons[i].buttonManager;
                 currentQBManager.SetData(value, name);

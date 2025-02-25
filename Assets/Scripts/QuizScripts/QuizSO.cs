@@ -5,6 +5,11 @@ namespace TMKOC.FamilyTree
     [CreateAssetMenu(fileName = "ScriptableObject", menuName = "QuizSO")]
     public class QuizSO : ScriptableObject
     {
+        public QuizLevels[] quizLevels;
+    }
+    [System.Serializable]
+    public class QuizLevels
+    {
         public QuizData[] quizSet;
         public Sprite hintSprite;
     }
@@ -13,12 +18,16 @@ namespace TMKOC.FamilyTree
     {
         public string question;
         public OptionData[] options;
-        public const int correctAnswer = 1;//correct answer always 1
     }
     [System.Serializable]
     public class OptionData
     {
         public string name;
-        public int value;
+        public Options value;
+    }
+    public enum Options
+    {
+        Incorrect,
+        Correct
     }
 }

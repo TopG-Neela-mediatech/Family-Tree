@@ -3183,12 +3183,6 @@ MonoBehaviour:
   questionParent: {fileID: 423315693}
   optionParent: {fileID: 28524448}
   treeImage: {fileID: 174375394}
-  quizzes:
-  - {fileID: 11400000, guid: 69f3a5c95d2557e45b89519db89c3901, type: 2}
-  - {fileID: 11400000, guid: 842a6c30d53df574fbe7884b2e205836, type: 2}
-  - {fileID: 11400000, guid: 03f71ab3ff1bbd84f846866c0e84ede1, type: 2}
-  - {fileID: 11400000, guid: 508637da0a475f34ba174054ebfcfca1, type: 2}
-  - {fileID: 11400000, guid: 91d3cc5bbff39f54a9c09d868b89f489, type: 2}
   quizParent: {fileID: 1577277115}
   questionText: {fileID: 463261917}
   quizButtons:
@@ -3198,6 +3192,9 @@ MonoBehaviour:
     QuizButton: {fileID: 97925530}
   - buttonManager: {fileID: 666128791}
     QuizButton: {fileID: 666128792}
+  englishQuiz: {fileID: 11400000, guid: 69f3a5c95d2557e45b89519db89c3901, type: 2}
+  hindiQuiz: {fileID: 11400000, guid: fc2edc624106eb44e8bdd9e111e8d377, type: 2}
+  tamilQuiz: {fileID: 11400000, guid: b320e3da9b81b204d92eda07c1d04270, type: 2}
 --- !u!1 &1076900771
 GameObject:
   m_ObjectHideFlags: 0

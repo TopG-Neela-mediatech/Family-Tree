@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d59000356bbd15246a40a16a8edcc491, type: 3}
-  m_Name: Quiz 4
+  m_Name: HindiQuiz
   m_EditorClassIdentifier: 
   quizSet:
-  - question: Aryan Is Natasha's?
+  - question: Anita Is Arjun's?
     options:
-    - name: Grand-Father
+    - name: Wife
       value: 1
-    - name: Father
+    - name: Daughter
       value: 2
-    - name: Brother
-      value: 3
-  - question: Aryan Is Arjun's?
-    options:
-    - name: Father
-      value: 1
     - name: Son
+      value: 3
+  - question: Arjun Is Henry's?
+    options:
+    - name: Mother
       value: 0
+    - name: Father
+      value: 1
     - name: Brother
       value: 2
-  - question: Christina Is Karan's?
+  - question: Henry Is Natasha's?
     options:
     - name: Father
       value: 3
     - name: Sister
       value: 0
-    - name: Mother
+    - name: Brother
       value: 1
-  hintSprite: {fileID: 21300000, guid: 7439c2c7470c48848b4d05eb2505eb91, type: 3}
+  hintSprite: {fileID: 21300000, guid: a3bfefbadbc79cd43a29f6ab4211f561, type: 3}
