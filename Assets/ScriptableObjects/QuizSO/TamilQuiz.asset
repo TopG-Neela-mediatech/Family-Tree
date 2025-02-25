@@ -10,47 +10,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d59000356bbd15246a40a16a8edcc491, type: 3}
-  m_Name: HindiQuiz
+  m_Name: TamilQuiz
   m_EditorClassIdentifier: 
   quizLevels:
   - quizSet:
-    - question: "\u0905\u0928\u0940\u0924\u093E \u0905\u0930\u094D\u091C\u0941\u0928
-        \u0915\u0940 \u0915\u094D\u092F\u093E \u0932\u0917\u0924\u0940 \u0939\u0948\u0902?"
+    - question: Anita Is Arjun's?
       options:
-      - name: "\u092A\u0924\u094D\u0928\u0940 "
+      - name: Wife
         value: 1
-      - name: "\u092C\u0947\u091F\u0940"
+      - name: Daughetr
         value: 0
-      - name: "\u092C\u0947\u091F\u093E"
+      - name: Son
         value: 0
-    - question: "\u0905\u0930\u094D\u091C\u0941\u0928 \u0939\u0947\u0928\u0930\u0940
-        \u0915\u0947 \u0915\u094D\u092F\u093E \u0932\u0917\u0924\u0947 \u0939\u0948\u0902?"
+    - question: Arjun Is Henry's?
       options:
-      - name: "\u092E\u093E\u0901"
+      - name: Mother
         value: 0
-      - name: "\u092A\u093F\u0924\u093E"
+      - name: Father
         value: 1
-      - name: "\u092D\u093E\u0908"
+      - name: Brother
         value: 0
-    - question: "\u0939\u0947\u0928\u0930\u0940 \u0928\u0924\u093E\u0936\u093E \u0915\u0947
-        \u0915\u094D\u092F\u093E \u0932\u0917\u0924\u0947 \u0939\u0948\u0902?"
+    - question: Henry Is Natasha's?
       options:
-      - name: "\u092A\u093F\u0924\u093E"
+      - name: Father
         value: 0
-      - name: "\u092C\u0939\u0928"
+      - name: Sister
         value: 0
-      - name: "\u092D\u093E\u0908"
+      - name: Brother
         value: 1
     hintSprite: {fileID: 21300000, guid: a3bfefbadbc79cd43a29f6ab4211f561, type: 3}
   - quizSet:
-    - question: "\u0930\u0947\u091A\u0947\u0932 \u0928\u0924\u093E\u0936\u093E \u0915\u0940
-        \u0915\u094D\u092F\u093E \u0932\u0917\u0924\u0940 \u0939\u0948\u0902?"
+    - question: Rachel Is Natasha's?
       options:
-      - name: "\u0906\u0902\u091F\u0940"
+      - name: Aunt
         value: 0
-      - name: "\u0915\u091C\u093C\u093F\u0928"
+      - name: Cousin
         value: 1
-      - name: "\u091A\u093E\u091A\u093E"
+      - name: Uncle
         value: 0
     - question: Natasha Is Karan's?
       options:
@@ -147,4 +143,4 @@ MonoBehaviour:
       - name: Wife
         value: 0
     hintSprite: {fileID: 21300000, guid: 164533fc0b0d8814383eae68138eeeba, type: 3}
-  fontAsset: {fileID: 11400000, guid: 80d2b37f999ff034aa6d07adfddad30e, type: 2}
+  fontAsset: {fileID: 11400000, guid: 81c1f31db8cd63b46a33423d99739f27, type: 2}

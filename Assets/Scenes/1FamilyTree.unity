@@ -3193,7 +3193,7 @@ MonoBehaviour:
   - buttonManager: {fileID: 666128791}
     QuizButton: {fileID: 666128792}
   englishQuiz: {fileID: 11400000, guid: 69f3a5c95d2557e45b89519db89c3901, type: 2}
-  hindiQuiz: {fileID: 11400000, guid: fc2edc624106eb44e8bdd9e111e8d377, type: 2}
+  hindiQuiz: {fileID: 11400000, guid: fbf6dbc172b26164b8970da8c4288227, type: 2}
   tamilQuiz: {fileID: 11400000, guid: b320e3da9b81b204d92eda07c1d04270, type: 2}
 --- !u!1 &1076900771
 GameObject:
