@@ -1,3 +1,4 @@
+using IndianFontCorrector.ConvertLanguage;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,10 +19,12 @@ namespace TMKOC.FamilyTree
         public void EnableIncorrectImage()=>incorrectImage.enabled = true;
 
 
-        public void SetData(Options val, string optionText)
+        public void SetData(Options val, string optionText,TMP_FontAsset fontAsset)
         {
             value = val;
-            this.optionText.text = optionText;
+            this.optionText.font = fontAsset;
+            string temp = ConvertLang.Convert(optionText);
+            this.optionText.text =temp;
             DisableColorTint();
         }
         private void DisableColorTint()

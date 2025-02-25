@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace TMKOC.FamilyTree
@@ -6,6 +7,7 @@ namespace TMKOC.FamilyTree
     public class QuizSO : ScriptableObject
     {
         public QuizLevels[] quizLevels;
+        public TMP_FontAsset fontAsset;
     }
     [System.Serializable]
     public class QuizLevels

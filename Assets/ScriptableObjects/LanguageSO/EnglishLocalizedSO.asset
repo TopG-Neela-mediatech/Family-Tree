@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edf503da09014c4fb42a0ecd80a013a, type: 3}
+  m_Name: EnglishLocalizedSO
+  m_EditorClassIdentifier: 
+  individualRelation:
+    respectiveMember: 0
+    localizedName: 
+  localNames:
+  - respectiveMember: 1
+    localizedName: Father
+  - respectiveMember: 2
+    localizedName: Mother
+  - respectiveMember: 3
+    localizedName: Daughter
+  - respectiveMember: 4
+    localizedName: Son
+  - respectiveMember: 5
+    localizedName: Uncle
+  - respectiveMember: 6
+    localizedName: Aunt
+  - respectiveMember: 7
+    localizedName: Cousin
+  - respectiveMember: 8
+    localizedName: Aunt
+  - respectiveMember: 9
+    localizedName: Uncle
+  - respectiveMember: 10
+    localizedName: Cousin
+  - respectiveMember: 11
+    localizedName: Grand Father
+  - respectiveMember: 12
+    localizedName: Grand Mother
+  - respectiveMember: 13
+    localizedName: Grand Father
+  - respectiveMember: 14
+    localizedName: Grand Mother
+  - respectiveMember: 15
+    localizedName: Nephew
+  - respectiveMember: 16
+    localizedName: Niece
+  - respectiveMember: 17
+    localizedName: Grand Daughter
+  - respectiveMember: 18
+    localizedName: Grand Son
+  respectiveFontAsset: {fileID: 11400000, guid: 81c1f31db8cd63b46a33423d99739f27, type: 2}

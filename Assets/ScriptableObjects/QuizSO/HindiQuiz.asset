@@ -12,29 +12,135 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d59000356bbd15246a40a16a8edcc491, type: 3}
   m_Name: HindiQuiz
   m_EditorClassIdentifier: 
-  quizSet:
-  - question: Anita Is Arjun's?
-    options:
-    - name: Wife
-      value: 1
-    - name: Daughter
-      value: 2
-    - name: Son
-      value: 3
-  - question: Arjun Is Henry's?
-    options:
-    - name: Mother
-      value: 0
-    - name: Father
-      value: 1
-    - name: Brother
-      value: 2
-  - question: Henry Is Natasha's?
-    options:
-    - name: Father
-      value: 3
-    - name: Sister
-      value: 0
-    - name: Brother
-      value: 1
-  hintSprite: {fileID: 21300000, guid: a3bfefbadbc79cd43a29f6ab4211f561, type: 3}
+  quizLevels:
+  - quizSet:
+    - question: Anita Is Arjun's?
+      options:
+      - name: Wife
+        value: 1
+      - name: Daughetr
+        value: 0
+      - name: Son
+        value: 0
+    - question: Arjun Is Henry's?
+      options:
+      - name: Mother
+        value: 0
+      - name: Father
+        value: 1
+      - name: Brother
+        value: 0
+    - question: Henry Is Natasha's?
+      options:
+      - name: Father
+        value: 0
+      - name: Sister
+        value: 0
+      - name: Brother
+        value: 1
+    hintSprite: {fileID: 21300000, guid: a3bfefbadbc79cd43a29f6ab4211f561, type: 3}
+  - quizSet:
+    - question: Rachel Is Natasha's?
+      options:
+      - name: Aunt
+        value: 0
+      - name: Cousin
+        value: 1
+      - name: Uncle
+        value: 0
+    - question: Natasha Is Karan's?
+      options:
+      - name: Niece
+        value: 1
+      - name: Aunt
+        value: 0
+      - name: Uncle
+        value: 0
+    - question: Monica Is Natasha's?
+      options:
+      - name: Uncle
+        value: 0
+      - name: Sister
+        value: 0
+      - name: Aunt
+        value: 1
+    hintSprite: {fileID: 21300000, guid: 0da3c030f1485e0438466b1bcff7e635, type: 3}
+  - quizSet:
+    - question: Nikita Is Henry's?
+      options:
+      - name: Aunt
+        value: 1
+      - name: Daughter
+        value: 0
+      - name: Son
+        value: 0
+    - question: Vivek Is Henry's?
+      options:
+      - name: Mother
+        value: 0
+      - name: Dad
+        value: 0
+      - name: Cousin
+        value: 1
+    - question: Nikita Is Anita's?
+      options:
+      - name: Daughter
+        value: 0
+      - name: Mother
+        value: 0
+      - name: Sister
+        value: 1
+    hintSprite: {fileID: 21300000, guid: 520e6518c2a340e498ff3b81ddca5f70, type: 3}
+  - quizSet:
+    - question: Aryan Is Natasha's?
+      options:
+      - name: Grand-Father
+        value: 1
+      - name: Father
+        value: 0
+      - name: Brother
+        value: 0
+    - question: Aryan Is Arjun's?
+      options:
+      - name: Father
+        value: 1
+      - name: Son
+        value: 0
+      - name: Brother
+        value: 0
+    - question: Christina Is Karan's?
+      options:
+      - name: Father
+        value: 0
+      - name: Sister
+        value: 0
+      - name: Mother
+        value: 1
+    hintSprite: {fileID: 21300000, guid: 7439c2c7470c48848b4d05eb2505eb91, type: 3}
+  - quizSet:
+    - question: Sarah Is Sid's?
+      options:
+      - name: Wife
+        value: 1
+      - name: Daughter
+        value: 0
+      - name: Son
+        value: 0
+    - question: Henry Is Sid's?
+      options:
+      - name: Grandson
+        value: 1
+      - name: Son
+        value: 0
+      - name: Brother
+        value: 0
+    - question: Anita Is Sid's?
+      options:
+      - name: Daughter
+        value: 0
+      - name: GrandDaughter
+        value: 1
+      - name: Wife
+        value: 0
+    hintSprite: {fileID: 21300000, guid: 164533fc0b0d8814383eae68138eeeba, type: 3}
+  fontAsset: {fileID: 11400000, guid: 80d2b37f999ff034aa6d07adfddad30e, type: 2}

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using IndianFontCorrector.ConvertLanguage;
 using System;
 using System.Collections;
 using TMPro;
@@ -129,7 +130,7 @@ namespace TMKOC.FamilyTree
             if (currentLevel != null)
             {
                 QuizData currentQuizData = currentLevel.quizSet[questionNumber];
-                SetQuestion(currentQuizData);
+                SetQuestion(currentQuizData,quizSO.fontAsset);
                 SetOptions(currentQuizData);
                 QuizStartAnimation();
                 SetHintSprite(currentLevel.hintSprite);
@@ -167,9 +168,11 @@ namespace TMKOC.FamilyTree
             ButtonData bd = Array.Find(quizButtons, i => i.buttonManager.value == correct);
             return bd.buttonManager;
         }
-        private void SetQuestion(QuizData currentQuizdata)
+        private void SetQuestion(QuizData currentQuizdata, TMP_FontAsset fontAsset)
         {
-            questionText.text = currentQuizdata.question;
+            questionText.font = fontAsset;
+            string temp = ConvertLang.Convert(currentQuizdata.question);
+            questionText.text = temp;
         }
         private void SetOptions(QuizData currentQuizdata)
         {
@@ -178,7 +181,7 @@ namespace TMKOC.FamilyTree
                 Options value = currentQuizdata.options[i].value;
                 string name = currentQuizdata.options[i].name;
                 QuizButtonManager currentQBManager = quizButtons[i].buttonManager;
-                currentQBManager.SetData(value, name);
+                currentQBManager.SetData(value, name, quizSO.fontAsset);
                 quizButtons[i].QuizButton.onClick.RemoveAllListeners();
                 quizButtons[i].QuizButton.onClick.AddListener(() => CheckIfCorrect(currentQBManager));
             }
