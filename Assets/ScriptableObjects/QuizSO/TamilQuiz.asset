@@ -100,12 +100,13 @@ MonoBehaviour:
         value: 0
       - name: "\u0B9A\u0B95\u0BCB\u0BA4\u0BB0\u0BA9\u0BCD"
         value: 0
-    - question: "\u0B86\u0BB0\u0BCD\u0BAF\u0BA9\u0BCD \u0B85\u0BB0\u0BCD\u0B9C\u0BC1\u0BA9\u0BBF\u0BA9\u0BCD?"
+    - question: "\u0B85\u0BB0\u0BCD\u0B9C\u0BC1\u0BA9\u0BCD \u0BAE\u0BBE\u0BAE\u0BBE\u0BB5\u0BBF\u0BA9\u0BCD
+        \u0B8E\u0BA9\u0BCD\u0BA9 \u0BA8\u0BBF\u0BB2\u0BC8?"
       options:
       - name: "\u0BAA\u0BBF\u0BA4\u0BBE "
-        value: 1
-      - name: "\u0BAE\u0B95\u0BA9\u0BCD"
         value: 0
+      - name: "\u0BAE\u0B95\u0BA9\u0BCD"
+        value: 1
       - name: "\u0B9A\u0B95\u0BCB\u0BA4\u0BB0\u0BA9\u0BCD"
         value: 0
     - question: "\u0B95\u0BBF\u0BB0\u0BBF\u0BB8\u0BCD\u0B9F\u0BBF\u0BA9\u0BBE \u0B95\u0BB0\u0BA3\u0BBF\u0BA9\u0BCD?"

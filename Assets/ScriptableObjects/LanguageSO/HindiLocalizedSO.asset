@@ -33,9 +33,9 @@ MonoBehaviour:
   - respectiveMember: 8
     localizedName: "\u092E\u093E\u0938\u0940"
   - respectiveMember: 9
-    localizedName: "\u092E\u093E\u092E\u093E"
+    localizedName: "\u092E\u094C\u0938\u093E"
   - respectiveMember: 10
-    localizedName: "\u092E\u0938\u0947\u0930\u093E \u092D\u093E\u0908"
+    localizedName: "\u092D\u093E\u0908"
   - respectiveMember: 11
     localizedName: "\u0926\u093E\u0926\u093E"
   - respectiveMember: 12
@@ -45,7 +45,7 @@ MonoBehaviour:
   - respectiveMember: 14
     localizedName: "\u0928\u093E\u0928\u0940"
   - respectiveMember: 15
-    localizedName: "\u092D\u0924\u0940\u091C\u093E"
+    localizedName: "\u092D\u093E\u0928\u091C\u093E"
   - respectiveMember: 16
     localizedName: "\u092D\u0924\u0940\u091C\u0940"
   - respectiveMember: 17

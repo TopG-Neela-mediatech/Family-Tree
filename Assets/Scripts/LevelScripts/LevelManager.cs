@@ -46,7 +46,7 @@ namespace TMKOC.FamilyTree
         private void EnableCorrectDropZone(DropController dropController) => dropController.EnableCollider();
         private void LevelStartAnimation() => AnimateInfoArea();
         public int GetLevelIndex() => currentLevelIndex;
-
+        public void SaveFailedAttempts() => updateCategoryApiManager.SetAttemps();
 
         private void Awake()
         {

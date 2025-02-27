@@ -100,12 +100,12 @@ MonoBehaviour:
         value: 0
       - name: Brother
         value: 0
-    - question: Aryan Is Arjun's?
+    - question: Arjun Is Aryan's?
       options:
       - name: Father
-        value: 1
-      - name: Son
         value: 0
+      - name: Son
+        value: 1
       - name: Brother
         value: 0
     - question: Christina Is Karan's?

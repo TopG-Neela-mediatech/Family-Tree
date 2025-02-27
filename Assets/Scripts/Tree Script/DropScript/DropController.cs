@@ -49,6 +49,7 @@ namespace TMKOC.FamilyTree
                         }
                         else
                         {
+                            GameManager.Instance.LevelManager.SaveFailedAttempts();
                             familyMember.ReturnToOriginalPosition();
                             isEmpty = true;                            
                         }
