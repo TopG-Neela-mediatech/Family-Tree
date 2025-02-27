@@ -28,7 +28,7 @@ MonoBehaviour:
   - memberIdentity: 7
     memberClip: {fileID: 8300000, guid: 01780258876ac1649bb8458cd595a985, type: 3}
   - memberIdentity: 8
-    memberClip: {fileID: 8300000, guid: 97968537b03ea484b93a5189003bf253, type: 3}
+    memberClip: {fileID: 8300000, guid: be4e0a05563f26e41913836478cd1ce5, type: 3}
   - memberIdentity: 9
     memberClip: {fileID: 8300000, guid: 3b08502a224544f49b678b708b355c0e, type: 3}
   - memberIdentity: 10
