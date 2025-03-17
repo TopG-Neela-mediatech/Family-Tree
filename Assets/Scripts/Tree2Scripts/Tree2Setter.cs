@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TMKOC.FamilyTree2
+namespace TMKOC.FamilyTree
 {
-    public class GameManager : MonoBehaviour
+    public class Tree2Setter : MonoBehaviour
     {
         private void Awake()
         {
