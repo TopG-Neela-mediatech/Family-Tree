@@ -71,6 +71,7 @@ MonoBehaviour:
   hindiLocalSO: {fileID: 11400000, guid: 3bb7801b51f81c74783813397748cdf7, type: 2}
   tamilLocalSO: {fileID: 11400000, guid: 28fc7322ad518b64a92f3107217e127d, type: 2}
   englishLocalSO: {fileID: 11400000, guid: 6215232bc45a4b9469b201608da57ec7, type: 2}
+  marathiLocalSO: {fileID: 11400000, guid: 41a8d346a3fbfbb4b93cc29faa67b07f, type: 2}
 --- !u!1 &7032987901471344228
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4439010792101365902, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_fontSize
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4439010792101365902, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_margin.x
@@ -333,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4439010792101365902, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_fontSize
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4439010792101365902, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_margin.x
@@ -481,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4439010792101365902, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_fontSize
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4439010792101365902, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_margin.x
@@ -625,7 +626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4439010792101365902, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_fontSize
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4439010792101365902, guid: 64e90ecc066c37d4bb1e3adae568abc3, type: 3}
       propertyPath: m_margin.x

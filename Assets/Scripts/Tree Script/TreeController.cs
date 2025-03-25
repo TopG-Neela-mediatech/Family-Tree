@@ -18,6 +18,7 @@ namespace TMKOC.FamilyTree
         [SerializeField] private MemberLocalNameSO hindiLocalSO;
         [SerializeField] private MemberLocalNameSO tamilLocalSO;
         [SerializeField] private MemberLocalNameSO englishLocalSO;
+        [SerializeField] private MemberLocalNameSO marathiLocalSO;
         private MemberLocalNameSO localNames;
         private TMP_FontAsset localFontAsset;
 
@@ -44,6 +45,10 @@ namespace TMKOC.FamilyTree
                     break;
                 case "Tamil":
                     localNames = tamilLocalSO;
+                    LocalizeText();
+                    break;
+                case "Marathi":
+                    localNames = marathiLocalSO;
                     LocalizeText();
                     break;
                 default:

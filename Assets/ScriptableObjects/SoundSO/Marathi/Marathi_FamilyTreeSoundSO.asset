@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377d77fe4d7cfbe4983257bacc5b8d39, type: 3}
+  m_Name: Marathi_FamilyTreeSoundSO
+  m_EditorClassIdentifier: 
+  levelsAudio:
+  - intro: {fileID: 8300000, guid: 25bb1cd0bcb982949958214c60a4e8e6, type: 3}
+    outro: {fileID: 8300000, guid: 458aee0c76b653d428e37021ff0e28b8, type: 3}
+    treeCompleteAudio: {fileID: 8300000, guid: 3e5ae01ec59e9f14caf1853e081820fc, type: 3}
+    quizAudio:
+    - Question: {fileID: 8300000, guid: 8bc97fd67f91f49458272b5e3a74e096, type: 3}
+      correctAnswer: {fileID: 8300000, guid: daa8627c998449c489f1ce6f20b3fb37, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 57633a6c740375442a9b2c2b0ad958c9, type: 3}
+    - Question: {fileID: 8300000, guid: 2947882f480623249b2917e981243b2e, type: 3}
+      correctAnswer: {fileID: 8300000, guid: 673b0d32068fda84dbdd7b2857d89c43, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: c5c1e1d93ac17814b90066125e58cb2d, type: 3}
+    - Question: {fileID: 8300000, guid: 2dd83e38cafa3cf4884b19b4a3af2ae7, type: 3}
+      correctAnswer: {fileID: 8300000, guid: 62d5e638d110d704da4dcb6332f281ed, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 79e9df16dcf530145b02a0ba4421fc56, type: 3}
+  - intro: {fileID: 8300000, guid: ce2bb3effc4c428409562d2651b5ff10, type: 3}
+    outro: {fileID: 8300000, guid: 01a9604acfb87e24bbe0408c6c88b2cd, type: 3}
+    treeCompleteAudio: {fileID: 8300000, guid: 4268dccdeefa32b4181577478b87e733, type: 3}
+    quizAudio:
+    - Question: {fileID: 8300000, guid: 326e0c3304cb5af4d97c099b9e866ddc, type: 3}
+      correctAnswer: {fileID: 8300000, guid: 812b4d13a11504a479090c61cc059bfe, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: bdb683d3bb20a2c4f80b08cab6a2d328, type: 3}
+    - Question: {fileID: 8300000, guid: 8b28f8ecf9cc8fc4b89018cf1e7cdd46, type: 3}
+      correctAnswer: {fileID: 8300000, guid: f194792dd25eb9145aeafe568e976073, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 2c95279c06ee9544aba95aff4d72d8aa, type: 3}
+    - Question: {fileID: 8300000, guid: 531441a1c54e3e149a86a8a5df6d146e, type: 3}
+      correctAnswer: {fileID: 8300000, guid: 99ef97cd881e6754f9dda27f2ff53b64, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 2d70a22d98c14204d99493802b539c6a, type: 3}
+  - intro: {fileID: 8300000, guid: ccfe714af57a22f4a8937e3568dc9be6, type: 3}
+    outro: {fileID: 8300000, guid: a0a1ac54351217c4ea3acb8ea476da6d, type: 3}
+    treeCompleteAudio: {fileID: 8300000, guid: b6e343c64d601184c918a973ede72687, type: 3}
+    quizAudio:
+    - Question: {fileID: 8300000, guid: fb6f23f35d8f4a24b8b78922e45b78e3, type: 3}
+      correctAnswer: {fileID: 8300000, guid: f8abdd2fc3e839a4296950881e5b18e5, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 6892fba3ea4164042b751d937f09e067, type: 3}
+    - Question: {fileID: 8300000, guid: 93ebc992f6b8d084f8952cd6e09c0044, type: 3}
+      correctAnswer: {fileID: 8300000, guid: 91238839c637aab42917d670fc9e4f9a, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 598f1e92a48453c4aaff550961bac3ab, type: 3}
+    - Question: {fileID: 8300000, guid: cded0bca480420248b2f809655ec1ac7, type: 3}
+      correctAnswer: {fileID: 8300000, guid: ca7618aaf69834446ac1eff87e69144d, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 4dcc473c0944bdd4eb82eeb2ed254c97, type: 3}
+  - intro: {fileID: 8300000, guid: 7be048520320a724d91e838fbf8a10ed, type: 3}
+    outro: {fileID: 8300000, guid: ae37e8d4aae94664691dc1ea7c5555a9, type: 3}
+    treeCompleteAudio: {fileID: 8300000, guid: d2d57fb319ead0143824bc80fc35cc9b, type: 3}
+    quizAudio:
+    - Question: {fileID: 8300000, guid: 031d08d57be81da4abce6bb6e1f940f3, type: 3}
+      correctAnswer: {fileID: 8300000, guid: 210c55d61311a4f499efda1912eaf0cd, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 35993a61569b5974aab447ce893129c0, type: 3}
+    - Question: {fileID: 8300000, guid: 436e380e5eb3dab49b0e101e58304e5a, type: 3}
+      correctAnswer: {fileID: 8300000, guid: f812189eb6525b846ab26356b8b78e85, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 17ff148389b64fd4ab1e063be54f510e, type: 3}
+    - Question: {fileID: 8300000, guid: 56fd660c3dc048e48bf4a1644dd1d150, type: 3}
+      correctAnswer: {fileID: 8300000, guid: 2ec38691471823b4f9ea9b01d5f49a22, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 0c12e7463725a584ab38e3b364b420ea, type: 3}
+  - intro: {fileID: 8300000, guid: 5217b96fda3dc394b865643d597a8b61, type: 3}
+    outro: {fileID: 8300000, guid: 3eb290874919db048a6fc9a088058673, type: 3}
+    treeCompleteAudio: {fileID: 8300000, guid: e7077dcca4b887c4dbe7c6232afaad72, type: 3}
+    quizAudio:
+    - Question: {fileID: 8300000, guid: eaf8237e08dbdee4aafac31c52407360, type: 3}
+      correctAnswer: {fileID: 8300000, guid: 2ba427bfbbb9b3145a0a8bdb3690a3a4, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 14ae152c5f2a11a41b57d4d4ac649909, type: 3}
+    - Question: {fileID: 8300000, guid: 4a04da1f76a44364a991fdbfe79079e3, type: 3}
+      correctAnswer: {fileID: 8300000, guid: 498376d0165d345479eb5af10209c1bb, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: cc9ba79d5a3687f4bb07dce262913231, type: 3}
+    - Question: {fileID: 8300000, guid: a2acf94097e4c894ebdabba982062d99, type: 3}
+      correctAnswer: {fileID: 8300000, guid: f6e2349d123c64043a8de1ab41a97e49, type: 3}
+      incorrectAnswer: {fileID: 8300000, guid: 7154958c3577f3a4686abe7e78932041, type: 3}

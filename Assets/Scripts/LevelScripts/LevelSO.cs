@@ -38,6 +38,7 @@ namespace TMKOC.FamilyTree
     {
         English,
         Hindi,
-        Tamil
+        Tamil,
+        Marathi
     }
 }
