@@ -77,7 +77,7 @@ namespace TMKOC.FamilyTree
         }
         private void SetDescriptionLanguageEnum()
         {
-            language = PlayerPrefs.GetString("PlaySchoolLanguage", "English");
+            language = PlayerPrefs.GetString("PlaySchoolLanguage", "Marathi");
             switch (language)
             {
                 case "English":

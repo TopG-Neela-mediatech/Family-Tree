@@ -52,3 +52,5 @@ MonoBehaviour:
     fontAsset: {fileID: 11400000, guid: 80d2b37f999ff034aa6d07adfddad30e, type: 2}
   - language: 2
     fontAsset: {fileID: 11400000, guid: 7a2f3aee4359fe3499927973db52c721, type: 2}
+  - language: 3
+    fontAsset: {fileID: 11400000, guid: 83ab9de1c5f077c4cb7af92e7cd6602b, type: 2}

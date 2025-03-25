@@ -537,6 +537,8 @@ MonoBehaviour:
   French: {fileID: 11400000, guid: a87c865cc90142b499e22e011c32d365, type: 2}
   memberSO_French: {fileID: 11400000, guid: eeedaca0fdb9c5f43b210b63d14506ab, type: 2}
   Tamil: {fileID: 11400000, guid: d36d14cd96af2cd4fb07e19a84d82f8a, type: 2}
+  memberSO_Marathi: {fileID: 11400000, guid: 1fb20dad7f920774990c97284caa9bea, type: 2}
+  Marathi: {fileID: 11400000, guid: 1901d074f2025de4ba1c6a287c5636d5, type: 2}
   memberSO_Tamil: {fileID: 11400000, guid: 813be140830c58d43bf66c21dbbf15b5, type: 2}
   audioLocalization: 
 --- !u!1 &67920945
