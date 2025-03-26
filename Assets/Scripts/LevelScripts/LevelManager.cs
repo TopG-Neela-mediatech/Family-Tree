@@ -77,7 +77,7 @@ namespace TMKOC.FamilyTree
         }
         private void SetDescriptionLanguageEnum()
         {
-            language = PlayerPrefs.GetString("PlaySchoolLanguage", "Marathi");
+            language = PlayerPrefs.GetString("PlaySchoolLanguage", "English");
             switch (language)
             {
                 case "English":
@@ -314,13 +314,25 @@ namespace TMKOC.FamilyTree
         {
             LocalDescription ld = Array.Find(levels[currentLevelIndex].memberData[currentActiveMemberIndex].Description,
                 i=>i.language==descriptionLanguageEnum );
-            return ld.description;
+            if (ld != null)
+            {
+                return ld.description;
+            }
+            LocalDescription la = Array.Find(levels[currentLevelIndex].memberData[currentActiveMemberIndex].Description,
+                i => i.language == DescriptionLanguage.English);
+            return la.description;     
         }
         private TMP_FontAsset GetRespectiveFont()
         {
             FontData FD = Array.Find(levels[currentLevelIndex].fontDatas,
                 i => i.language == descriptionLanguageEnum);
-            return FD.fontAsset;
+            if (FD != null)
+            {
+                return FD.fontAsset;
+            }
+            FontData FA = Array.Find(levels[currentLevelIndex].fontDatas,
+                i => i.language == DescriptionLanguage.English);
+            return FA.fontAsset;
         }
         private void OnDestroy()
         {
