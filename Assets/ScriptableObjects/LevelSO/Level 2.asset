@@ -32,6 +32,10 @@ MonoBehaviour:
       description: "\u0915\u0930\u0923 \u0905\u0930\u094D\u091C\u0941\u0928\u091A\u093E
         \u092D\u093E\u090A \u0906\u0923\u093F \u0928\u0924\u093E\u0936\u093E\u091A\u093E
         \u0915\u093E\u0915\u093E \u0906\u0939\u0947."
+    - language: 4
+      description: "\u0995\u09B0\u09A3 \u0985\u09B0\u09CD\u099C\u09C1\u09A8\u09C7\u09B0
+        \u09AD\u09BE\u0987 \u098F\u09AC\u0982 \u09A8\u09A4\u09BE\u09B6\u09BE\u09B0
+        \u099A\u09BE\u099A\u09BE\u0964"
     Key: 0
     member: 7
   - faceSprite: {fileID: 21300000, guid: 6e57a6d7500a74341b00aec798227136, type: 3}
@@ -51,6 +55,10 @@ MonoBehaviour:
       description: "\u092E\u094B\u0928\u093F\u0915\u093E \u0915\u0930\u0923\u091A\u0940
         \u092A\u0924\u094D\u0928\u0940 \u0906\u0923\u093F \u0928\u0924\u093E\u0936\u093E\u091A\u0940
         \u0915\u093E\u0915\u0940 \u0906\u0939\u0947."
+    - language: 4
+      description: "\u09AE\u09CB\u09A8\u09BF\u0995\u09BE \u0995\u09B0\u09A3\u09C7\u09B0
+        \u09B8\u09CD\u09A4\u09CD\u09B0\u09C0 \u098F\u09AC\u0982 \u09A8\u09A4\u09BE\u09B6\u09BE\u09B0
+        \u099A\u09BE\u099A\u09C0\u0964"
     Key: 1
     member: 8
   - faceSprite: {fileID: 21300000, guid: dff20e06ae32920469c1ca34f9723873, type: 3}
@@ -70,6 +78,10 @@ MonoBehaviour:
       description: "\u0930\u0948\u091A\u0947\u0932 \u0915\u0930\u0923\u091A\u0940
         \u092E\u0941\u0932\u0917\u0940 \u0906\u0923\u093F \u0928\u0924\u093E\u0936\u093E\u091A\u0940
         \u091A\u0941\u0932\u0924 \u092C\u0939\u0940\u0923 \u0906\u0939\u0947."
+    - language: 4
+      description: "\u09B0\u09C7\u099A\u09C7\u09B2 \u0995\u09B0\u09A3\u09C7\u09B0
+        \u09AE\u09C7\u09AF\u09BC\u09C7 \u098F\u09AC\u0982 \u09A8\u09A4\u09BE\u09B6\u09BE\u09B0
+        \u099A\u09BE\u099A\u09C7\u09BE\u09B0\u09C0 \u09AC\u09CB\u09A8\u0964"
     Key: 2
     member: 3
   fontDatas:
@@ -81,3 +93,5 @@ MonoBehaviour:
     fontAsset: {fileID: 11400000, guid: 7a2f3aee4359fe3499927973db52c721, type: 2}
   - language: 3
     fontAsset: {fileID: 11400000, guid: 83ab9de1c5f077c4cb7af92e7cd6602b, type: 2}
+  - language: 4
+    fontAsset: {fileID: 11400000, guid: 510d2d4da720c3744b4c65b1bc025d45, type: 2}

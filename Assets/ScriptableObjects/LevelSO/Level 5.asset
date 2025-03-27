@@ -32,6 +32,9 @@ MonoBehaviour:
       description: "\u0938\u093F\u0921 \u0939\u0947\u0928\u0930\u0940\u091A\u0947
         \u0928\u093E\u0928\u093E \u0906\u0923\u093F \u0905\u0928\u0940\u0924\u093E\u091A\u0947
         \u0935\u0921\u0940\u0932 \u0906\u0939\u0947\u0924."
+    - language: 4
+      description: "\u09B8\u09BF\u09A1 \u09B9\u09C7\u09A8\u09B0\u09BF\u09B0 \u09A8\u09BE\u09A8\u09BE
+        \u098F\u09AC\u0982 \u0985\u09A8\u09C0\u09A4\u09BE\u09B0 \u09AA\u09BF\u09A4\u09BE\u0964"
     Key: 0
     member: 13
   - faceSprite: {fileID: 21300000, guid: 5ec3a2bd762755b4d8911770f5253392, type: 3}
@@ -51,6 +54,10 @@ MonoBehaviour:
       description: "\u0938\u093E\u0930\u093E \u0939\u0947\u0928\u0930\u0940\u091A\u0940
         \u0928\u093E\u0928\u0940 \u0906\u0923\u093F \u0905\u0928\u0940\u0924\u093E\u091A\u0940
         \u0906\u0908 \u0906\u0939\u0947."
+    - language: 4
+      description: "\u09B8\u09BE\u09B0\u09BE \u09B9\u09C7\u09A8\u09B0\u09BF\u09B0
+        \u09A8\u09BE\u09A8\u09BF \u098F\u09AC\u0982 \u0985\u09A8\u09C0\u09A4\u09BE\u09B0
+        \u09AE\u09BE\u0964"
     Key: 1
     member: 14
   fontDatas:
@@ -62,3 +69,5 @@ MonoBehaviour:
     fontAsset: {fileID: 11400000, guid: 7a2f3aee4359fe3499927973db52c721, type: 2}
   - language: 3
     fontAsset: {fileID: 11400000, guid: 83ab9de1c5f077c4cb7af92e7cd6602b, type: 2}
+  - language: 4
+    fontAsset: {fileID: 11400000, guid: 510d2d4da720c3744b4c65b1bc025d45, type: 2}

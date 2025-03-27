@@ -540,7 +540,7 @@ MonoBehaviour:
   memberSO_Marathi: {fileID: 11400000, guid: 1fb20dad7f920774990c97284caa9bea, type: 2}
   Marathi: {fileID: 11400000, guid: 1901d074f2025de4ba1c6a287c5636d5, type: 2}
   memberSO_Tamil: {fileID: 11400000, guid: 813be140830c58d43bf66c21dbbf15b5, type: 2}
-  audioLocalization: Marathi
+  audioLocalization: 
 --- !u!1 &67920945
 GameObject:
   m_ObjectHideFlags: 0

@@ -95,6 +95,10 @@ namespace TMKOC.FamilyTree
                     descriptionLanguageEnum = DescriptionLanguage.Marathi;
                     ConvertLang.SetLanguage(Language.Marathi);
                     break;
+                case "Bengali":
+                    descriptionLanguageEnum = DescriptionLanguage.Bengali;
+                    ConvertLang.SetLanguage(Language.Bengali);
+                    break;
                 default:
                     descriptionLanguageEnum = DescriptionLanguage.English;
                     break;

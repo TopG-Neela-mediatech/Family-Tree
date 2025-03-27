@@ -39,6 +39,7 @@ namespace TMKOC.FamilyTree
         English,
         Hindi,
         Tamil,
-        Marathi
+        Marathi,
+        Bengali
     }
 }
