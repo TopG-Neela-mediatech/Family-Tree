@@ -72,6 +72,7 @@ MonoBehaviour:
   tamilLocalSO: {fileID: 11400000, guid: 28fc7322ad518b64a92f3107217e127d, type: 2}
   englishLocalSO: {fileID: 11400000, guid: 6215232bc45a4b9469b201608da57ec7, type: 2}
   marathiLocalSO: {fileID: 11400000, guid: 41a8d346a3fbfbb4b93cc29faa67b07f, type: 2}
+  bengaliLocalSO: {fileID: 11400000, guid: 258ced9709f8a1d4d989eb7b8e2d50bf, type: 2}
 --- !u!1 &7032987901471344228
 GameObject:
   m_ObjectHideFlags: 0
