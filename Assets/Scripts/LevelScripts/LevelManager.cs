@@ -130,6 +130,18 @@ namespace TMKOC.FamilyTree
                 memberPositionSetter.SetFamilyMemberPositionAndScale(member.transform);
             }
         }
+        private void SendStars()
+        {
+            int _star = gameCategoryDataManager.GetLoadedstar;
+            if (_star >= 5)
+            {
+                updateCategoryApiManager.SetGameDataMore(currentLevelIndex, levels.Length, 5);
+            }
+            else
+            {
+                updateCategoryApiManager.SetGameDataMore(currentLevelIndex, levels.Length, _star);
+            }
+        }
         private void EnableLevel()
         {
             levelUIMain.SetActive(true);
@@ -231,6 +243,7 @@ namespace TMKOC.FamilyTree
         private void IncrementLevel() => StartCoroutine(IncrementLevelAfterDElay());
         private IEnumerator IncrementLevelAfterDElay()
         {
+            SendStars();
             yield return new WaitForSeconds(0.1f);
             currentLevelIndex++;
             gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
