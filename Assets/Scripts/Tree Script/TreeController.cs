@@ -24,7 +24,7 @@ namespace TMKOC.FamilyTree
         private TMP_FontAsset localFontAsset;
 
 
-        private void Awake()
+        private void Start()
         {
             SetPosition(DetectAspectRatio());
             SetLanguage();
