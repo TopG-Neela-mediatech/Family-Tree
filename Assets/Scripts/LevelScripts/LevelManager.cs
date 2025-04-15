@@ -36,7 +36,7 @@ namespace TMKOC.FamilyTree
         private FamilyMember currentMemberEnum;
         private Coroutine treeCompleteCoroutine;
         private string language;
-        private DescriptionLanguage descriptionLanguageEnum;        
+        private DescriptionLanguage descriptionLanguageEnum;
 
 
         public Vector3 GetDragPosition() => currentActiveMember.transform.localPosition;
@@ -243,10 +243,10 @@ namespace TMKOC.FamilyTree
         private void IncrementLevel() => StartCoroutine(IncrementLevelAfterDElay());
         private IEnumerator IncrementLevelAfterDElay()
         {
-            SendStars();
             yield return new WaitForSeconds(0.1f);
             currentLevelIndex++;
             gameCategoryDataManager.SaveLevel(currentLevelIndex, levels.Length);
+            SendStars();
         }
         public void LoadNextLevel()
         {
@@ -330,14 +330,14 @@ namespace TMKOC.FamilyTree
         private string GetLocalizedDescritpion()
         {
             LocalDescription ld = Array.Find(levels[currentLevelIndex].memberData[currentActiveMemberIndex].Description,
-                i=>i.language==descriptionLanguageEnum );
+                i => i.language == descriptionLanguageEnum);
             if (ld != null)
             {
                 return ld.description;
             }
             LocalDescription la = Array.Find(levels[currentLevelIndex].memberData[currentActiveMemberIndex].Description,
                 i => i.language == DescriptionLanguage.English);
-            return la.description;     
+            return la.description;
         }
         private TMP_FontAsset GetRespectiveFont()
         {
@@ -366,31 +366,4 @@ namespace TMKOC.FamilyTree
 
     }
 }
-/*private void ActivateHint2(DragScript currentDraggable, DropController correctDropBox) { 
-
-           currentDraggable.enabled = false;
-           correctDropBox.DisableChecking();
-
-           currentDraggable.transform.SetParent(currenttreeController.transform);//use tree controller as parent as another level in heirarchy is added
-           currentDraggable.transform.DOLocalMove(correctDropBox.transform.localPosition, 1f).OnComplete(() =>
-           {
-               currentDraggable.transform.SetParent(familyMemeberParent);
-               DropController.canCheck = true;
-               EnableNextMember();
-               attempts = 3;
-           });
-       }
-*/
-/*private void SetRevealedMemberData()
-        {
-            if (currenttreeController != null)
-            {
-                foreach (var revealedMember in levels[currentLevelIndex].revealedMembers)
-                {
-                    DropController dc = currenttreeController.GetDropController(revealedMember.Key);
-                    dc.SetRevealedData(revealedMember.faceSprite, revealedMember.Name);
-                    dc.enabled = false;//setting trigger of drop zone false hopefully
-                }
-            }
-        }*/
 

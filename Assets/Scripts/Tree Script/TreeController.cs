@@ -69,9 +69,8 @@ namespace TMKOC.FamilyTree
                 if (localText != null)
                 {
                     rtmp.relationTMP.font = localNames.respectiveFontAsset;
-                    string tempSt = localText.localizedName;
-                    ConvertLang.Convert(tempSt);
-                    rtmp.relationTMP.text = tempSt;
+                    string tempSt = localText.localizedName;                    
+                    rtmp.relationTMP.text = ConvertLang.Convert(tempSt);
                 }
                 else
                 {
