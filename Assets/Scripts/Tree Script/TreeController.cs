@@ -31,7 +31,7 @@ namespace TMKOC.FamilyTree
         }
         private void SetLanguage()
         {
-            textLocalization = PlayerPrefs.GetString("PlayschoolLanguage", "English");          
+            textLocalization = PlayerPrefs.GetString("PlaySchoolLanguage", "English");          
             switch (textLocalization)
             {
                 case "English":

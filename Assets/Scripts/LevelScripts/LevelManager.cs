@@ -48,6 +48,7 @@ namespace TMKOC.FamilyTree
         public int GetLevelIndex() => currentLevelIndex;
         public void SaveFailedAttempts() => updateCategoryApiManager.SetAttemps();
 
+
         private void Awake()
         {
             #region GameID
@@ -56,7 +57,7 @@ namespace TMKOC.FamilyTree
              gameID  = PlayerPrefs.GetInt("currentGameId");
 #endif
             #endregion
-            gameCategoryDataManager = new GameCategoryDataManager(gameID, PlayerPrefs.GetString("currentGameName", "a"));
+            gameCategoryDataManager = new GameCategoryDataManager(gameID, "familytree");
             updateCategoryApiManager = new UpdateCategoryApiManager(gameID);
             SetCurrentLevelIndex();
             SetMemberScaleAndPosition();
@@ -77,7 +78,7 @@ namespace TMKOC.FamilyTree
         }
         private void SetDescriptionLanguageEnum()
         {
-            language = PlayerPrefs.GetString("PlayschoolLanguage", "English");
+            language = PlayerPrefs.GetString("PlaySchoolLanguage", "English");
             switch (language)
             {
                 case "English":
