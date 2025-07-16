@@ -19,6 +19,8 @@ namespace TMKOC.FamilyTree
         [SerializeField] private MemberSoundSO memberSO_Marathi;
         [SerializeField] private SoundSO Bengali;
         [SerializeField] private MemberSoundSO memberSO_Bengali;
+        [SerializeField] private SoundSO Malayalam;
+        [SerializeField] private MemberSoundSO memberSO_Malayalam;
         [SerializeField] private string audioLocalization;
         private SoundSO levelSounds;
         private MemberSoundSO memberSound;
@@ -68,6 +70,10 @@ namespace TMKOC.FamilyTree
                 case "Bengali":
                     levelSounds = Bengali;
                     memberSound = memberSO_Bengali;
+                    break;
+                case "Malayalam":
+                    levelSounds = Malayalam;
+                    memberSound = memberSO_Malayalam;
                     break;
                 default:
                     levelSounds = ENGUS;
