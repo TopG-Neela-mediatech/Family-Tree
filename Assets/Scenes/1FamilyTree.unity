@@ -542,6 +542,8 @@ MonoBehaviour:
   memberSO_Bengali: {fileID: 11400000, guid: d768adb9d89b1a4498987316136a5ca5, type: 2}
   Malayalam: {fileID: 11400000, guid: bc532d15ffc970b489316940b3c2b8af, type: 2}
   memberSO_Malayalam: {fileID: 11400000, guid: 843204226a7aaab42964f8714c37d5bf, type: 2}
+  Punjabi: {fileID: 11400000, guid: 280bd96c62887434f8358fb4fc85e8b3, type: 2}
+  memberSO_Punjabi: {fileID: 11400000, guid: 72d09e4bc110f164786e42e160adc914, type: 2}
   audioLocalization: 
 --- !u!1 &67920945
 GameObject:
