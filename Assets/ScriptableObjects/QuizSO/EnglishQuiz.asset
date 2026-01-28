@@ -18,7 +18,7 @@ MonoBehaviour:
       options:
       - name: Wife
         value: 1
-      - name: Daughetr
+      - name: Daughter
         value: 0
       - name: Son
         value: 0
